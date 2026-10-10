@@ -176,6 +176,9 @@
     cart[key] = (cart[key] || 0) + 1;
     save();
     render();
+    replay($("#cart-bar"), "bump");
+    const line = document.querySelector(`.line[data-key="${CSS.escape(key)}"]`);
+    if (line) replay(line, "is-new");
     btn.textContent = "Ajouté ✓";
     btn.classList.add("is-added");
     setTimeout(() => {
@@ -237,4 +240,48 @@
   });
 
   render();
+
+  /* ---------- Animations ---------- */
+
+  // Relance une animation CSS même si la classe est déjà présente
+  function replay(el, cls) {
+    el.classList.remove(cls);
+    void el.offsetWidth;
+    el.classList.add(cls);
+  }
+
+  // Ombre sous l'en-tête dès qu'on fait défiler
+  const header = $(".header");
+  const onScroll = () => header.classList.toggle("is-scrolled", window.scrollY > 8);
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  // Les éléments apparaissent en glissant quand ils entrent à l'écran,
+  // en cascade au sein d'un même groupe (cartes, étapes…)
+  const groups = [
+    ".section__head", ".features__grid > *", "#products > *", ".cart",
+    ".steps > *", ".boutique > *", ".faq details", ".cta__inner > *"
+  ];
+  const targets = [];
+  groups.forEach((sel) => {
+    document.querySelectorAll(sel).forEach((el, i) => {
+      el.classList.add("reveal");
+      el.style.setProperty("--delay", Math.min(i, 5) * 90 + "ms");
+      targets.push(el);
+    });
+  });
+  if ("IntersectionObserver" in window) {
+    const io = new IntersectionObserver(
+      (entries) => entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.add("is-visible");
+          io.unobserve(e.target);
+        }
+      }),
+      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+    );
+    targets.forEach((el) => io.observe(el));
+  } else {
+    targets.forEach((el) => el.classList.add("is-visible"));
+  }
 })();

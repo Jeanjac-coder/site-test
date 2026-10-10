@@ -237,3 +237,63 @@ textarea { resize: vertical; }
   .line { grid-template-columns: 1fr auto auto; }
   .line__info { grid-column: auto; }
 }
+
+/* ============================================================
+   Animations — désactivées si l'utilisateur a demandé à réduire
+   les animations dans les réglages de son téléphone/ordinateur.
+   ============================================================ */
+.header { transition: box-shadow .3s; }
+.header.is-scrolled { box-shadow: 0 6px 24px rgba(0, 0, 0, .06); }
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Apparition au chargement : texte d'accueil puis illustration */
+  .hero__text > * { animation: rise .8s cubic-bezier(.2, .7, .2, 1) both; }
+  .hero__text > :nth-child(2) { animation-delay: .08s; }
+  .hero__text > :nth-child(3) { animation-delay: .16s; }
+  .hero__text > :nth-child(4) { animation-delay: .24s; }
+  .hero__text > :nth-child(5) { animation-delay: .32s; }
+  .hero__visual img { animation: pop 1s .2s cubic-bezier(.2, .7, .2, 1) both; }
+
+  /* Apparition au défilement (classe ajoutée par script.js) */
+  .js .reveal { opacity: 0; transform: translateY(28px); }
+  .js .reveal.is-visible {
+    opacity: 1; transform: none;
+    transition: opacity .7s ease, transform .7s cubic-bezier(.2, .7, .2, 1);
+    transition-delay: var(--delay, 0ms);
+  }
+
+  /* Cartes produits : légère élévation et zoom de l'image au survol */
+  .product { transition: box-shadow .25s, transform .25s; }
+  .product:hover { transform: translateY(-4px); }
+  .product__visual { overflow: hidden; }
+  .product__visual img { transition: transform .6s cubic-bezier(.2, .7, .2, 1); }
+  .product:hover .product__visual img { transform: scale(1.06) rotate(-1.5deg); }
+  .feature, .step { transition: transform .25s, box-shadow .25s; }
+  .feature:hover, .step:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+
+  /* Panier : la barre mobile rebondit, la ligne ajoutée s'illumine */
+  .cart-bar.bump { animation: bump .45s cubic-bezier(.3, 1.6, .5, 1); }
+  .line.is-new { animation: flash 1.2s ease; }
+  .add.is-added { animation: bump .45s cubic-bezier(.3, 1.6, .5, 1); }
+
+  /* FAQ : la réponse glisse en douceur */
+  .faq details[open] p { animation: rise .4s ease both; }
+  .faq summary::after { transition: transform .3s; }
+
+  /* Bouton WhatsApp : onde qui attire l'œil, quelques fois seulement */
+  .wa-float::before {
+    content: ""; position: absolute; inset: 0; border-radius: 50%;
+    background: var(--whatsapp); z-index: -1;
+    animation: ripple 2.2s ease-out 1.5s 4;
+  }
+
+  .btn { transition: transform .15s, background .15s, color .15s, box-shadow .2s; }
+  .btn:hover { box-shadow: 0 6px 18px rgba(0, 0, 0, .12); }
+  .btn:active { transform: scale(.97); }
+}
+
+@keyframes rise { from { opacity: 0; transform: translateY(20px); } }
+@keyframes pop { from { opacity: 0; transform: scale(.94) rotate(-2deg); } }
+@keyframes bump { 40% { transform: scale(1.08); } }
+@keyframes flash { from { background: var(--accent-soft); } }
+@keyframes ripple { from { transform: scale(1); opacity: .5; } to { transform: scale(1.8); opacity: 0; } }

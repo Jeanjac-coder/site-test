@@ -75,9 +75,8 @@ p { margin: 0 0 1em; }
   border-bottom: 1px solid var(--line);
 }
 .header__inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 64px; }
-.logo { display: flex; align-items: center; gap: .55em; font-family: var(--font-title); font-weight: 600; font-size: 1.25rem; text-decoration: none; }
-.logo__mark { width: 22px; height: 22px; border-radius: 50%; background: var(--accent); position: relative; }
-.logo__mark::after { content: ""; position: absolute; inset: 4px 10px; border-radius: 4px; background: #fff; transform: rotate(20deg); }
+.logo { display: flex; align-items: center; }
+.logo img { height: 36px; width: auto; }
 .nav { display: none; gap: 28px; }
 .nav a { text-decoration: none; color: var(--muted); font-size: .95rem; }
 .nav a:hover { color: var(--text); }
@@ -88,15 +87,9 @@ p { margin: 0 0 1em; }
 .hero__actions { display: flex; flex-wrap: wrap; gap: 12px; margin: 28px 0; }
 .hero__proof { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 8px 24px; color: var(--muted); font-size: .9rem; }
 .hero__proof strong { color: var(--text); }
-.hero__visual { max-width: 380px; margin: 0 auto; width: 100%; }
-.cup__bg { fill: var(--accent-soft); }
-.cup__body { fill: #fff; stroke: var(--text); stroke-width: 4; }
-.cup__handle { fill: none; stroke: var(--text); stroke-width: 4; }
-.cup__coffee { fill: var(--accent); }
-.cup__saucer { fill: var(--text); opacity: .12; }
-.cup__steam { fill: none; stroke: var(--accent); stroke-width: 4; stroke-linecap: round; opacity: .6; animation: steam 3s ease-in-out infinite; }
-@keyframes steam { 0%, 100% { transform: translateY(0); opacity: .6; } 50% { transform: translateY(-6px); opacity: .25; } }
-@media (prefers-reduced-motion: reduce) { .cup__steam { animation: none; } html { scroll-behavior: auto; } }
+.hero__visual { max-width: 440px; margin: 0 auto; width: 100%; }
+.hero__visual img { width: 100%; height: auto; aspect-ratio: 25 / 27; object-fit: cover; border-radius: 28px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
 /* ---------- Atouts ---------- */
 .features { padding: 24px 0 48px; }
@@ -116,6 +109,8 @@ p { margin: 0 0 1em; }
 .product { border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: #fff; display: flex; flex-direction: column; transition: box-shadow .2s; }
 .product:hover { box-shadow: var(--shadow); }
 .product__visual { position: relative; background: var(--bg-alt); padding: 28px 0; display: grid; place-items: center; }
+.product__visual:has(img) { padding: 0; }
+.product__visual img { width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; }
 .bag {
   width: 96px; height: 128px; border-radius: 10px 10px 14px 14px; background: var(--bag);
   display: grid; place-items: center; position: relative; box-shadow: inset 0 -10px 0 rgba(0, 0, 0, .06);
@@ -180,11 +175,9 @@ textarea { resize: vertical; }
 .infos dd { margin: 4px 0 0; }
 .hours { list-style: none; padding: 0; margin: 0; max-width: 320px; }
 .hours li { display: flex; justify-content: space-between; gap: 16px; }
-.boutique__card {
-  aspect-ratio: 4 / 3; border-radius: var(--radius); background: var(--accent-soft);
-  display: grid; place-items: center; text-align: center; padding: 24px; color: var(--accent); font-weight: 600;
-}
-.boutique__emoji { font-size: 4rem; display: block; }
+.boutique__photo { margin: 0; }
+.boutique__photo img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--radius); }
+.boutique__photo figcaption { margin-top: 12px; text-align: center; color: var(--accent); font-weight: 600; font-size: .95rem; }
 
 /* ---------- Avis ---------- */
 .reviews { display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
@@ -206,7 +199,8 @@ textarea { resize: vertical; }
 
 /* ---------- Pied de page ---------- */
 .footer { padding: 28px 0 100px; font-size: .85rem; color: var(--muted); }
-.footer__inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+.footer__inner { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px 24px; }
+.footer__logo { height: 28px; width: auto; }
 .footer p { margin: 0; }
 .footer nav { display: flex; gap: 20px; }
 

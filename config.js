@@ -14,6 +14,15 @@ window.SITE_CONFIG = {
   // +225 05 01 49 24 04  ->  "2250501492404"
   whatsapp: "2250501492404",
 
+  // Images du site. Pour utiliser vos photos : déposez-les dans le dossier "images/"
+  // puis remplacez le chemin, par ex. hero: "images/ma-photo.jpg".
+  // Conseils : JPG ou WebP, 1600 px de large maximum, moins de 300 Ko.
+  images: {
+    logo: "images/logo.svg",          // logo de l'en-tête et du pied de page
+    hero: "images/accueil.svg",       // grande image en haut de page (format carré ou légèrement vertical)
+    boutique: "images/boutique.svg"   // photo de la boutique (format paysage 4:3)
+  },
+
   // Devise et format des prix (XOF = franc CFA)
   currency: "XOF",
   locale: "fr-CI",
@@ -48,6 +57,7 @@ window.SITE_CONFIG = {
       intensity: 5,
       size: "250 g",
       price: 3500,
+      image: "images/cafes/robusta-ci.svg",   // photo du produit (format carré)
       color: "#A47E5B",
       badge: "Origine locale"
     },
@@ -58,6 +68,7 @@ window.SITE_CONFIG = {
       intensity: 2,
       size: "250 g",
       price: 7500,
+      image: "images/cafes/ethiopie.svg",
       color: "#E9D8C4",
       badge: "Coup de cœur"
     },
@@ -68,6 +79,7 @@ window.SITE_CONFIG = {
       intensity: 3,
       size: "250 g",
       price: 6000,
+      image: "images/cafes/bresil.svg",
       color: "#D9C2A7"
     },
     {
@@ -77,6 +89,7 @@ window.SITE_CONFIG = {
       intensity: 4,
       size: "1 kg",
       price: 18000,
+      image: "images/cafes/maison.svg",
       color: "#C4A484",
       badge: "Format éco"
     }

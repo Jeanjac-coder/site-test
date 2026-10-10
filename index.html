@@ -8,7 +8,9 @@
   <meta property="og:title" content="Aube Café — Café de spécialité">
   <meta property="og:description" content="Commandez votre café en 1 minute sur WhatsApp. Livraison à Abidjan ou retrait en boutique.">
   <meta property="og:type" content="website">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☕</text></svg>">
+  <meta property="og:image" content="images/partage.png">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
@@ -19,9 +21,8 @@
   <!-- ========== EN-TÊTE ========== -->
   <header class="header">
     <div class="container header__inner">
-      <a href="#" class="logo" aria-label="Aube Café, accueil">
-        <span class="logo__mark" aria-hidden="true"></span>
-        <span data-brand>Aube Café</span>
+      <a href="#" class="logo">
+        <img src="images/logo.svg" alt="Aube Café" width="200" height="64" data-img="logo">
       </a>
       <nav class="nav" aria-label="Navigation principale">
         <a href="#cafes">Nos cafés</a>
@@ -55,15 +56,8 @@
             <li><strong>Livraison 24 h</strong> à Abidjan</li>
           </ul>
         </div>
-        <div class="hero__visual" aria-hidden="true">
-          <svg viewBox="0 0 320 320" class="cup">
-            <circle cx="160" cy="160" r="150" class="cup__bg"/>
-            <path d="M138 70c-10 14 10 22 0 36M160 62c-12 16 12 26 0 44M182 70c-10 14 10 22 0 36" class="cup__steam"/>
-            <path d="M80 130h150v60a60 60 0 0 1-60 60h-30a60 60 0 0 1-60-60z" class="cup__body"/>
-            <path d="M230 150h14a26 26 0 0 1 0 52h-18" class="cup__handle"/>
-            <ellipse cx="155" cy="130" rx="75" ry="10" class="cup__coffee"/>
-            <ellipse cx="160" cy="262" rx="100" ry="8" class="cup__saucer"/>
-          </svg>
+        <div class="hero__visual">
+          <img src="images/accueil.svg" alt="Une tasse de café fumante devant un soleil levant" width="500" height="540" data-img="hero">
         </div>
       </div>
     </section>
@@ -205,10 +199,10 @@
           </dl>
           <a href="#" class="btn btn--ghost" id="maps-link" target="_blank" rel="noopener">Voir l'itinéraire</a>
         </div>
-        <div class="boutique__card" aria-hidden="true">
-          <span class="boutique__emoji">☕</span>
-          <p>Espresso · Filtre · Pâtisseries maison</p>
-        </div>
+        <figure class="boutique__photo">
+          <img src="images/boutique.svg" alt="La devanture de la boutique Aube Café" width="800" height="600" loading="lazy" data-img="boutique">
+          <figcaption>Espresso · Filtre · Pâtisseries maison</figcaption>
+        </figure>
       </div>
     </section>
 
@@ -270,6 +264,7 @@
   <!-- ========== PIED DE PAGE ========== -->
   <footer class="footer">
     <div class="container footer__inner">
+      <img src="images/logo.svg" alt="Aube Café" width="150" height="48" loading="lazy" class="footer__logo" data-img="logo">
       <p>© <span id="year"></span> <span data-brand>Aube Café</span>. Tous droits réservés.</p>
       <nav aria-label="Liens légaux">
         <a href="mentions-legales.html">Mentions légales</a>

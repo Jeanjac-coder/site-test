@@ -17,6 +17,12 @@
   /* ---------- Contenu issu de la configuration ---------- */
 
   document.querySelectorAll("[data-brand]").forEach((el) => (el.textContent = cfg.brand));
+  const imgs = cfg.images || {};
+  document.querySelectorAll("img[data-img]").forEach((img) => {
+    const src = imgs[img.dataset.img];
+    if (src) img.src = src;
+  });
+  document.querySelectorAll('img[data-img="logo"]').forEach((img) => (img.alt = cfg.brand));
   $("#year").textContent = new Date().getFullYear();
   $("#shop-address").textContent = cfg.shop.address;
   $("#shop-phone").textContent = cfg.shop.phoneDisplay;
@@ -49,7 +55,11 @@
       <article class="product" data-id="${esc(p.id)}">
         <div class="product__visual" style="--bag:${esc(p.color || "#D9C2A7")}">
           ${p.badge ? `<span class="badge">${esc(p.badge)}</span>` : ""}
-          <div class="bag"><span>${esc(p.name.split(" ")[0])}</span></div>
+          ${
+            p.image
+              ? `<img src="${esc(p.image)}" alt="${esc(p.name)}" width="400" height="400" loading="lazy">`
+              : `<div class="bag"><span>${esc(p.name.split(" ")[0])}</span></div>`
+          }
         </div>
         <div class="product__body">
           <h3>${esc(p.name)}</h3>

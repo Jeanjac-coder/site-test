@@ -1,6 +1,6 @@
 # Aube Café — landing page
 
-Landing page de vente de café (boutique physique + vente en ligne), avec commande via WhatsApp.
+Landing page d'Aube Café, Abidjan (boutique physique + vente en ligne), avec commande via WhatsApp.
 Site 100 % statique : HTML, CSS et JavaScript, sans installation ni serveur.
 
 ## Fichiers
@@ -24,9 +24,9 @@ python3 -m http.server 8000
 
 ## Avant la mise en ligne
 
-1. Dans `config.js`, remplacez `whatsapp` par votre numéro (ex. `33612345678` pour 06 12 34 56 78).
-2. Remplacez le nom, les cafés, les prix, l'adresse et les horaires.
-3. Complétez `mentions-legales.html` (obligatoire en France).
+1. Le numéro WhatsApp est déjà configuré dans `config.js` (`2250501492404` = +225 05 01 49 24 04).
+2. Remplacez les valeurs marquées « EXEMPLE » dans `config.js` : cafés, prix (en FCFA), livraison, adresse et horaires.
+3. Complétez `mentions-legales.html` (RCCM, NCC, e-mail).
 4. Changez le titre et la description dans le `<head>` de `index.html` (référencement Google).
 
 ## Mise en ligne gratuite

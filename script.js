@@ -23,6 +23,44 @@
     if (src) img.src = src;
   });
   document.querySelectorAll('img[data-img="logo"]').forEach((img) => (img.alt = cfg.brand));
+
+  /* ---------- Mode clair / sombre ---------- */
+
+  const root = document.documentElement;
+  const systemDark = window.matchMedia("(prefers-color-scheme: dark)");
+  const isDark = () => (root.dataset.theme ? root.dataset.theme === "dark" : systemDark.matches);
+
+  function syncTheme() {
+    const dark = isDark();
+    document.querySelectorAll('img[data-img="logo"]').forEach((img) => {
+      const src = dark && imgs.logoSombre ? imgs.logoSombre : imgs.logo;
+      if (src && img.getAttribute("src") !== src) img.src = src;
+    });
+    const btn = $("#theme-toggle");
+    btn.setAttribute("aria-label", dark ? "Passer en mode clair" : "Passer en mode sombre");
+    btn.title = btn.getAttribute("aria-label");
+  }
+
+  $("#theme-toggle").addEventListener("click", () => {
+    const next = isDark() ? "light" : "dark";
+    root.classList.add("theme-anim");
+    root.dataset.theme = next;
+    try {
+      // Si le choix correspond au réglage du téléphone, on revient au mode automatique
+      if ((next === "dark") === systemDark.matches) {
+        localStorage.removeItem("theme");
+        delete root.dataset.theme;
+      } else {
+        localStorage.setItem("theme", next);
+      }
+    } catch (e) {
+      /* stockage indisponible : le choix vaut pour cette visite */
+    }
+    syncTheme();
+    setTimeout(() => root.classList.remove("theme-anim"), 400);
+  });
+  systemDark.addEventListener("change", syncTheme);
+  syncTheme();
   $("#year").textContent = new Date().getFullYear();
   $("#shop-address").textContent = cfg.shop.address;
   $("#shop-phone").textContent = cfg.shop.phoneDisplay;

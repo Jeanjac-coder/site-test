@@ -19,6 +19,7 @@ window.SITE_CONFIG = {
   // Conseils : JPG ou WebP, 1600 px de large maximum, moins de 300 Ko.
   images: {
     logo: "images/logo.svg",          // logo de l'en-tête et du pied de page
+    logoSombre: "images/logo-blanc.svg", // version du logo pour le mode sombre
     hero: "images/accueil.svg",       // grande image en haut de page (format carré ou légèrement vertical)
     boutique: "images/boutique.svg"   // photo de la boutique (format paysage 4:3)
   },

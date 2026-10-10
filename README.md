@@ -34,6 +34,13 @@ Après la mise en ligne, remplacez `images/partage.png` dans la balise `og:image
 par l'adresse complète (ex. `https://aubecafe.ci/images/partage.png`) pour que l'aperçu
 s'affiche bien sur WhatsApp et Facebook.
 
+## Mode sombre
+
+Le site suit automatiquement le réglage clair/sombre du téléphone ou de l'ordinateur du visiteur.
+Le bouton ☀️/🌙 de l'en-tête permet de forcer l'un ou l'autre ; ce choix est mémorisé.
+Les couleurs du mode sombre se modifient dans `styles.css`, bloc « Mode sombre » en haut du fichier.
+Le logo utilisé en mode sombre est `images/logo-blanc.svg` (réglable dans `config.js`, `logoSombre`).
+
 ## Voir le site en local
 
 Ouvrez `index.html` dans votre navigateur (double-clic), ou lancez :

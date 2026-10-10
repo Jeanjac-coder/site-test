@@ -12,6 +12,7 @@ Site 100 % statique : HTML, CSS et JavaScript, sans installation ni serveur.
 | `styles.css` | Apparence (couleurs et polices en haut du fichier, dans `:root`) |
 | `script.js` | Panier et génération du message WhatsApp |
 | `images/` | Logo, illustrations et icônes (voir ci-dessous) |
+| `fonts/` | Police Open Sauce Sans hébergée avec le site (licence libre SIL OFL) |
 | `mentions-legales.html` | Mentions légales et confidentialité (**à compléter**) |
 
 ## Images

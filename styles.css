@@ -4,6 +4,28 @@
    (mode clair) et dans le bloc « Mode sombre » juste en dessous.
    ============================================================ */
 
+/* Police Open Sauce Sans (licence SIL OFL, fichiers dans fonts/) */
+@font-face {
+  font-family: "Open Sauce Sans";
+  src: url("fonts/open-sauce-sans-latin-400-normal.woff2") format("woff2");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Open Sauce Sans";
+  src: url("fonts/open-sauce-sans-latin-500-normal.woff2") format("woff2");
+  font-weight: 500; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Open Sauce Sans";
+  src: url("fonts/open-sauce-sans-latin-600-normal.woff2") format("woff2");
+  font-weight: 600; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Open Sauce Sans";
+  src: url("fonts/open-sauce-sans-latin-700-normal.woff2") format("woff2");
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+
 :root {
   --bg: #ffffff;
   --bg-alt: #f7f5f2;
@@ -24,8 +46,8 @@
   --whatsapp-dark: #178a45;
   --radius: 14px;
   --shadow: 0 1px 2px rgba(0, 0, 0, .04), 0 8px 24px rgba(0, 0, 0, .06);
-  --font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --font-title: "Fraunces", Georgia, serif;
+  --font: "Open Sauce Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-title: "Open Sauce Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
 
 /* ---------- Mode sombre ----------
@@ -83,7 +105,7 @@ body {
 }
 img, svg { display: block; max-width: 100%; }
 a { color: inherit; }
-h1, h2, h3 { font-family: var(--font-title); font-weight: 600; line-height: 1.15; margin: 0 0 .5em; letter-spacing: -.01em; }
+h1, h2, h3 { font-family: var(--font-title); font-weight: 700; line-height: 1.12; margin: 0 0 .5em; letter-spacing: -.025em; }
 h1 { font-size: clamp(2.4rem, 6vw, 4rem); }
 h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); }
 h3 { font-size: 1.2rem; }

@@ -1,63 +1,53 @@
-# Aube Café — site vitrine et commande
+# Aube Café — boutique en ligne premium
 
-Site d'Aube Café, torréfacteur à Abidjan (boutique physique + vente en ligne), avec commande,
-devis et renseignements envoyés par WhatsApp. Site 100 % statique : HTML, CSS et JavaScript,
-sans serveur ni base de données.
+Site e-commerce d'Aube Café, torréfacteur à Abidjan : 15 cafés du monde, commande, devis et
+contact envoyés par **WhatsApp**. Site 100 % statique (HTML, CSS, JavaScript), sans serveur ni
+base de données. Aucun paiement n'est saisi sur le site.
 
 ## Fichiers
 
 | Fichier | Rôle |
 |---|---|
-| `config.js` | **À modifier** : nom, WhatsApp, e-mail, cafés et prix, catégories, diaporama, zones et frais de livraison, moyens de paiement, boutique (adresse, GPS, horaires), notifications |
-| `index.html` | Structure et textes de la page d'accueil |
-| `styles.css` | Apparence (couleurs en haut du fichier : mode clair, puis mode sombre) |
-| `script.js` | Panier, recherche, catégories, diaporama, formulaires, notifications, service client |
-| `cafe-3d.js` | Grains de café en 3D qui descendent au défilement (Three.js) |
-| `livraison.html` | Politique de livraison |
-| `confidentialite.html` | Politique de confidentialité (loi ivoirienne n° 2013-450) |
-| `mentions-legales.html` | Mentions légales (**à compléter** : RCCM, NCC, hébergeur) |
-| `legal.js` | Remplit les pages légales avec les informations de `config.js` |
-| `images/` | Logo, sachets de café, illustrations du diaporama, boutique, icônes |
-| `fonts/` | Police Open Sauce Sans (licence SIL OFL) |
-| `vendor/` | Bibliothèque 3D Three.js (licence MIT) |
+| `config.js` | **À modifier** : coordonnées, cafés (prix, stock, badges, notes…), diaporama, offre du moment, adresses (carte), horaires, livraison, paiements, roue de bienvenue, fidélité, notifications, avis |
+| `i18n.js` | Textes anglais, textes dynamiques, conseils de préparation, FAQ, articles du blog |
+| `index.html` | Structure et textes français de la page |
+| `styles.css` | Design (couleurs en haut du fichier : clair puis sombre) et animations |
+| `script.js` | Boutique : recherche, filtres, tri, fiches produit, favoris, comparateur, panier, espace client, formulaires, carte, FAQ, FR/EN, thème |
+| `effects.js` | Bonus : loader « machine à café », grains qui tombent, ambiance sonore, roue de bienvenue, assistant café, curseur grain, PWA |
+| `cafe-3d.js` | Grains de café en 3D flottants dans le haut de page (Three.js) |
+| `livraison.html`, `confidentialite.html`, `cgu.html`, `mentions-legales.html` | Pages légales (remplies en partie depuis `config.js` par `legal.js`) |
+| `manifest.webmanifest`, `sw.js` | Application installable (PWA) et cache hors ligne |
+| `robots.txt`, `sitemap.xml` | Référencement (remplacez `aubecafe.ci` par votre domaine) |
 
 ## Fonctionnalités
 
-- **Bandeau d'annonce** tout en haut, dont les messages défilent (`announcements`).
-- **En-tête** : menu hamburger (mobile), recherche avec suggestions (insensible aux accents),
-  notifications, panier avec compteur, bascule clair/sombre, barre de catégories.
-- **Haut de page** : diaporama de textes (pause, flèches, points, glissement) et un grand
-  **grain de café en 3D** posé sur un disque, avec des étiquettes que l'on peut déplacer.
-  En descendant, le grain rétrécit, tourne et se pose dans la marge, en changeant de côté à
-  chaque section (`cafe-3d.js`). Sans 3D (ou si moins d'animations est demandé), une image fixe
-  du grain s'affiche.
-- **Catégories en tuiles**, **boutique** filtrable et triable (prix, intensité).
-- **Offre de la semaine** avec compte à rebours ; la remise s'applique automatiquement (`offer`).
-- **Quiz « Trouvez votre café »** : 3 questions, une recommandation selon les profils
-  aromatiques des cafés (`tags`) et la mouture conseillée.
-- **Coffret découverte** : 3 cafés de 250 g au choix, −10 % (`coffret`).
-- **De la cerise à la tasse** : les étapes, avec une ligne qui se trace au défilement.
-- **Paiement** : logos Orange Money, MTN MoMo, Moov Money, Djamo, Visa (`images/paiement/`).
-- **Devis entreprises** avec estimation, **renseignements**, **carte**, **service client**
-  (section + bulle flottante avec statut en ligne), **FAQ**.
-- **Animations** : grain qui vole vers le panier, pluie de grains après une commande,
-  boutons « magnétiques », cartes qui s'inclinent, titres qui apparaissent mot par mot,
-  chiffres du compte à rebours qui basculent… Et un petit secret : cliquez 5 fois sur le logo.
+- **Navigation** : barre collante qui se cache au défilement, mega menu « Nos cafés »
+  (origines, torréfaction, méthodes, arômes), recherche instantanée (suggestions, historique,
+  clavier, raccourci `/`), notifications, favoris, espace client, panier, FR/EN, clair/sombre, son.
+- **Hero** : diaporama plein écran (3 visuels), titres animés mot par mot, recherche,
+  catégories populaires, offre du moment avec compte à rebours, cafés à la une avec badges,
+  grains 3D qui suivent la souris et s'envolent au défilement.
+- **Boutique** : 15 cafés, filtres (origine, torréfaction, intensité, méthode, arômes, prix,
+  stock, promo), tri intelligent, badges Nouveauté / Meilleure vente / Promo, stock.
+- **Fiche produit** : origine, région, altitude, variété, procédé, intensité/acidité/corps,
+  notes, torréfaction, conseils de préparation par méthode, avis, cafés similaires.
+- **Favoris**, **comparateur** (jusqu'à 3 cafés), **récemment consultés**, **recommandés**.
+- **Panier** : mouture, quantités, livraison / express / retrait, frais par commune (Abidjan
+  et intérieur), livraison offerte dès 20 000 F, codes promo, message WhatsApp prêt à envoyer.
+- **Espace client** (sur l'appareil) : commandes envoyées, points et niveaux de fidélité,
+  badges, code de bienvenue, recommandations.
+- **Assistant café** : quiz en 3 questions, recommandation et relais vers un conseiller.
+- **Devis**, **contact** (confirmation animée), **carte Google Maps** (siège, boutiques,
+  points relais, itinéraires), **service client** (statut réel selon les horaires), **FAQ**.
 
-Aucun paiement n'est effectué sur le site : le règlement (Mobile Money, espèces, carte en
-boutique) se fait après confirmation de la commande sur WhatsApp.
+## À compléter avant la mise en ligne
 
-## Personnaliser
-
-- **Cafés** : dans `config.js`, `products`. Chaque café a une photo carrée (`image`).
-- **Photos** : déposez vos fichiers dans `images/` (JPG ou WebP, 1600 px max, < 300 Ko) et
-  changez les chemins dans `config.js`.
-- **Diaporama** : `slides` (titre, texte, bouton) et `slideDelay` (durée en ms).
-- **Livraison** : `delivery.zones` (commune + frais) et `delivery.freeFrom`.
-- **Carte** : `shop.lat` / `shop.lng` (clic droit sur Google Maps → copier les coordonnées).
-- **Notifications** : `notifications`. Changez l'`id` d'une annonce pour qu'elle réapparaisse
-  comme non lue.
-- **Statut « en ligne »** : `shop.support` (horaires du service client, heure d'Abidjan).
+- `config.js` : adresses réelles, stock, badges, prix, codes de la roue, e-mail, réseaux sociaux.
+- `index.html` : adresse du site dans `canonical` et `og:*`, et dans `robots.txt` / `sitemap.xml`.
+- Logos officiels manquants (Wave, Mastercard, banques) : déposez-les dans `images/paiement/`
+  et ajoutez `logo: "images/paiement/…"` au moyen de paiement dans `config.js`.
+- Pages légales : RCCM, NCC, hébergeur, responsable de publication.
+- Avis : ajoutez uniquement de **vrais** avis clients (`testimonials` et `reviews`).
 
 ## Voir le site en local
 
@@ -66,13 +56,7 @@ python3 -m http.server 8000
 # puis ouvrez http://localhost:8000
 ```
 
-La 3D ne s'affiche pas si on ouvre `index.html` par double-clic : utilisez la commande ci-dessus.
-
 ## Mise en ligne
 
-- **Netlify** : netlify.com → « Add new site » → « Import from GitHub » → ce dépôt → Deploy.
+- **Netlify** : « Add new site » → « Import from GitHub » → ce dépôt → Deploy.
 - **GitHub Pages** : Settings → Pages → choisir la branche → Save.
-
-Après la mise en ligne, remplacez `images/partage.png` dans la balise `og:image` de
-`index.html` par l'adresse complète (ex. `https://aubecafe.ci/images/partage.png`) pour que
-l'aperçu s'affiche bien sur WhatsApp et Facebook.

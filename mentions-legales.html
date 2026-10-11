@@ -5,8 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
   <title>Mentions légales — Aube Café</title>
+  <meta name="description" content="Mentions légales du site Aube Café.">
   <meta name="robots" content="noindex">
   <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="manifest.webmanifest">
   <link rel="stylesheet" href="styles.css">
   <script>try { var t = localStorage.getItem("theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}</script>
 </head>
@@ -14,16 +16,18 @@
   <header class="legal-head">
     <div class="container">
       <a href="index.html"><img src="images/logo.svg" alt="Aube Café" width="150" height="48"></a>
-      <a href="index.html" class="btn btn--ghost btn--small">← Retour au site</a>
+      <a href="index.html" class="btn btn--line btn--sm">← Retour à la boutique</a>
     </div>
   </header>
 
   <main class="container legal">
     <p class="eyebrow">Informations</p>
     <h1>Mentions légales</h1>
-    <p class="note">⚠️ Modèle à compléter avec vos vraies informations avant la mise en ligne définitive.</p>
+    <p class="muted">Dernière mise à jour : octobre 2026</p>
+    <p class="note">Modèle à compléter avec vos vraies informations avant la mise en ligne définitive.</p>
+    <nav class="toc" aria-label="Sommaire"><a href="#editeur">Éditeur</a><a href="#hebergeur">Hébergeur</a><a href="#propriete">Propriété intellectuelle</a><a href="#credits">Crédits</a></nav>
 
-    <h2>Éditeur du site</h2>
+    <h2 id="editeur">Éditeur du site</h2>
     <p>
       <span data-cfg="brand">Aube Café</span> — [forme juridique : entreprise individuelle, SARL, SARLU…]<br>
       Siège : <span data-cfg="address"></span>, Côte d'Ivoire<br>
@@ -33,16 +37,24 @@
       Responsable de la publication : [nom et prénom]
     </p>
 
-    <h2>Hébergeur</h2>
-    <p>[Nom et adresse de l'hébergeur — ex. Netlify, Inc., 512 2nd Street, Suite 200, San Francisco, CA 94107, États-Unis]</p>
+    <h2 id="hebergeur">Hébergeur</h2>
+    <p>[Nom et adresse de l'hébergeur]</p>
 
-    <h2>Propriété intellectuelle</h2>
-    <p>L'ensemble des contenus de ce site (textes, illustrations, logo) est la propriété d'<span data-cfg="brand">Aube Café</span>, sauf mention contraire. Toute reproduction sans autorisation est interdite. Les noms des opérateurs de paiement cités appartiennent à leurs propriétaires respectifs.</p>
-    <p>Le site utilise la police Open Sauce Sans (licence SIL Open Font License) et la bibliothèque Three.js (licence MIT). La carte est fournie par OpenStreetMap (© contributeurs OpenStreetMap).</p>
+    <h2 id="propriete">Propriété intellectuelle</h2>
+    <p>L'ensemble des contenus du site (textes, visuels, logo, sachets) est la propriété d'<span data-cfg="brand">Aube Café</span>, sauf mention contraire. Toute reproduction sans autorisation est interdite. Les noms et logos des opérateurs de paiement et des banques appartiennent à leurs propriétaires respectifs et ne sont utilisés que pour indiquer les moyens de paiement acceptés.</p>
 
-    <h2>Données personnelles</h2>
-    <p>Le traitement de vos données est détaillé dans notre <a href="confidentialite.html">politique de confidentialité</a>. Les conditions de livraison figurent dans notre <a href="livraison.html">politique de livraison</a>.</p>
+    <h2 id="credits">Crédits</h2>
+    <p>Police Open Sauce Sans (licence SIL Open Font License) · Bibliothèque Three.js (licence MIT) · Carte © Google Maps.</p>
+    <p>Données personnelles : voir la <a href="confidentialite.html">politique de confidentialité</a>. Conditions de vente : voir les <a href="cgu.html">conditions générales</a>.</p>
+    <p style="margin-top:3em"><a href="livraison.html">Livraison &amp; retours</a> · <a href="confidentialite.html">Confidentialité</a> · <a href="cgu.html">Conditions générales</a> · <a href="mentions-legales.html">Mentions légales</a></p>
   </main>
+
+  <footer class="footer" style="padding:28px 0">
+    <div class="container footer__bottom" style="border:0;padding-top:0">
+      <p>© <span id="year"></span> <span data-cfg="brand">Aube Café</span>. Tous droits réservés.</p>
+      <p><a data-cfg="phone" href="#"></a> · <a data-cfg="email" href="#"></a></p>
+    </div>
+  </footer>
 
   <script src="config.js"></script>
   <script src="legal.js"></script>

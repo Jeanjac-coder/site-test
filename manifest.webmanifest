@@ -1,0 +1,21 @@
+{
+  "name": "Aube Café — Cafés du monde torréfiés à Abidjan",
+  "short_name": "Aube Café",
+  "description": "Quinze cafés d'exception torréfiés à Abidjan. Commande sur WhatsApp, livraison en 24 h.",
+  "lang": "fr-CI",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0e0b09",
+  "categories": ["food", "shopping"],
+  "icons": [
+    { "src": "images/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "images/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "images/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Nos cafés", "url": "./index.html#boutique" },
+    { "name": "Demander un devis", "url": "./index.html#devis" }
+  ]
+}

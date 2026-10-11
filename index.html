@@ -2,23 +2,37 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="color-scheme" content="light dark">
-  <title>Aube Café — Le café qui réveille Babi | Torréfié à Abidjan, livré en 24 h</title>
-  <meta name="description" content="Aube Café, torréfacteur à Abidjan : robusta ivoirien et 13 grands crus du monde, torréfiés chaque semaine. Commande sur WhatsApp, paiement Mobile Money, livraison en 24 h dans tout Abidjan.">
-  <meta property="og:title" content="Aube Café — Le café qui réveille Babi">
-  <meta property="og:description" content="Robusta ivoirien et grands crus du monde, torréfiés à Abidjan. Commandez sur WhatsApp, livraison en 24 h.">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0e0b09" media="(prefers-color-scheme: dark)">
+  <title>Aube Café — Cafés du monde torréfiés à Abidjan | Livraison 24 h</title>
+  <meta name="description" content="Aube Café : quinze cafés d'exception (Éthiopie, Colombie, Jamaïque, Kenya, robusta ivoirien…) torréfiés chaque semaine à Abidjan. Paiement Mobile Money, livraison en 24 h partout en Côte d'Ivoire.">
+  <link rel="canonical" href="https://aubecafe.ci/">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="images/partage.png">
+  <meta property="og:title" content="Aube Café — Le vrai café qui met tout le monde d'accord">
+  <meta property="og:description" content="Cafés du monde torréfiés à Abidjan. Commande en ligne, paiement Mobile Money, livraison en 24 h.">
+  <meta property="og:image" content="https://aubecafe.ci/images/partage.png">
+  <meta property="og:locale" content="fr_CI">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  <link rel="icon" href="images/icon-192.png" sizes="192x192" type="image/png">
+  <link rel="manifest" href="manifest.webmanifest">
   <link rel="preload" href="fonts/open-sauce-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="fonts/open-sauce-sans-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/open-sauce-sans-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="images/hero/hero-1.webp" as="image" type="image/webp" media="(min-width: 700px)">
+  <link rel="preload" href="images/hero/hero-1-sm.webp" as="image" type="image/webp" media="(max-width: 699px)">
   <link rel="stylesheet" href="styles.css">
   <script>
     document.documentElement.classList.add("js");
-    try { var t = localStorage.getItem("theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+    try {
+      var t = localStorage.getItem("theme"); if (t) document.documentElement.dataset.theme = t;
+      var l = localStorage.getItem("lang"); if (l === "en") document.documentElement.lang = "en";
+      if (sessionStorage.getItem("loaded")) document.documentElement.classList.add("no-loader");
+    } catch (e) {}
   </script>
+  <script type="application/ld+json" id="ld-business"></script>
 </head>
 <body>
 
@@ -28,10 +42,13 @@
       <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
       <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></symbol>
       <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5.5 7.5h13l-1 13h-11z"/><path d="M9 7.5a3 3 0 0 1 6 0"/></symbol>
+      <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-9.3-9.2C1.4 7.5 3.6 4.5 6.8 4.5c2 0 3.5 1.1 5.2 3 1.7-1.9 3.2-3 5.2-3 3.2 0 5.4 3 4.1 6.3C19.5 15.4 12 20 12 20z"/></symbol>
+      <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol>
       <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10"/></symbol>
       <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
       <symbol id="i-right" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
       <symbol id="i-left" viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></symbol>
+      <symbol id="i-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
       <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
       <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
       <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/></symbol>
@@ -40,601 +57,551 @@
       <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
       <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></symbol>
       <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
-      <symbol id="i-headset" viewBox="0 0 24 24"><path d="M4 15v-3a8 8 0 0 1 16 0v3"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/><path d="M19 20a3 3 0 0 1-3 2h-3"/></symbol>
+      <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/><path d="M8.5 12h.01M12 12h.01M15.5 12h.01"/></symbol>
       <symbol id="i-truck" viewBox="0 0 24 24"><path d="M3 6h11v10H3zM14 9h4l3 3v4h-7"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></symbol>
       <symbol id="i-flame" viewBox="0 0 24 24"><path d="M12 3s5 4.5 5 10a5 5 0 0 1-10 0c0-2.5 1.5-4 1.5-4S9 12 11 12c0-4 1-6 1-9z"/></symbol>
       <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></symbol>
       <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 5 6v6c0 4.5 3 7.5 7 9 4-1.5 7-4.5 7-9V6z"/><path d="m9 12 2 2 4-4"/></symbol>
-      <symbol id="i-wallet" viewBox="0 0 24 24"><path d="M4 7h15a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a2 2 0 0 1 2-2h11v3"/><circle cx="16" cy="13.5" r="1.3"/></symbol>
-      <symbol id="i-gift" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M5 12v8h14v-8M12 8v12M12 8S10.5 3.5 8 4.5 8.5 8 12 8zM12 8s1.5-4.5 4-3.5S15.5 8 12 8z"/></symbol>
-      <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8zM19 16l.8 2.2L22 19l-2.2.8L19 22l-.8-2.2L16 19l2.2-.8z"/></symbol>
       <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M5 19c0-9 6-14 15-14 0 9-5 15-14 15"/><path d="M5 19 13 11"/></symbol>
-      <symbol id="i-send" viewBox="0 0 24 24"><path d="m4 12 16-8-6 16-3-7z"/></symbol>
-      <symbol id="i-pause" viewBox="0 0 24 24"><path d="M9 6v12M15 6v12"/></symbol>
-      <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l10-6.5z"/></symbol>
-      <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 11a8 8 0 1 0-2.3 5.7M20 4v7h-7"/></symbol>
+      <symbol id="i-filter" viewBox="0 0 24 24"><path d="M4 6h16M7 12h10M10 18h4"/></symbol>
+      <symbol id="i-compare" viewBox="0 0 24 24"><path d="M8 3v18M16 3v18M3 8h5M16 16h5"/></symbol>
+      <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></symbol>
+      <symbol id="i-gift" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M5 12v8h14v-8M12 8v12M12 8S10.5 3.5 8 4.5 8.5 8 12 8zM12 8s1.5-4.5 4-3.5S15.5 8 12 8z"/></symbol>
+      <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/></symbol>
+      <symbol id="i-sound" viewBox="0 0 24 24"><path d="M4 9h4l5-4v14l-5-4H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></symbol>
+      <symbol id="i-mute" viewBox="0 0 24 24"><path d="M4 9h4l5-4v14l-5-4H4z"/><path d="m17 9 5 6M22 9l-5 6"/></symbol>
       <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
       <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></symbol>
+      <symbol id="i-route" viewBox="0 0 24 24"><circle cx="6" cy="19" r="2"/><circle cx="18" cy="5" r="2"/><path d="M8 19h7.5a3.5 3.5 0 0 0 0-7h-7a3.5 3.5 0 0 1 0-7H16"/></symbol>
+      <symbol id="i-history" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5M12 7v5l3 3"/></symbol>
+      <symbol id="i-package" viewBox="0 0 24 24"><path d="m3 7 9-4 9 4v10l-9 4-9-4z"/><path d="m3 7 9 4 9-4M12 11v10"/></symbol>
+      <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="M8.5 14 7 22l5-3 5 3-1.5-8"/></symbol>
+      <symbol id="i-pause" viewBox="0 0 24 24"><path d="M9 6v12M15 6v12"/></symbol>
+      <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l10-6.5z"/></symbol>
+      <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></symbol>
+      <symbol id="i-facebook" viewBox="0 0 24 24"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8.5a.5.5 0 0 1 .5-.5z"/></symbol>
+      <symbol id="i-tiktok" viewBox="0 0 24 24"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5M14 3c.5 2.5 2.5 4.5 5 5"/></symbol>
+      <symbol id="i-linkedin" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"/></symbol>
       <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3z"/></symbol>
     </defs>
   </svg>
 
-  <a href="#cafes" class="skip">Aller aux cafés</a>
+  <a href="#boutique" class="skip" data-i18n="skip">Aller à la boutique</a>
 
-  <!-- ===================== BANDEAU D'ANNONCE ===================== -->
-  <div class="announce" role="region" aria-label="Annonces">
-    <div class="announce__track" id="announce" aria-live="polite"></div>
+  <!-- ===================== LOADER : une tasse qui se remplit ===================== -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <svg viewBox="0 0 200 200" class="loader__machine">
+      <rect x="40" y="18" width="120" height="44" rx="10" class="m-body"/>
+      <rect x="86" y="62" width="28" height="12" rx="3" class="m-body"/>
+      <circle cx="140" cy="40" r="6" class="m-led"/>
+      <path d="M100 74v0" class="m-stream"/>
+      <g class="m-cup">
+        <path d="M70 128h60v22a24 24 0 0 1-24 24h-12a24 24 0 0 1-24-24z" class="m-cupbody"/>
+        <path d="M130 136h8a10 10 0 0 1 0 20h-8" class="m-handle"/>
+        <clipPath id="cupclip"><path d="M72 130h56v20a22 22 0 0 1-22 22h-12a22 22 0 0 1-22-22z"/></clipPath>
+        <rect x="70" y="174" width="60" height="50" class="m-coffee" clip-path="url(#cupclip)"/>
+      </g>
+      <g class="m-steam"><path d="M90 120c-6-8 6-12 0-20M110 120c-6-8 6-12 0-20"/></g>
+    </svg>
+    <p class="loader__word">Aube Café</p>
   </div>
 
-  <!-- ===================== EN-TÊTE ===================== -->
+  <!-- ===================== BANDEAU PROMO ===================== -->
+  <div class="promo" id="promo" role="region" aria-label="Promotions">
+    <div class="promo__track" id="promo-track" aria-live="polite"></div>
+    <a href="#boutique" class="promo__deal" id="promo-deal" hidden></a>
+  </div>
+
+  <!-- ===================== NAVBAR ===================== -->
   <header class="nav" id="nav">
     <div class="container nav__bar">
-      <button type="button" class="icon-btn nav__burger" id="burger" aria-label="Ouvrir le menu" aria-controls="menu" aria-expanded="false">
-        <svg class="ic"><use href="#i-menu"/></svg>
-      </button>
-      <a href="#accueil" class="logo" id="logo">
-        <img src="images/logo.svg" alt="Aube Café" width="200" height="64" data-img="logo">
-      </a>
+      <button type="button" class="icon-btn nav__burger" id="burger" aria-label="Menu" aria-controls="menu" aria-expanded="false"><svg class="ic"><use href="#i-menu"/></svg></button>
+      <a href="#top" class="logo" id="logo" aria-label="Aube Café, accueil"><img src="images/logo.svg" alt="Aube Café" width="200" height="64" data-img="logo"></a>
+
       <nav class="nav__links" aria-label="Navigation principale">
-        <a href="#cafes">Boutique</a>
-        <a href="#coffret">Coffret</a>
-        <a href="#quiz">Quiz café</a>
-        <a href="#devis">Pros</a>
-        <a href="#boutique">Nous trouver</a>
+        <a href="#top" data-i18n="nav.home">Accueil</a>
+        <button type="button" class="nav__mega-btn" id="mega-btn" aria-expanded="false" aria-controls="mega"><span data-i18n="nav.coffees">Nos cafés</span> <svg class="ic"><use href="#i-down"/></svg></button>
+        <a href="#origines" data-i18n="nav.origins">Origines</a>
+        <a href="#adresses" data-i18n="nav.stores">Nos boutiques</a>
+        <a href="#blog" data-i18n="nav.blog">Blog</a>
+        <a href="#apropos" data-i18n="nav.about">À propos</a>
+        <a href="#contact" data-i18n="nav.contact">Contact</a>
       </nav>
-      <form class="search" id="search" role="search" autocomplete="off">
-        <svg class="ic search__icon"><use href="#i-search"/></svg>
-        <label class="sr-only" for="search-input">Rechercher un café</label>
-        <input type="search" id="search-input" placeholder="Rechercher un café…" aria-controls="search-results" aria-expanded="false" aria-autocomplete="list">
-        <button type="button" class="search__close icon-btn" id="search-close" aria-label="Fermer la recherche"><svg class="ic"><use href="#i-close"/></svg></button>
-        <div class="search__results" id="search-results" role="listbox" hidden></div>
-      </form>
+
+      <div class="nav__search" id="nav-search">
+        <svg class="ic"><use href="#i-search"/></svg>
+        <input type="search" class="js-search" data-panel="nav-results" aria-label="Rechercher" data-i18n-attr="placeholder:search.short;aria-label:search.label" placeholder="Rechercher…" autocomplete="off">
+        <kbd>/</kbd>
+        <div class="search-panel" id="nav-results" hidden></div>
+      </div>
+
       <div class="nav__actions">
-        <button type="button" class="icon-btn nav__search-toggle" id="search-toggle" aria-label="Rechercher"><svg class="ic"><use href="#i-search"/></svg></button>
-        <button type="button" class="icon-btn theme-toggle" id="theme-toggle" aria-label="Passer en mode sombre">
-          <svg class="ic icon-moon"><use href="#i-moon"/></svg><svg class="ic icon-sun"><use href="#i-sun"/></svg>
-        </button>
+        <button type="button" class="icon-btn nav__search-btn" id="search-open" aria-label="Rechercher" data-i18n-attr="aria-label:search.label"><svg class="ic"><use href="#i-search"/></svg></button>
+        <button type="button" class="lang-btn" id="lang-btn" aria-label="Changer de langue">EN</button>
+        <button type="button" class="icon-btn hide-sm" id="sound-btn" aria-pressed="false" aria-label="Ambiance sonore" data-i18n-attr="aria-label:sound.label"><svg class="ic"><use href="#i-mute"/></svg></button>
+        <button type="button" class="icon-btn hide-sm theme-toggle" id="theme-btn" aria-label="Mode sombre"><svg class="ic icon-moon"><use href="#i-moon"/></svg><svg class="ic icon-sun"><use href="#i-sun"/></svg></button>
+        <button type="button" class="icon-btn hide-sm" id="wish-btn" aria-controls="wishlist" aria-label="Favoris" data-i18n-attr="aria-label:wish.title"><svg class="ic"><use href="#i-heart"/></svg><span class="count" id="wish-count" hidden>0</span></button>
         <div class="notif">
-          <button type="button" class="icon-btn" id="notif-btn" aria-label="Notifications" aria-controls="notif-panel" aria-expanded="false">
-            <svg class="ic"><use href="#i-bell"/></svg><span class="badge-count" id="notif-count" hidden>0</span>
-          </button>
-          <div class="notif__panel" id="notif-panel" role="dialog" aria-label="Notifications" hidden>
-            <div class="notif__head"><strong>Notifications</strong><button type="button" class="link-btn" id="notif-read">Tout marquer comme lu</button></div>
-            <ul class="notif__list" id="notif-list"></ul>
+          <button type="button" class="icon-btn" id="notif-btn" aria-controls="notif-panel" aria-expanded="false" aria-label="Notifications"><svg class="ic"><use href="#i-bell"/></svg><span class="count" id="notif-count" hidden>0</span></button>
+          <div class="pop notif__panel" id="notif-panel" hidden>
+            <div class="pop__head"><strong data-i18n="notif.title">Notifications</strong><button type="button" class="link" id="notif-read" data-i18n="notif.read">Tout marquer comme lu</button></div>
+            <ul id="notif-list"></ul>
           </div>
         </div>
-        <button type="button" class="icon-btn cart-btn" id="cart-btn" aria-label="Ouvrir le panier" aria-controls="cart" aria-expanded="false">
-          <svg class="ic"><use href="#i-bag"/></svg><span class="badge-count" id="cart-count" hidden>0</span>
-        </button>
+        <button type="button" class="icon-btn hide-sm" id="account-btn" aria-controls="account" aria-label="Mon espace" data-i18n-attr="aria-label:account.title"><svg class="ic"><use href="#i-user"/></svg></button>
+        <button type="button" class="icon-btn cart-btn" id="cart-btn" aria-controls="cart" aria-label="Panier" data-i18n-attr="aria-label:cart.title"><svg class="ic"><use href="#i-bag"/></svg><span class="count" id="cart-count" hidden>0</span></button>
       </div>
     </div>
-    <div class="container cats-wrap">
-      <div class="cats" id="cats" role="tablist" aria-label="Catégories de cafés"></div>
+
+    <!-- Mega menu -->
+    <div class="mega" id="mega" hidden>
+      <div class="container mega__grid" id="mega-grid"></div>
     </div>
   </header>
 
-  <!-- ===================== MENU (hamburger) ===================== -->
-  <div class="overlay" id="overlay" hidden></div>
-  <aside class="drawer drawer--left" id="menu" aria-label="Menu" aria-hidden="true">
-    <div class="drawer__head">
-      <img src="images/logo.svg" alt="Aube Café" width="150" height="48" data-img="logo">
-      <button type="button" class="icon-btn" data-close aria-label="Fermer le menu"><svg class="ic"><use href="#i-close"/></svg></button>
+  <!-- ===================== RECHERCHE PLEIN ÉCRAN (mobile) ===================== -->
+  <div class="search-sheet" id="search-sheet" role="dialog" aria-modal="true" aria-label="Recherche" hidden>
+    <div class="search-sheet__bar">
+      <svg class="ic"><use href="#i-search"/></svg>
+      <input type="search" class="js-search" data-panel="sheet-results" aria-label="Rechercher" data-i18n-attr="placeholder:search.long;aria-label:search.label" placeholder="Un café, une origine, un arôme…" autocomplete="off">
+      <button type="button" class="icon-btn" data-close-sheet aria-label="Fermer"><svg class="ic"><use href="#i-close"/></svg></button>
     </div>
-    <nav class="menu__links" aria-label="Menu principal">
-      <a href="#accueil">Accueil</a>
-      <a href="#cafes">La boutique</a>
-      <a href="#offre">Offre de la semaine</a>
-      <a href="#quiz">Trouvez votre café</a>
-      <a href="#coffret">Coffret découverte</a>
-      <a href="#histoire">Notre histoire</a>
-      <a href="#devis">Entreprises &amp; devis</a>
-      <a href="#boutique">Nous trouver</a>
-      <a href="#service">Service client</a>
-    </nav>
-    <p class="menu__label">Catégories</p>
-    <div class="menu__cats" id="menu-cats"></div>
-    <div class="menu__foot">
-      <p class="status" data-status><span class="status__dot"></span><span class="status__text">…</span></p>
-      <a class="btn btn--wa btn--block" data-wa="Bonjour Aube Café ! J'ai une question :" target="_blank" rel="noopener"><svg class="ic"><use href="#i-wa"/></svg> Nous écrire sur WhatsApp</a>
-    </div>
-  </aside>
+    <div class="search-panel search-panel--sheet" id="sheet-results"></div>
+  </div>
 
   <main id="main">
 
     <!-- ===================== HERO ===================== -->
-    <section class="hero" id="accueil" aria-roledescription="carrousel" aria-label="À la une">
-      <div class="container hero__grid">
-        <div class="hero__copy" id="hero">
-          <div class="slides" id="slides" aria-live="polite"></div>
-          <div class="hero__controls">
-            <div class="dots" id="dots" role="tablist" aria-label="Choisir une diapositive"></div>
-            <button type="button" class="icon-btn icon-btn--sm" id="slide-pause" aria-label="Mettre le diaporama en pause"><svg class="ic"><use href="#i-pause"/></svg></button>
-            <button type="button" class="icon-btn icon-btn--sm" id="slide-prev" aria-label="Diapositive précédente"><svg class="ic"><use href="#i-left"/></svg></button>
-            <button type="button" class="icon-btn icon-btn--sm" id="slide-next" aria-label="Diapositive suivante"><svg class="ic"><use href="#i-right"/></svg></button>
+    <section class="hero" id="top" aria-roledescription="carrousel" aria-label="À la une">
+      <div class="hero__media" id="hero-media"></div>
+      <div class="hero__shade" aria-hidden="true"></div>
+      <div class="hero__beans" id="hero-beans" aria-hidden="true"></div>
+      <div class="container hero__inner">
+        <div class="hero__copy" id="hero-copy"></div>
+
+        <div class="hero__search">
+          <div class="hero__field">
+            <svg class="ic"><use href="#i-search"/></svg>
+            <input type="search" class="js-search" data-panel="hero-results" aria-label="Rechercher" data-i18n-attr="placeholder:search.hero;aria-label:search.label" placeholder="Éthiopie, chocolat, doux, espresso…" autocomplete="off">
+            <a href="#boutique" class="btn btn--gold btn--sm" data-i18n="search.go">Rechercher</a>
+            <div class="search-panel" id="hero-results" hidden></div>
           </div>
-          <ul class="hero__trust">
-            <li><strong data-count-products>14</strong> cafés</li>
-            <li><strong>24 h</strong> livraison</li>
-            <li><strong>7 j/7</strong> à l'écoute</li>
-          </ul>
+          <div class="hero__popular">
+            <span data-i18n="hero.popular">Populaire :</span>
+            <div id="hero-popular"></div>
+          </div>
         </div>
 
-        <div class="hero__stage" id="bean-stage">
-          <div class="stage__disc" aria-hidden="true"></div>
-          <img class="stage__fallback" src="images/grain.svg" alt="" width="200" height="260" aria-hidden="true">
-          <svg class="stage__ring" viewBox="0 0 200 200" aria-hidden="true">
-            <defs><path id="ring" d="M100 100m-86 0a86 86 0 1 1 172 0a86 86 0 1 1-172 0"/></defs>
-            <text><textPath href="#ring" textLength="536" lengthAdjust="spacing">TORRÉFIÉ À ABIDJAN ✦ AKWABA ✦ LIVRÉ EN 24 H ✦ AUBE CAFÉ ✦ TORRÉFIÉ À ABIDJAN ✦ AKWABA ✦ LIVRÉ EN 24 H ✦ AUBE CAFÉ ✦</textPath></text>
-          </svg>
-          <span class="sticker sticker--1" data-drag tabindex="-1">Akwaba ! 👋</span>
-          <span class="sticker sticker--2" data-drag tabindex="-1">Torréfié cette semaine 🔥</span>
-          <span class="sticker sticker--3" data-drag tabindex="-1">Livré en 24 h 🛵</span>
-          <p class="stage__hint" aria-hidden="true">Glissez les étiquettes&nbsp;!</p>
-          <article class="stage__card" id="stage-card"></article>
+        <aside class="hero__side" aria-label="Sélection">
+          <a class="deal-card glass" id="hero-deal" href="#boutique" hidden></a>
+          <div class="featured" id="hero-featured"></div>
+        </aside>
+
+        <div class="hero__nav">
+          <span class="hero__count"><b id="slide-n">01</b> / <span id="slide-t">03</span></span>
+          <div class="hero__bars" id="hero-bars" role="tablist"></div>
+          <button type="button" class="icon-btn icon-btn--glass" id="slide-pause" aria-label="Pause"><svg class="ic"><use href="#i-pause"/></svg></button>
+          <button type="button" class="icon-btn icon-btn--glass" id="slide-prev" aria-label="Précédent"><svg class="ic"><use href="#i-left"/></svg></button>
+          <button type="button" class="icon-btn icon-btn--glass" id="slide-next" aria-label="Suivant"><svg class="ic"><use href="#i-right"/></svg></button>
         </div>
       </div>
+      <a href="#chiffres" class="hero__scroll" aria-label="Défiler"><span></span></a>
     </section>
 
-    <!-- Garanties -->
-    <section class="perks" aria-label="Nos garanties">
-      <div class="container perks__row">
-        <div class="perk"><svg class="ic"><use href="#i-flame"/></svg><span><strong>Torréfié chaque semaine</strong>à Abidjan, en petites quantités</span></div>
-        <div class="perk"><svg class="ic"><use href="#i-truck"/></svg><span><strong>Livraison 24 h</strong>offerte dès 20 000 F</span></div>
-        <div class="perk"><svg class="ic"><use href="#i-wallet"/></svg><span><strong>Mobile Money</strong>ou espèces à la livraison</span></div>
-        <div class="perk"><svg class="ic"><use href="#i-headset"/></svg><span><strong>Service client</strong>7 jours sur 7</span></div>
-      </div>
-    </section>
-
-    <!-- ===================== CATÉGORIES ===================== -->
-    <section class="section" id="categories">
-      <div class="container">
-        <header class="section__head section__head--center">
-          <p class="eyebrow">Explorer</p>
-          <h2>Un café pour <span class="hl">chaque humeur.</span></h2>
-        </header>
-        <div class="tiles" id="tiles"></div>
+    <!-- ===================== CHIFFRES ===================== -->
+    <section class="stats" id="chiffres" aria-label="Aube Café en chiffres">
+      <div class="container stats__grid">
+        <div class="stat"><strong><span data-count="15" id="stat-products">0</span></strong><span data-i18n="stats.coffees">cafés d'exception</span></div>
+        <div class="stat"><strong><span data-count="12" id="stat-countries">0</span></strong><span data-i18n="stats.countries">pays d'origine</span></div>
+        <div class="stat"><strong><span data-count="24">0</span> h</strong><span data-i18n="stats.delivery">pour vous livrer à Abidjan</span></div>
+        <div class="stat"><strong><span data-count="7">0</span>/7</strong><span data-i18n="stats.support">un service client à l'écoute</span></div>
       </div>
     </section>
 
     <!-- ===================== BOUTIQUE ===================== -->
-    <section class="section section--tight" id="cafes">
+    <section class="section" id="boutique">
       <div class="container">
-        <header class="section__head section__head--row">
+        <header class="head head--row">
           <div>
-            <p class="eyebrow">La boutique</p>
-            <h2>Choisissez votre café, <span class="hl">on s'occupe du reste.</span></h2>
+            <p class="eyebrow" data-i18n="shop.eyebrow">La collection</p>
+            <h2 data-i18n="shop.title">Quinze cafés. <em>Un seul critère : l'excellence.</em></h2>
           </div>
-          <div class="shop-tools">
-            <p class="result-count" id="result-count" aria-live="polite"></p>
-            <label class="sort"><span class="sr-only">Trier</span>
-              <select id="sort">
-                <option value="default">Notre sélection</option>
-                <option value="price-asc">Prix croissant</option>
-                <option value="price-desc">Prix décroissant</option>
-                <option value="intensity">Plus intense</option>
-                <option value="soft">Plus doux</option>
-              </select>
-            </label>
-          </div>
+          <p class="head__lead" data-i18n="shop.lead">Chaque grain est sélectionné à la source puis torréfié à Abidjan, en petites quantités. Choisissez le vôtre, on s'occupe du reste.</p>
         </header>
-        <div class="products" id="products"></div>
-        <div class="empty" id="empty" hidden>
-          <p class="empty__emoji" aria-hidden="true">☕</p>
-          <p><strong>Aucun café ne correspond à votre recherche.</strong></p>
-          <p class="muted">Essayez « Éthiopie », « chocolat » ou « doux », ou affichez toute la carte.</p>
-          <button type="button" class="btn btn--ghost" id="reset-filters">Voir tous les cafés</button>
-        </div>
-      </div>
-    </section>
 
-    <!-- ===================== OFFRE DE LA SEMAINE ===================== -->
-    <section class="section section--tight" id="offre" hidden>
-      <div class="container">
-        <div class="deal">
-          <div class="deal__visual">
-            <span class="deal__burst" id="deal-burst"></span>
-            <img id="deal-img" src="" alt="" width="400" height="400" loading="lazy">
-          </div>
-          <div class="deal__copy">
-            <p class="eyebrow">Offre de la semaine</p>
-            <h2 id="deal-title"></h2>
-            <p class="muted" id="deal-text"></p>
-            <p class="deal__price"><strong id="deal-price"></strong> <s id="deal-old"></s></p>
-            <div class="countdown" id="countdown" aria-label="Temps restant">
-              <div><span data-unit="d">00</span><small>jours</small></div>
-              <div><span data-unit="h">00</span><small>heures</small></div>
-              <div><span data-unit="m">00</span><small>min</small></div>
-              <div><span data-unit="s">00</span><small>sec</small></div>
-            </div>
-            <button type="button" class="btn btn--accent btn--lg magnetic" id="deal-add"><svg class="ic"><use href="#i-bag"/></svg> J'en profite</button>
-          </div>
+        <div class="toolbar">
+          <button type="button" class="btn btn--line btn--sm" id="filters-btn" aria-controls="filters"><svg class="ic"><use href="#i-filter"/></svg> <span data-i18n="shop.filters">Filtres</span> <span class="count count--inline" id="filters-count" hidden>0</span></button>
+          <div class="chips" id="active-filters"></div>
+          <p class="toolbar__count" id="result-count" aria-live="polite"></p>
+          <label class="select"><span class="sr-only" data-i18n="shop.sort">Trier</span>
+            <select id="sort">
+              <option value="smart" data-i18n="sort.smart">Pertinence</option>
+              <option value="best" data-i18n="sort.best">Meilleures ventes</option>
+              <option value="new" data-i18n="sort.new">Nouveautés</option>
+              <option value="price-asc" data-i18n="sort.priceAsc">Prix croissant</option>
+              <option value="price-desc" data-i18n="sort.priceDesc">Prix décroissant</option>
+              <option value="intense" data-i18n="sort.intense">Plus intense</option>
+              <option value="soft" data-i18n="sort.soft">Plus doux</option>
+            </select>
+          </label>
         </div>
-      </div>
-    </section>
 
-    <!-- ===================== QUIZ ===================== -->
-    <section class="section section--soft" id="quiz">
-      <div class="container quiz">
-        <header class="section__head section__head--center">
-          <p class="eyebrow">Quiz express</p>
-          <h2>Trouvez votre café <span class="hl">en 3 questions.</span></h2>
-          <p class="muted">Vous hésitez ? Répondez sincèrement, on vous conseille comme au comptoir.</p>
-        </header>
-        <div class="quiz__card" id="quiz-card">
-          <div class="quiz__progress"><span id="quiz-bar"></span></div>
-          <div id="quiz-body"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================== COFFRET ===================== -->
-    <section class="section" id="coffret">
-      <div class="container coffret">
-        <div class="coffret__copy">
-          <p class="eyebrow">Coffret découverte</p>
-          <h2>Composez votre coffret, <span class="hl">−10 % sur le tout.</span></h2>
-          <p class="muted">Choisissez trois cafés de 250 g : pour vous faire plaisir, pour faire découvrir, ou pour offrir. Le cadeau qui fait toujours son effet.</p>
-          <div class="coffret__box" id="box" aria-live="polite">
-            <div class="box__lid" aria-hidden="true"><svg class="ic"><use href="#i-gift"/></svg> Mon coffret</div>
-            <div class="box__slots" id="box-slots"></div>
-            <div class="box__total" id="box-total"></div>
-            <div class="box__actions">
-              <button type="button" class="btn btn--ghost btn--small" id="box-random"><svg class="ic"><use href="#i-spark"/></svg> Surprenez-moi</button>
-              <button type="button" class="btn btn--accent magnetic" id="box-add" disabled><svg class="ic"><use href="#i-bag"/></svg> Ajouter le coffret</button>
+        <div class="shop">
+          <aside class="filters" id="filters" aria-label="Filtres">
+            <div class="filters__head"><strong data-i18n="shop.filters">Filtres</strong><button type="button" class="link" id="filters-reset" data-i18n="shop.reset">Réinitialiser</button><button type="button" class="icon-btn filters__close" id="filters-close" aria-label="Fermer"><svg class="ic"><use href="#i-close"/></svg></button></div>
+            <div class="filters__body" id="filters-body"></div>
+            <button type="button" class="btn btn--dark btn--block filters__apply" id="filters-apply"></button>
+          </aside>
+          <div>
+            <div class="grid" id="grid"></div>
+            <div class="empty" id="empty" hidden>
+              <p data-i18n="shop.empty">Aucun café ne correspond à ces critères.</p>
+              <button type="button" class="btn btn--line btn--sm" id="empty-reset" data-i18n="shop.reset">Réinitialiser</button>
             </div>
           </div>
         </div>
-        <div class="coffret__picker" id="box-picker" aria-label="Cafés disponibles pour le coffret"></div>
       </div>
     </section>
 
-    <!-- ===================== HISTOIRE ===================== -->
-    <section class="section section--soft" id="histoire">
+    <!-- ===================== POUR VOUS ===================== -->
+    <section class="section section--soft" id="pour-vous" hidden>
       <div class="container">
-        <header class="section__head section__head--center">
-          <p class="eyebrow">Notre savoir-faire</p>
-          <h2>De la cerise <span class="hl">à votre tasse.</span></h2>
-          <p class="muted">Le bon café, ça ne tombe pas du ciel. Voici le chemin de chaque grain avant d'arriver chez vous.</p>
-        </header>
-        <ol class="journey" id="journey">
-          <li><span class="journey__icon">🍒</span><h3>La récolte</h3><p>Les cerises de café sont cueillies à maturité, dans nos plantations partenaires et chez les meilleurs producteurs du monde.</p></li>
-          <li><span class="journey__icon">🫘</span><h3>La sélection</h3><p>Nous goûtons, comparons et ne retenons que les lots dignes de votre tasse. Exigeants ? Un peu, oui.</p></li>
-          <li><span class="journey__icon">🔥</span><h3>La torréfaction</h3><p>Chaque semaine, à Abidjan, en petites quantités : c'est le secret d'un café plein d'arômes.</p></li>
-          <li><span class="journey__icon">🛵</span><h3>La livraison</h3><p>Moulu selon votre machine, emballé avec soin, et livré chez vous en 24 heures. C'est cadeau.</p></li>
-        </ol>
+        <div class="rail-block" id="recommended-block" hidden>
+          <header class="head head--row head--tight"><div><p class="eyebrow" data-i18n="reco.eyebrow">Pour vous</p><h2 class="h3" data-i18n="reco.title">Recommandés selon vos goûts</h2></div></header>
+          <div class="rail" id="recommended"></div>
+        </div>
+        <div class="rail-block" id="recent-block" hidden>
+          <header class="head head--row head--tight"><div><p class="eyebrow" data-i18n="recent.eyebrow">Historique</p><h2 class="h3" data-i18n="recent.title">Récemment consultés</h2></div></header>
+          <div class="rail" id="recent"></div>
+        </div>
       </div>
     </section>
 
-    <!-- ===================== PAIEMENT ===================== -->
-    <section class="section" id="paiement">
+    <!-- ===================== ORIGINES ===================== -->
+    <section class="section" id="origines">
       <div class="container">
-        <header class="section__head section__head--center">
-          <p class="eyebrow">Paiement</p>
-          <h2>Payez comme <span class="hl">ça vous arrange.</span></h2>
-          <p class="muted">Après confirmation de votre commande sur WhatsApp, nous vous indiquons le montant exact et le numéro marchand. Aucun paiement n'est effectué sur ce site.</p>
+        <header class="head head--center">
+          <p class="eyebrow" data-i18n="origins.eyebrow">Nos origines</p>
+          <h2 data-i18n="origins.title">Un tour du monde, <em>tasse après tasse.</em></h2>
+          <p class="head__lead" data-i18n="origins.lead">De l'Afrique de l'Est aux montagnes de Jamaïque, chaque terroir signe sa tasse. Survolez une origine pour la découvrir.</p>
         </header>
-        <ul class="logos" id="pay-list"></ul>
-        <p class="pay__safe"><svg class="ic"><use href="#i-shield"/></svg><span><strong>Sécurité :</strong> Aube Café ne vous demandera jamais votre code secret Mobile Money ni le code de votre carte.</span></p>
+        <div class="origins">
+          <div class="origins__tabs" id="origin-tabs"></div>
+          <div class="origins__list" id="origin-list"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== ASSISTANT ===================== -->
+    <section class="section section--tight" id="assistant">
+      <div class="container">
+        <div class="assist">
+          <div>
+            <p class="eyebrow" data-i18n="assist.eyebrow">Assistant café</p>
+            <h2 data-i18n="assist.title">Vous hésitez ? <em>On vous trouve le bon.</em></h2>
+            <p class="head__lead" data-i18n="assist.lead">Répondez à trois questions, notre assistant vous recommande le café qui vous ressemble, avec la bonne mouture. Simple, rapide, sans palabres.</p>
+            <button type="button" class="btn btn--dark btn--lg js-open-chat" data-i18n="assist.cta">Démarrer avec l'assistant</button>
+          </div>
+          <div class="assist__preview" aria-hidden="true">
+            <p class="bubble bubble--bot" data-i18n="assist.b1">Akwaba ! Comment aimez-vous votre café ?</p>
+            <p class="bubble bubble--me" data-i18n="assist.b2">Plutôt doux, avec du lait.</p>
+            <p class="bubble bubble--bot" data-i18n="assist.b3">Alors le Colombie Huila va vous plaire. Notes de caramel, très rond.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== À PROPOS ===================== -->
+    <section class="section section--soft" id="apropos">
+      <div class="container about">
+        <div class="about__media parallax" data-speed="0.12">
+          <img src="images/hero/hero-2-sm.webp" alt="Une tasse de café posée sur une soucoupe, entourée de grains" width="960" height="540" loading="lazy">
+        </div>
+        <div class="about__copy">
+          <p class="eyebrow" data-i18n="about.eyebrow">À propos</p>
+          <h2 data-i18n="about.title">Né à Abidjan, <em>pour les amoureux du bon café.</em></h2>
+          <p data-i18n="about.p1">Aube Café, c'est une idée simple : offrir à la Côte d'Ivoire les plus beaux cafés du monde, torréfiés ici, avec le même soin qu'on met à préparer le café du dimanche matin.</p>
+          <p data-i18n="about.p2">Nous sélectionnons chaque lot, nous le torréfions en petites quantités et nous vous le livrons frais. Pas de stock qui dort, pas de compromis. Juste le goût vrai.</p>
+          <ul class="values">
+            <li><svg class="ic anim-ic"><use href="#i-leaf"/></svg><div><strong data-i18n="about.v1">Sélection à la source</strong><span data-i18n="about.v1t">Des producteurs exigeants, des lots tracés.</span></div></li>
+            <li><svg class="ic anim-ic"><use href="#i-flame"/></svg><div><strong data-i18n="about.v2">Torréfié chaque semaine</strong><span data-i18n="about.v2t">Pour des arômes au sommet de leur expression.</span></div></li>
+            <li><svg class="ic anim-ic"><use href="#i-truck"/></svg><div><strong data-i18n="about.v3">Livré en 24 heures</strong><span data-i18n="about.v3t">Partout à Abidjan, et dans tout le pays.</span></div></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== AVIS ===================== -->
+    <section class="section" id="avis">
+      <div class="container">
+        <header class="head head--center">
+          <p class="eyebrow" data-i18n="reviews.eyebrow">Avis clients</p>
+          <h2 data-i18n="reviews.title">Ce que vous en dites <em>compte vraiment.</em></h2>
+        </header>
+        <div class="reviews" id="reviews"></div>
       </div>
     </section>
 
     <!-- ===================== DEVIS ===================== -->
     <section class="section section--soft" id="devis">
-      <div class="container quote">
-        <div class="quote__intro">
-          <p class="eyebrow">Entreprises &amp; événements</p>
-          <h2>Un devis sur mesure, <span class="hl">en moins de 24 heures.</span></h2>
-          <p class="muted">Bureaux, hôtels, restaurants, maquis, mariages, séminaires ou revendeurs : exposez-nous vos besoins, nous vous proposons une offre adaptée, avec des remises selon les volumes.</p>
-          <ul class="tiers">
-            <li><strong>−5 %</strong><span>dès 5 kg / mois</span></li>
-            <li><strong>−10 %</strong><span>dès 10 kg / mois</span></li>
-            <li><strong>−15 %</strong><span>dès 25 kg / mois</span></li>
-            <li><strong>−20 %</strong><span>dès 50 kg / mois</span></li>
+      <div class="container split">
+        <div>
+          <p class="eyebrow" data-i18n="quote.eyebrow">Entreprises & particuliers</p>
+          <h2 data-i18n="quote.title">Un devis sur mesure, <em>en moins de 24 heures.</em></h2>
+          <p class="head__lead" data-i18n="quote.lead">Bureaux, hôtels, restaurants, maquis, mariages, séminaires ou grosses commandes pour la famille : dites-nous tout, nous vous préparons une offre aux petits oignons.</p>
+          <ul class="checks">
+            <li data-i18n="quote.c1">Tarifs dégressifs selon les volumes</li>
+            <li data-i18n="quote.c2">Livraison planifiée et facturation entreprise</li>
+            <li data-i18n="quote.c3">Accompagnement machine et formation barista</li>
           </ul>
-          <img class="quote__art" src="images/slides/pros.svg" alt="" width="500" height="500" loading="lazy">
         </div>
         <form class="card form" id="quote-form" novalidate>
-          <h3>Demande de devis</h3>
           <div class="form__grid">
-            <label class="field"><span>Nom et prénom *</span><input name="name" autocomplete="name" required></label>
-            <label class="field"><span>Structure</span><input name="company" autocomplete="organization" placeholder="Entreprise, hôtel, association…"></label>
-            <label class="field"><span>Téléphone *</span><input name="phone" type="tel" autocomplete="tel" placeholder="+225 07 00 00 00 00" required></label>
-            <label class="field"><span>Commune</span><select name="commune" data-zones></select></label>
+            <label class="field"><span data-i18n="f.lastname">Nom *</span><input name="lastname" autocomplete="family-name" required></label>
+            <label class="field"><span data-i18n="f.firstname">Prénom *</span><input name="firstname" autocomplete="given-name" required></label>
+            <label class="field"><span data-i18n="f.phone">Téléphone *</span><input name="phone" type="tel" autocomplete="tel" placeholder="+225 07 00 00 00 00" required></label>
+            <label class="field"><span data-i18n="f.email">E-mail</span><input name="email" type="email" autocomplete="email" placeholder="vous@exemple.ci"></label>
+            <label class="field"><span data-i18n="f.company">Entreprise</span><input name="company" autocomplete="organization"></label>
+            <label class="field"><span data-i18n="f.city">Ville *</span><input name="city" autocomplete="address-level2" placeholder="Abidjan" required></label>
+            <label class="field"><span data-i18n="f.qty">Quantité souhaitée *</span>
+              <select name="qty" required>
+                <option value="" data-i18n="f.choose">Choisir…</option>
+                <option>1 – 5 kg</option><option>5 – 10 kg</option><option>10 – 25 kg</option><option>25 – 50 kg</option><option>+ 50 kg</option>
+              </select>
+            </label>
+            <label class="field"><span data-i18n="f.type">Type de café</span><select name="coffee" id="quote-coffee"></select></label>
+            <label class="field field--full"><span data-i18n="f.budget">Budget estimé</span>
+              <select name="budget">
+                <option value="" data-i18n="f.choose">Choisir…</option>
+                <option>&lt; 50 000 F CFA</option><option>50 000 – 150 000 F CFA</option><option>150 000 – 500 000 F CFA</option><option>&gt; 500 000 F CFA</option>
+              </select>
+            </label>
+            <label class="field field--full"><span data-i18n="f.message">Message</span><textarea name="message" rows="3" data-i18n-attr="placeholder:f.quotePh" placeholder="Fréquence de livraison, date de l'événement, besoin de machine…"></textarea></label>
           </div>
-          <fieldset class="field">
-            <legend>Type de besoin</legend>
-            <div class="chips-input">
-              <label><input type="radio" name="type" value="Bureau" checked><span>Bureau</span></label>
-              <label><input type="radio" name="type" value="Hôtel / restaurant / maquis"><span>Hôtel · Restaurant · Maquis</span></label>
-              <label><input type="radio" name="type" value="Événement"><span>Événement</span></label>
-              <label><input type="radio" name="type" value="Revendeur"><span>Revendeur</span></label>
-            </div>
-          </fieldset>
-          <label class="field">
-            <span>Volume estimé : <strong id="kg-out">10 kg</strong> par mois</span>
-            <input type="range" name="kg" min="1" max="100" value="10" id="kg">
-          </label>
-          <fieldset class="field">
-            <legend>Cafés souhaités</legend>
-            <div class="chips-input chips-input--small" id="quote-cafes"></div>
-          </fieldset>
-          <label class="field"><span>Précisions</span><textarea name="details" rows="2" placeholder="Date de l'événement, nombre de personnes, besoin de machine…"></textarea></label>
-          <div class="estimate" id="estimate" aria-live="polite"></div>
           <p class="form-error" data-error role="alert"></p>
-          <button type="submit" class="btn btn--accent btn--block"><svg class="ic"><use href="#i-send"/></svg> Recevoir mon devis sur WhatsApp</button>
+          <button type="submit" class="btn btn--dark btn--lg btn--block"><span data-i18n="quote.submit">Recevoir mon devis</span> <svg class="ic"><use href="#i-right"/></svg></button>
+          <div class="sent" hidden><svg viewBox="0 0 52 52" class="sent__check"><circle cx="26" cy="26" r="24"/><path d="m15 27 7 7 15-16"/></svg><strong data-i18n="sent.quoteT">Demande prête !</strong><p data-i18n="sent.quote">Votre demande s'est ouverte dans WhatsApp : appuyez sur « Envoyer » et nous revenons vers vous sous 24 h.</p></div>
         </form>
       </div>
     </section>
 
-    <!-- ===================== BOUTIQUE & CARTE ===================== -->
-    <section class="section" id="boutique">
+    <!-- ===================== ADRESSES ===================== -->
+    <section class="section" id="adresses">
       <div class="container">
-        <header class="section__head">
-          <p class="eyebrow">Nous trouver</p>
-          <h2>Passez nous voir, <span class="hl">on vous attend.</span></h2>
-          <p class="muted">Venez déguster sur place, humer les arômes et repartir avec un café moulu à la minute. Bonne arrivée chez nous !</p>
-        </header>
-        <div class="find">
-          <div class="map">
-            <a class="map__fallback" id="map-fallback" target="_blank" rel="noopener"><svg class="ic"><use href="#i-pin"/></svg><span>Ouvrir la carte dans Google Maps</span></a>
-            <iframe id="map" title="Carte : emplacement de la boutique Aube Café" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-          </div>
-          <div class="card find__info">
-            <p class="status" data-status><span class="status__dot"></span><span class="status__text">…</span></p>
-            <dl class="infos">
-              <div><dt><svg class="ic"><use href="#i-pin"/></svg> Adresse</dt><dd id="shop-address"></dd></div>
-              <div><dt><svg class="ic"><use href="#i-clock"/></svg> Horaires</dt><dd><ul class="hours" id="shop-hours"></ul></dd></div>
-              <div><dt><svg class="ic"><use href="#i-phone"/></svg> Téléphone</dt><dd><a href="#" id="shop-phone"></a></dd></div>
-            </dl>
-            <a href="#" class="btn btn--block" id="maps-link" target="_blank" rel="noopener"><svg class="ic"><use href="#i-pin"/></svg> Itinéraire avec Google Maps</a>
-          </div>
-        </div>
-        <div class="zones">
-          <img class="zones__art" src="images/slides/livraison.svg" alt="" width="500" height="500" loading="lazy">
+        <header class="head head--row">
           <div>
-            <h3>Zones et frais de livraison</h3>
-            <p class="muted small" id="zones-note"></p>
-            <ul class="zones__list" id="zones-list"></ul>
+            <p class="eyebrow" data-i18n="stores.eyebrow">Nos boutiques</p>
+            <h2 data-i18n="stores.title">Passez nous voir, <em>on vous attend.</em></h2>
           </div>
+          <div class="tabs" id="loc-tabs" role="tablist"></div>
+        </header>
+        <div class="stores">
+          <div class="stores__map"><iframe id="map" title="Carte des adresses Aube Café" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div>
+          <ul class="stores__list" id="loc-list"></ul>
         </div>
+      </div>
+    </section>
+
+    <!-- ===================== BLOG ===================== -->
+    <section class="section section--soft" id="blog">
+      <div class="container">
+        <header class="head head--row">
+          <div>
+            <p class="eyebrow" data-i18n="blog.eyebrow">Le journal</p>
+            <h2 data-i18n="blog.title">Le café, <em>on en parle avec passion.</em></h2>
+          </div>
+        </header>
+        <div class="posts" id="posts"></div>
       </div>
     </section>
 
     <!-- ===================== SERVICE CLIENT ===================== -->
-    <section class="section section--soft" id="service">
+    <section class="section" id="aide">
       <div class="container">
-        <header class="section__head">
-          <p class="eyebrow">Service client</p>
-          <h2>Une question ? <span class="hl">On est ensemble.</span></h2>
-          <p class="muted">Notre équipe vous répond sept jours sur sept, aux heures d'ouverture. Choisissez le canal qui vous convient.</p>
-          <p class="status status--big" data-status><span class="status__dot"></span><span class="status__text">…</span></p>
+        <header class="head head--row">
+          <div>
+            <p class="eyebrow" data-i18n="help.eyebrow">Service client</p>
+            <h2 data-i18n="help.title">Une question ? <em>On est là pour vous.</em></h2>
+          </div>
+          <p class="live" data-status><span class="live__dot"></span><span class="live__text">…</span></p>
         </header>
-        <div class="support">
-          <a class="support__card" data-wa="Bonjour Aube Café ! J'ai besoin d'aide :" target="_blank" rel="noopener">
-            <span class="support__icon support__icon--wa"><svg class="ic"><use href="#i-wa"/></svg></span>
-            <strong>WhatsApp</strong><span class="muted">Réponse rapide, idéal pour suivre une commande.</span>
-            <span class="support__go">Écrire <svg class="ic"><use href="#i-right"/></svg></span>
-          </a>
-          <a class="support__card" id="support-call">
-            <span class="support__icon"><svg class="ic"><use href="#i-phone"/></svg></span>
-            <strong>Téléphone</strong><span class="muted" id="support-phone"></span>
-            <span class="support__go">Appeler <svg class="ic"><use href="#i-right"/></svg></span>
-          </a>
-          <a class="support__card" id="support-mail">
-            <span class="support__icon"><svg class="ic"><use href="#i-mail"/></svg></span>
-            <strong>E-mail</strong><span class="muted" id="support-email"></span>
-            <span class="support__go">Écrire <svg class="ic"><use href="#i-right"/></svg></span>
-          </a>
+        <div class="help">
+          <a class="help__card" data-wa="help" target="_blank" rel="noopener"><svg class="ic anim-ic"><use href="#i-wa"/></svg><strong data-i18n="help.wa">Assistance WhatsApp</strong><span data-i18n="help.waT">La réponse la plus rapide.</span></a>
+          <a class="help__card" id="help-phone"><svg class="ic anim-ic"><use href="#i-phone"/></svg><strong data-i18n="help.phone">Téléphone</strong><span class="js-phone"></span></a>
+          <a class="help__card" id="help-mail"><svg class="ic anim-ic"><use href="#i-mail"/></svg><strong data-i18n="help.mail">E-mail</strong><span class="js-email"></span></a>
+          <button type="button" class="help__card js-open-chat"><svg class="ic anim-ic"><use href="#i-chat"/></svg><strong data-i18n="help.chat">Chat en direct</strong><span data-i18n="help.chatT">Assistant virtuel, puis un conseiller.</span></button>
         </div>
-        <div class="faq">
-          <h3>Questions fréquentes</h3>
-          <details>
-            <summary>Comment se passe le paiement ?</summary>
-            <p>Une fois votre commande reçue sur WhatsApp, nous confirmons la disponibilité et le montant exact. Vous réglez ensuite par Orange Money, MTN MoMo, Moov Money, Wave, Djamo, en espèces à la livraison, ou par carte Visa en boutique. Nous ne vous demanderons jamais votre code secret.</p>
-          </details>
-          <details>
-            <summary>En combien de temps suis-je livré ?</summary>
-            <p>Sous 24 heures ouvrées dans tout Abidjan, du lundi au samedi. Les frais dépendent de votre commune et la livraison est offerte à partir de 20 000 F CFA. Tous les détails figurent dans notre <a href="livraison.html">politique de livraison</a>.</p>
-          </details>
-          <details>
-            <summary>Comment fonctionne le coffret découverte ?</summary>
-            <p>Choisissez trois cafés de 250 g dans la section « Coffret » : la remise de 10 % s'applique automatiquement à l'ensemble. Vous pouvez préciser la mouture dans le panier. Parfait pour offrir !</p>
-          </details>
-          <details>
-            <summary>Grains ou moulu : que choisir ?</summary>
-            <p>Si vous possédez un moulin, prenez les grains : ils conservent leurs arômes plus longtemps. Sinon, indiquez votre machine (espresso, filtre, piston, moka) et nous moulons au plus près de la livraison.</p>
-          </details>
-          <details>
-            <summary>Robusta ou arabica, quelle différence ?</summary>
-            <p>Le robusta, très présent en Côte d'Ivoire, est corsé, riche en caféine et donne une belle crème. L'arabica est plus doux et plus aromatique. Notre Assemblage Maison marie les deux : c'est doux et ça tient bien.</p>
-          </details>
-          <details>
-            <summary>Comment conserver mon café sous notre climat ?</summary>
-            <p>Gardez-le dans son sachet bien refermé ou dans une boîte hermétique, à l'abri de la chaleur, de la lumière et de l'humidité. Évitez le réfrigérateur et consommez-le idéalement dans le mois qui suit l'ouverture.</p>
-          </details>
+        <div class="help__grid">
+          <div class="card hours">
+            <h3 class="h4" data-i18n="help.hours">Horaires d'ouverture</h3>
+            <ul id="hours"></ul>
+          </div>
+          <div class="faq">
+            <div class="faq__search"><svg class="ic"><use href="#i-search"/></svg><input type="search" id="faq-search" data-i18n-attr="placeholder:help.search" placeholder="Rechercher dans le centre d'aide…" aria-label="Rechercher dans le centre d'aide"></div>
+            <div class="tabs tabs--sm" id="faq-tabs" role="tablist"></div>
+            <div id="faq-list"></div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ===================== RENSEIGNEMENTS ===================== -->
-    <section class="section" id="contact">
-      <div class="container contact">
+    <!-- ===================== CONTACT ===================== -->
+    <section class="section section--soft" id="contact">
+      <div class="container split">
         <div>
-          <p class="eyebrow">Renseignements</p>
-          <h2>Écrivez-nous, <span class="hl">on vous répond vite.</span></h2>
-          <p class="muted">Une question sur un café, une commande spéciale, un partenariat ? Remplissez ce formulaire : votre message s'ouvrira dans WhatsApp, prêt à être envoyé. Vous préférez l'e-mail ? C'est possible aussi.</p>
-          <ul class="contact__points">
-            <li><svg class="ic"><use href="#i-clock"/></svg> Réponse en moins d'une heure aux heures d'ouverture</li>
-            <li><svg class="ic"><use href="#i-shield"/></svg> Vos informations servent uniquement à vous répondre</li>
-          </ul>
+          <p class="eyebrow" data-i18n="contact.eyebrow">Contact</p>
+          <h2 data-i18n="contact.title">Écrivez-nous, <em>on vous répond vite.</em></h2>
+          <p class="head__lead" data-i18n="contact.lead">Une question sur un café, une commande spéciale, un partenariat ? Nous lisons chaque message avec attention.</p>
         </div>
         <form class="card form" id="contact-form" novalidate>
           <div class="form__grid">
-            <label class="field"><span>Nom et prénom *</span><input name="name" autocomplete="name" required></label>
-            <label class="field"><span>Téléphone</span><input name="phone" type="tel" autocomplete="tel" placeholder="+225 07 00 00 00 00"></label>
-            <label class="field"><span>E-mail</span><input name="email" type="email" autocomplete="email" placeholder="vous@exemple.ci"></label>
-            <label class="field"><span>Sujet</span>
+            <label class="field"><span data-i18n="f.name">Nom complet *</span><input name="name" autocomplete="name" required></label>
+            <label class="field"><span data-i18n="f.phone">Téléphone *</span><input name="phone" type="tel" autocomplete="tel" required placeholder="+225 07 00 00 00 00"></label>
+            <label class="field"><span data-i18n="f.email">E-mail</span><input name="email" type="email" autocomplete="email" placeholder="vous@exemple.ci"></label>
+            <label class="field"><span data-i18n="f.subject">Sujet</span>
               <select name="subject">
-                <option>Question sur un café</option>
-                <option>Suivi de commande</option>
-                <option>Commande spéciale ou cadeau</option>
-                <option>Partenariat</option>
-                <option>Autre demande</option>
+                <option data-i18n="f.s1">Question sur un café</option><option data-i18n="f.s2">Suivi de commande</option>
+                <option data-i18n="f.s3">Retour ou échange</option><option data-i18n="f.s4">Partenariat</option><option data-i18n="f.s5">Autre</option>
               </select>
             </label>
+            <label class="field field--full"><span data-i18n="f.message">Message *</span><textarea name="message" rows="4" required></textarea></label>
           </div>
-          <label class="field"><span>Votre message *</span><textarea name="message" rows="4" required placeholder="Dites-nous tout…"></textarea></label>
-          <label class="consent"><input type="checkbox" name="consent" required> <span>J'accepte que mes informations soient utilisées pour répondre à ma demande, conformément à la <a href="confidentialite.html">politique de confidentialité</a>. *</span></label>
+          <label class="consent"><input type="checkbox" name="consent" required> <span data-i18n="f.consent">J'accepte que mes informations servent à répondre à ma demande (voir la politique de confidentialité). *</span></label>
           <p class="form-error" data-error role="alert"></p>
-          <div class="form__actions">
-            <button type="submit" class="btn btn--wa" value="wa"><svg class="ic"><use href="#i-wa"/></svg> Envoyer sur WhatsApp</button>
-            <button type="submit" class="btn btn--ghost" value="mail"><svg class="ic"><use href="#i-mail"/></svg> Envoyer par e-mail</button>
-          </div>
+          <button type="submit" class="btn btn--dark btn--lg btn--block"><span data-i18n="contact.submit">Envoyer le message</span> <svg class="ic"><use href="#i-right"/></svg></button>
+          <div class="sent" hidden><svg viewBox="0 0 52 52" class="sent__check"><circle cx="26" cy="26" r="24"/><path d="m15 27 7 7 15-16"/></svg><strong data-i18n="sent.contactT">Merci, c'est noté !</strong><p data-i18n="sent.contact">Votre message s'est ouvert dans WhatsApp : appuyez sur « Envoyer » pour nous le transmettre.</p></div>
         </form>
       </div>
     </section>
 
-    <!-- ===================== APPEL FINAL ===================== -->
-    <section class="section section--tight">
+    <!-- ===================== CONFIANCE & PAIEMENTS ===================== -->
+    <section class="section section--tight" id="confiance">
       <div class="container">
-        <div class="join">
-          <div>
-            <h2>Rejoignez la famille <span class="hl">Aube Café.</span></h2>
-            <p>Nouveautés, offres de la semaine et conseils du torréfacteur : recevez-les directement sur WhatsApp, sans spam, promis.</p>
-          </div>
-          <a class="btn btn--light btn--lg magnetic" data-wa="Bonjour Aube Café ! Je souhaite recevoir vos nouveautés et offres sur WhatsApp." target="_blank" rel="noopener"><svg class="ic"><use href="#i-wa"/></svg> Je m'abonne</a>
+        <div class="trust">
+          <div class="trust__item"><svg class="ic anim-ic"><use href="#i-shield"/></svg><span data-i18n="trust.1">Paiement à la confirmation</span></div>
+          <div class="trust__item"><svg class="ic anim-ic"><use href="#i-package"/></svg><span data-i18n="trust.2">Commande suivie de bout en bout</span></div>
+          <div class="trust__item"><svg class="ic anim-ic"><use href="#i-route"/></svg><span data-i18n="trust.3">Retours et échanges simplifiés</span></div>
+          <div class="trust__item"><svg class="ic anim-ic"><use href="#i-award"/></svg><span data-i18n="trust.4">Fraîcheur garantie</span></div>
         </div>
+        <p class="eyebrow center" data-i18n="pay.title">Moyens de paiement acceptés</p>
+        <ul class="logos" id="logos"></ul>
       </div>
     </section>
   </main>
 
-  <!-- ===================== PIED DE PAGE ===================== -->
+  <!-- ===================== FOOTER ===================== -->
   <footer class="footer">
-    <div class="container footer__grid">
+    <div class="container footer__top">
       <div class="footer__brand">
-        <img src="images/logo.svg" alt="Aube Café" width="170" height="54" loading="lazy" data-img="logo">
-        <p class="muted">Le café qui réveille Babi. Torréfié à Abidjan, servi avec le sourire.</p>
+        <img src="images/logo.svg" alt="Aube Café" width="170" height="54" data-img="logo" loading="lazy">
+        <p data-i18n="footer.tag">Du bon café, sans palabres. Torréfié à Abidjan, servi avec élégance.</p>
+        <div class="socials" id="socials"></div>
       </div>
-      <div>
-        <h4>Explorer</h4>
-        <ul>
-          <li><a href="#cafes">La boutique</a></li>
-          <li><a href="#coffret">Coffret découverte</a></li>
-          <li><a href="#quiz">Trouvez votre café</a></li>
-          <li><a href="#devis">Entreprises &amp; devis</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Informations</h4>
-        <ul>
-          <li><a href="livraison.html">Politique de livraison</a></li>
-          <li><a href="confidentialite.html">Politique de confidentialité</a></li>
-          <li><a href="mentions-legales.html">Mentions légales</a></li>
-          <li><a href="#service">Questions fréquentes</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Contact</h4>
-        <ul class="footer__contact">
-          <li id="footer-address"></li>
-          <li><a href="#" id="footer-phone"></a></li>
-          <li><a href="#" id="footer-email"></a></li>
-        </ul>
-      </div>
+      <form class="newsletter" id="newsletter" novalidate>
+        <strong data-i18n="nl.title">La lettre Aube Café</strong>
+        <p data-i18n="nl.text">Nouveautés, offres privées et conseils du torréfacteur. Une fois par mois, pas plus.</p>
+        <div class="newsletter__row">
+          <input type="email" name="email" required data-i18n-attr="placeholder:nl.ph" placeholder="Votre e-mail" aria-label="E-mail">
+          <button type="submit" class="btn btn--dark" data-i18n="nl.btn">S'inscrire</button>
+        </div>
+        <p class="newsletter__ok" hidden data-i18n="nl.ok">Merci ! Validez l'envoi dans votre messagerie.</p>
+      </form>
     </div>
-    <div class="container">
-      <p class="bigword" aria-hidden="true" id="bigword">Aube Café</p>
-      <div class="footer__bottom">
-        <p>© <span id="year"></span> <span data-brand>Aube Café</span>. Tous droits réservés.</p>
-        <ul class="footer__pay" id="footer-pay"></ul>
-      </div>
+    <div class="container footer__links">
+      <div><h4 data-i18n="footer.shop">Boutique</h4><ul><li><a href="#boutique" data-i18n="footer.all">Tous les cafés</a></li><li><a href="#origines" data-i18n="nav.origins">Origines</a></li><li><a href="#devis" data-i18n="footer.pro">Devis entreprises</a></li><li><a href="#assistant" data-i18n="footer.finder">Trouver mon café</a></li></ul></div>
+      <div><h4 data-i18n="footer.house">La maison</h4><ul><li><a href="#apropos" data-i18n="nav.about">À propos</a></li><li><a href="#adresses" data-i18n="nav.stores">Nos boutiques</a></li><li><a href="#blog" data-i18n="nav.blog">Blog</a></li></ul></div>
+      <div><h4 data-i18n="footer.help">Aide</h4><ul><li><a href="#aide" data-i18n="footer.faq">FAQ</a></li><li><a href="livraison.html" data-i18n="footer.delivery">Livraison & retours</a></li><li><a href="#contact" data-i18n="nav.contact">Contact</a></li></ul></div>
+      <div><h4 data-i18n="footer.legal">Légal</h4><ul><li><a href="confidentialite.html" data-i18n="footer.privacy">Confidentialité</a></li><li><a href="cgu.html" data-i18n="footer.terms">Conditions générales</a></li><li><a href="mentions-legales.html" data-i18n="footer.notice">Mentions légales</a></li></ul></div>
+    </div>
+    <div class="container footer__bottom">
+      <p>© <span id="year"></span> Aube Café. <span data-i18n="footer.rights">Tous droits réservés.</span></p>
+      <ul class="footer__pay" id="footer-pay"></ul>
     </div>
   </footer>
 
-  <!-- ===================== PANIER (tiroir) ===================== -->
-  <aside class="drawer drawer--right" id="cart" aria-labelledby="cart-title" aria-hidden="true">
-    <div class="drawer__head">
-      <h2 id="cart-title">Votre panier</h2>
-      <button type="button" class="icon-btn" data-close aria-label="Fermer le panier"><svg class="ic"><use href="#i-close"/></svg></button>
-    </div>
-    <div class="drawer__body">
-      <ul class="cart__items" id="cart-items"></ul>
-      <div class="cart__empty" id="cart-empty">
-        <p class="empty__emoji" aria-hidden="true">🛍️</p>
-        <p><strong>Votre panier est vide.</strong></p>
-        <p class="muted">Ajoutez un café pour commencer : la journée commence mieux comme ça.</p>
-        <a href="#cafes" class="btn btn--ghost" data-close>Voir la boutique</a>
+  <!-- ===================== TIROIRS ===================== -->
+  <div class="scrim" id="scrim" hidden></div>
+
+  <aside class="drawer drawer--left" id="menu" aria-label="Menu">
+    <div class="drawer__head"><img src="images/logo.svg" alt="Aube Café" width="150" height="48" data-img="logo"><button type="button" class="icon-btn" data-close aria-label="Fermer"><svg class="ic"><use href="#i-close"/></svg></button></div>
+    <nav class="drawer__body menu">
+      <a href="#top" data-i18n="nav.home">Accueil</a><a href="#boutique" data-i18n="nav.coffees">Nos cafés</a><a href="#origines" data-i18n="nav.origins">Origines</a>
+      <a href="#adresses" data-i18n="nav.stores">Nos boutiques</a><a href="#blog" data-i18n="nav.blog">Blog</a><a href="#apropos" data-i18n="nav.about">À propos</a><a href="#contact" data-i18n="nav.contact">Contact</a>
+      <p class="menu__label" data-i18n="menu.cats">Catégories</p>
+      <div class="chips" id="menu-cats"></div>
+      <div class="menu__row">
+        <button type="button" class="btn btn--line btn--sm" data-proxy="wish-btn"><svg class="ic"><use href="#i-heart"/></svg> <span data-i18n="wish.title">Favoris</span></button>
+        <button type="button" class="btn btn--line btn--sm" data-proxy="account-btn"><svg class="ic"><use href="#i-user"/></svg> <span data-i18n="account.title">Mon espace</span></button>
+        <button type="button" class="btn btn--line btn--sm" data-proxy="theme-btn"><svg class="ic"><use href="#i-moon"/></svg> <span data-i18n="menu.theme">Thème</span></button>
+        <button type="button" class="btn btn--line btn--sm" data-proxy="sound-btn"><svg class="ic"><use href="#i-sound"/></svg> <span data-i18n="menu.sound">Son</span></button>
       </div>
+    </nav>
+  </aside>
+
+  <aside class="drawer" id="cart" aria-labelledby="cart-title">
+    <div class="drawer__head"><h2 id="cart-title" class="h4" data-i18n="cart.title">Votre panier</h2><button type="button" class="icon-btn" data-close aria-label="Fermer"><svg class="ic"><use href="#i-close"/></svg></button></div>
+    <div class="drawer__body">
+      <div class="ship-meter" id="ship-meter"><span id="ship-text"></span><div class="ship-meter__bar"><i id="ship-bar"></i></div></div>
+      <ul class="lines" id="cart-lines"></ul>
+      <div class="empty-state" id="cart-empty"><svg class="ic"><use href="#i-bag"/></svg><p data-i18n="cart.empty">Votre panier attend son premier café.</p><a href="#boutique" class="btn btn--dark btn--sm" data-close data-i18n="cart.browse">Découvrir la collection</a></div>
       <form id="order-form" class="form order" novalidate>
-        <fieldset class="seg">
-          <legend class="sr-only">Mode de réception</legend>
-          <label><input type="radio" name="mode" value="livraison" checked><span><svg class="ic"><use href="#i-truck"/></svg> Livraison</span></label>
-          <label><input type="radio" name="mode" value="retrait"><span><svg class="ic"><use href="#i-pin"/></svg> Retrait en boutique</span></label>
-        </fieldset>
+        <div class="seg" role="radiogroup">
+          <label><input type="radio" name="mode" value="livraison" checked><span data-i18n="cart.delivery">Livraison</span></label>
+          <label><input type="radio" name="mode" value="express"><span data-i18n="cart.express">Express &lt; 3 h</span></label>
+          <label><input type="radio" name="mode" value="retrait"><span data-i18n="cart.pickup">Retrait</span></label>
+        </div>
         <div class="form__grid">
-          <label class="field"><span>Nom et prénom *</span><input name="name" autocomplete="name" required></label>
-          <label class="field"><span>Téléphone</span><input name="phone" type="tel" autocomplete="tel" placeholder="+225 07 00 00 00 00"></label>
+          <label class="field"><span data-i18n="f.name">Nom complet *</span><input name="name" autocomplete="name" required></label>
+          <label class="field"><span data-i18n="f.phone">Téléphone *</span><input name="phone" type="tel" autocomplete="tel" required placeholder="+225 07 00 00 00 00"></label>
+          <label class="field" data-ship><span data-i18n="f.commune">Commune ou ville *</span><select name="commune" id="commune"></select></label>
+          <label class="field" data-ship><span data-i18n="f.address">Adresse ou repère *</span><input name="address" data-i18n-attr="placeholder:f.addressPh" placeholder="Angré 8e tranche, près de la pharmacie…"></label>
+          <label class="field" data-pickup hidden><span data-i18n="f.store">Boutique de retrait</span><select name="store" id="pickup-store"></select></label>
+          <label class="field"><span data-i18n="f.payment">Paiement souhaité</span><select name="payment" id="pay-select"></select></label>
+          <label class="field field--full"><span data-i18n="f.promo">Code promo</span><span class="promo-field"><input name="code" id="promo-code" autocomplete="off"><button type="button" class="btn btn--line btn--sm" id="promo-apply" data-i18n="f.apply">Appliquer</button></span></label>
         </div>
-        <div data-delivery>
-          <label class="field"><span>Commune *</span><select name="commune" data-zones data-with-fee></select></label>
-          <label class="field"><span>Adresse ou repère *</span><input name="address" placeholder="Ex. : Angré 8e tranche, près de la pharmacie…"></label>
-        </div>
-        <fieldset class="field">
-          <legend>Paiement souhaité</legend>
-          <div class="chips-input chips-input--small" id="order-pay"></div>
-        </fieldset>
-        <label class="field"><span>Remarque</span><input name="note" placeholder="Créneau préféré, code d'accès…"></label>
-        <div class="totals">
-          <div><span>Sous-total</span><span id="t-sub">0 F CFA</span></div>
-          <div class="totals__save" id="t-save-row" hidden><span>Économies</span><span id="t-save"></span></div>
-          <div><span>Livraison</span><span id="t-ship">—</span></div>
-          <p class="totals__hint" id="t-hint"></p>
-          <div class="totals__grand"><span>Total</span><strong id="t-total">0 F CFA</strong></div>
-        </div>
+        <dl class="totals" id="totals"></dl>
         <p class="form-error" data-error role="alert"></p>
-        <button type="submit" class="btn btn--wa btn--block btn--lg"><svg class="ic"><use href="#i-wa"/></svg> Commander sur WhatsApp</button>
-        <p class="muted small center">WhatsApp s'ouvre avec votre commande déjà rédigée : il ne reste qu'à appuyer sur « Envoyer ».</p>
+        <button type="submit" class="btn btn--wa btn--lg btn--block"><svg class="ic"><use href="#i-wa"/></svg> <span data-i18n="cart.order">Commander sur WhatsApp</span></button>
+        <p class="muted small center" data-i18n="cart.note">Paiement à la confirmation, par Mobile Money, carte ou espèces. Aucun paiement sur ce site.</p>
       </form>
     </div>
   </aside>
 
-  <!-- ===================== SERVICE CLIENT FLOTTANT ===================== -->
-  <div class="helpdesk" id="helpdesk">
-    <div class="helpdesk__panel" id="helpdesk-panel" role="dialog" aria-label="Service client" hidden>
-      <div class="helpdesk__head">
-        <span class="helpdesk__avatar"><svg class="ic"><use href="#i-headset"/></svg></span>
-        <div><strong>Service client Aube Café</strong><p class="status" data-status><span class="status__dot"></span><span class="status__text">…</span></p></div>
-        <button type="button" class="icon-btn icon-btn--sm" id="helpdesk-close" aria-label="Fermer"><svg class="ic"><use href="#i-close"/></svg></button>
-      </div>
-      <div class="helpdesk__body">
-        <p class="bubble">Akwaba ! 👋 Comment pouvons-nous vous aider aujourd'hui ?</p>
-        <div class="helpdesk__quick">
-          <a data-wa="Bonjour Aube Café ! Je souhaite suivre ma commande au nom de :" target="_blank" rel="noopener">📦 Suivre ma commande</a>
-          <a href="#quiz" data-helpdesk-close>☕ Trouver mon café idéal</a>
-          <a href="#devis" data-helpdesk-close>🏢 Demander un devis</a>
-          <a data-wa="Bonjour Aube Café ! J'ai une question :" target="_blank" rel="noopener">💬 Autre question</a>
-        </div>
-        <div class="helpdesk__alt">
-          <a id="helpdesk-call"><svg class="ic"><use href="#i-phone"/></svg> Appeler</a>
-          <a id="helpdesk-mail"><svg class="ic"><use href="#i-mail"/></svg> E-mail</a>
-        </div>
-      </div>
-    </div>
-    <p class="helpdesk__hint" id="helpdesk-hint" hidden>Akwaba ! Une question ? 👋</p>
-    <button type="button" class="helpdesk__btn" id="helpdesk-btn" aria-label="Contacter le service client" aria-controls="helpdesk-panel" aria-expanded="false">
-      <svg class="ic"><use href="#i-headset"/></svg><span class="helpdesk__online" data-online-dot></span>
-    </button>
-  </div>
+  <aside class="drawer" id="wishlist" aria-labelledby="wish-title">
+    <div class="drawer__head"><h2 id="wish-title" class="h4" data-i18n="wish.title">Favoris</h2><button type="button" class="icon-btn" data-close aria-label="Fermer"><svg class="ic"><use href="#i-close"/></svg></button></div>
+    <div class="drawer__body"><ul class="lines" id="wish-lines"></ul><div class="empty-state" id="wish-empty"><svg class="ic"><use href="#i-heart"/></svg><p data-i18n="wish.empty">Touchez le cœur d'un café pour le garder ici.</p></div></div>
+  </aside>
 
-  <button type="button" class="cart-bar" id="cart-bar" hidden>
-    <span><svg class="ic"><use href="#i-bag"/></svg> <span id="cart-bar-count">0 article</span></span>
-    <strong id="cart-bar-total">0 F CFA</strong>
-  </button>
+  <aside class="drawer" id="account" aria-labelledby="account-title">
+    <div class="drawer__head"><h2 id="account-title" class="h4" data-i18n="account.title">Mon espace</h2><button type="button" class="icon-btn" data-close aria-label="Fermer"><svg class="ic"><use href="#i-close"/></svg></button></div>
+    <div class="drawer__body" id="account-body"></div>
+  </aside>
+
+  <!-- ===================== MODALES ===================== -->
+  <dialog class="modal modal--product" id="product-modal" aria-label="Fiche produit"><div class="modal__inner" id="product-body"></div></dialog>
+  <dialog class="modal" id="compare-modal" aria-label="Comparer"><div class="modal__inner" id="compare-body"></div></dialog>
+  <dialog class="modal modal--article" id="article-modal" aria-label="Article"><div class="modal__inner" id="article-body"></div></dialog>
+  <dialog class="modal modal--wheel" id="wheel-modal" aria-label="Roue de bienvenue"><div class="modal__inner" id="wheel-body"></div></dialog>
+
+  <!-- Barre de comparaison -->
+  <div class="compare-bar" id="compare-bar" hidden><div id="compare-items"></div><button type="button" class="btn btn--gold btn--sm" id="compare-open" data-i18n="compare.open">Comparer</button><button type="button" class="icon-btn icon-btn--sm" id="compare-clear" aria-label="Vider"><svg class="ic"><use href="#i-close"/></svg></button></div>
+
+  <!-- ===================== ASSISTANT / CHAT ===================== -->
+  <div class="chat" id="chat" hidden role="dialog" aria-label="Assistant Aube Café">
+    <div class="chat__head"><span class="chat__avatar"><svg class="ic"><use href="#i-spark"/></svg></span><div><strong data-i18n="chat.title">Assistant Aube Café</strong><p class="live live--sm" data-status><span class="live__dot"></span><span class="live__text">…</span></p></div><button type="button" class="icon-btn icon-btn--sm" id="chat-close" aria-label="Fermer"><svg class="ic"><use href="#i-close"/></svg></button></div>
+    <div class="chat__body" id="chat-body" aria-live="polite"></div>
+    <div class="chat__quick" id="chat-quick"></div>
+  </div>
+  <button type="button" class="fab js-open-chat" id="fab" aria-label="Assistant et service client"><svg class="ic"><use href="#i-chat"/></svg><span class="fab__dot" data-online-dot></span></button>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <canvas class="beans-fx" id="beans-fx" aria-hidden="true"></canvas>
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
 
   <script src="config.js"></script>
+  <script src="i18n.js"></script>
   <script src="script.js"></script>
+  <script src="effects.js" defer></script>
   <script type="module" src="cafe-3d.js"></script>
 </body>
 </html>

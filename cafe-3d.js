@@ -1,8 +1,10 @@
 /*
- * Grains de café en 3D qui descendent quand on fait défiler la page.
- * Chargé après l'affichage de la page pour ne pas la ralentir.
- * Désactivé si le visiteur a demandé moins d'animations ou si son
- * appareil ne gère pas la 3D (WebGL) : le site reste alors identique.
+ * Un grain de café en 3D qui accompagne le défilement.
+ * - Dans le haut de page, il trône en grand au centre du disque.
+ * - En descendant, il rétrécit et se pose dans la marge, en changeant de côté
+ *   à chaque section, tout en tournant sur lui-même.
+ * Désactivé si le visiteur a demandé moins d'animations ou si l'appareil ne
+ * gère pas la 3D (WebGL) : une image fixe du grain s'affiche alors.
  */
 import * as THREE from "./vendor/three.module.min.js";
 
@@ -17,155 +19,170 @@ function supportsWebGL() {
   }
 }
 
-/* ---------- Forme d'un grain de café ----------
-   Un ellipsoïde dont une face est aplatie et creusée d'un sillon en « S ». */
+/* Forme du grain : ellipsoïde, face plate creusée d'un sillon en « S » */
 function createBeanGeometry() {
-  const geo = new THREE.SphereGeometry(1, 64, 48);
+  const geo = new THREE.SphereGeometry(1, 96, 72);
   const p = geo.attributes.position;
   const v = new THREE.Vector3();
   for (let i = 0; i < p.count; i++) {
     v.fromBufferAttribute(p, i);
     let { x, y, z } = v;
-    x *= 0.72;
-    z *= 0.5;
+    x *= 0.74;
+    z *= 0.52;
     if (z > 0) {
-      z *= 0.62; // face plate
-      const center = 0.09 * Math.sin(y * 2.6); // sillon en S
+      z *= 0.6;
+      const center = 0.1 * Math.sin(y * 2.6);
       const d = x - center;
-      const groove = 0.2 * Math.exp(-(d * d) / (2 * 0.055 * 0.055)) * (1 - y * y * 0.85);
-      z -= groove;
+      z -= 0.22 * Math.exp(-(d * d) / (2 * 0.05 * 0.05)) * (1 - y * y * 0.85);
     }
-    p.setXYZ(i, x, y, z);
+    // très légères irrégularités, comme un vrai grain torréfié
+    const n = 1 + 0.012 * Math.sin(x * 9 + y * 7) * Math.cos(y * 5 - z * 8);
+    p.setXYZ(i, x * n, y * n, z * n);
   }
   geo.computeVertexNormals();
   return geo;
 }
 
-function rand(min, max) {
-  return min + Math.random() * (max - min);
-}
+const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+const lerp = (a, b, t) => a + (b - a) * t;
+const ease = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
 
 function init() {
+  const stage = document.getElementById("bean-stage");
+  if (!stage) return;
   const canvas = document.createElement("canvas");
   canvas.className = "cafe-3d";
   canvas.setAttribute("aria-hidden", "true");
-  document.body.prepend(canvas);
+  document.body.appendChild(canvas);
 
   const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true, powerPreference: "low-power" });
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
   renderer.outputColorSpace = THREE.SRGBColorSpace;
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
 
   const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(35, 1, 0.1, 60);
-  camera.position.z = 14;
+  const camera = new THREE.PerspectiveCamera(30, 1, 0.1, 100);
+  camera.position.z = 12;
 
-  // Éclairage chaud, comme une lumière de matin
-  const hemi = new THREE.HemisphereLight(0xfff3e0, 0x3a2416, 1.1);
-  const key = new THREE.DirectionalLight(0xffd9a8, 2.4);
+  const hemi = new THREE.HemisphereLight(0xfff3e0, 0x3a2416, 1.2);
+  const key = new THREE.DirectionalLight(0xffe2b8, 2.6);
   key.position.set(4, 6, 8);
-  const rim = new THREE.DirectionalLight(0xe0a85a, 1.6);
-  rim.position.set(-6, -2, -4);
-  scene.add(hemi, key, rim);
+  const rim = new THREE.DirectionalLight(0xe0a85a, 2.2);
+  rim.position.set(-6, -3, -4);
+  const fill = new THREE.PointLight(0xffffff, 0.6);
+  fill.position.set(-3, 2, 6);
+  scene.add(hemi, key, rim, fill);
 
-  const geometry = createBeanGeometry();
-  const roasts = [0x4a2a17, 0x5c3520, 0x6b3f24, 0x3d2314];
-  const materials = roasts.map(
-    (c) => new THREE.MeshStandardMaterial({ color: c, roughness: 0.42, metalness: 0.05 })
+  const bean = new THREE.Mesh(
+    createBeanGeometry(),
+    new THREE.MeshPhysicalMaterial({ color: 0x5a3420, roughness: 0.4, metalness: 0.02, clearcoat: 0.55, clearcoatRoughness: 0.35, sheen: 0.3, sheenColor: 0x8a5a35 })
   );
+  scene.add(bean);
 
-  // Hauteur visible (en unités 3D) à une profondeur donnée
-  const visibleHeight = (z) => 2 * (camera.position.z - z) * Math.tan(THREE.MathUtils.degToRad(camera.fov / 2));
-
-  // Largeur de la marge à gauche/droite du contenu (conteneur de 1240 px + 16 px)
-  const gutter = () => Math.max(16, (window.innerWidth - 1240) / 2 + 16);
-
-  let beans = [];
-  function createBeans() {
-    beans.forEach((b) => scene.remove(b.mesh));
-    beans = [];
-    const mobile = window.innerWidth < 720;
-    const count = mobile ? 7 : 14;
-    for (let i = 0; i < count; i++) {
-      const z = rand(-7, 3); // profondeur : les grains proches défilent plus vite
-      const h = visibleHeight(z);
-      const w = h * camera.aspect;
-      // Grains placés dans les marges, de part et d'autre du contenu
-      // (un fondu CSS les efface aussi s'ils approchent du texte)
-      const side = i % 2 ? 1 : -1;
-      // Distance au bord de l'écran, en pixels (sur mobile, les grains dépassent juste du bord)
-      const fromEdge = mobile ? rand(-28, 6) : rand(-24, Math.max(8, gutter() - 34));
-      const x = side * (w / 2) * (1 - (2 * fromEdge) / window.innerWidth);
-      // Grains plus petits quand la marge est étroite
-      const scale = rand(0.32, 0.55) * (mobile ? 0.7 : Math.min(1, Math.max(0.55, gutter() / 170)));
-      const mesh = new THREE.Mesh(geometry, materials[i % materials.length]);
-      mesh.scale.setScalar(scale);
-      scene.add(mesh);
-      beans.push({
-        mesh,
-        x,
-        z,
-        span: h * 1.5, // les grains réapparaissent en haut après être sortis en bas
-        offset: Math.random(),
-        speed: 0.7 + (z + 7) / 10, // effet de profondeur (parallaxe)
-        rot: new THREE.Euler(rand(0, 6.3), rand(0, 6.3), rand(0, 6.3)),
-        spin: new THREE.Vector3(rand(-1, 1), rand(-1, 1), rand(-0.5, 0.5)),
-        sway: rand(0.15, 0.35),
-        phase: rand(0, 6.3)
-      });
-    }
+  document.addEventListener("themechange", (e) => {
+    const dark = e.detail.dark;
+    hemi.intensity = dark ? 1.8 : 1.2;
+    key.intensity = dark ? 3.2 : 2.6;
+  });
+  const darkNow = document.documentElement.dataset.theme
+    ? document.documentElement.dataset.theme === "dark"
+    : window.matchMedia("(prefers-color-scheme: dark)").matches;
+  if (darkNow) {
+    hemi.intensity = 1.8;
+    key.intensity = 3.2;
   }
 
+  let W = 0, H = 0;
   function resize() {
-    const w = window.innerWidth;
-    const h = window.innerHeight;
-    renderer.setSize(w, h, false);
-    if (w < 720) canvas.style.removeProperty("--g"); // valeur mobile définie dans styles.css
-    else canvas.style.setProperty("--g", gutter() + "px");
-    camera.aspect = w / h;
+    W = window.innerWidth;
+    H = window.innerHeight;
+    renderer.setSize(W, H, false);
+    camera.aspect = W / H;
     camera.updateProjectionMatrix();
-    createBeans();
   }
+  // unités 3D par pixel au plan z = 0
+  const unitsPerPx = () => (2 * camera.position.z * Math.tan(THREE.MathUtils.degToRad(camera.fov / 2))) / H;
 
-  // Défilement lissé pour un mouvement fluide
-  let target = window.scrollY;
-  let current = target;
-  window.addEventListener("scroll", () => (target = window.scrollY), { passive: true });
+  // Position du grain à l'écran (pixels) et taille (hauteur en pixels)
+  const cur = { x: 0, y: 0, s: 0, ready: false };
+  let spin = 0;
+  let lastSide = 1;
+  let mouseX = 0, mouseY = 0;
+  window.addEventListener("pointermove", (e) => {
+    mouseX = e.clientX / W - 0.5;
+    mouseY = e.clientY / H - 0.5;
+  }, { passive: true });
+
+  const sections = Array.from(document.querySelectorAll("main > section"));
+  function sideFor() {
+    const mid = H / 2;
+    const i = sections.findIndex((s) => {
+      const r = s.getBoundingClientRect();
+      return r.top <= mid && r.bottom > mid;
+    });
+    return i < 0 ? lastSide : i % 2 ? -1 : 1;
+  }
 
   const clock = new THREE.Clock();
   let raf = 0;
-
   function frame() {
     raf = requestAnimationFrame(frame);
-    const t = clock.getElapsedTime();
-    current += (target - current) * 0.08;
-    const vh = window.innerHeight;
-    // 1 écran défilé = les grains descendent d'environ une hauteur visible
-    const progress = current / vh;
+    const dt = Math.min(clock.getDelta(), 0.05);
+    const t = clock.elapsedTime;
+    const r = stage.getBoundingClientRect();
 
-    for (const b of beans) {
-      const fall = progress * b.speed * (b.span / 1.5) + b.offset * b.span;
-      const y = b.span / 2 - (((fall % b.span) + b.span) % b.span);
-      b.mesh.position.set(b.x + Math.sin(t * 0.6 + b.phase) * b.sway, y, b.z);
-      b.mesh.rotation.set(
-        b.rot.x + progress * 2.2 * b.spin.x + t * 0.15 * b.spin.x,
-        b.rot.y + progress * 2.6 * b.spin.y + t * 0.2,
-        b.rot.z + progress * 1.4 * b.spin.z
-      );
-    }
+    // 1. Cible dans le haut de page : au centre du disque
+    const heroX = r.left + r.width / 2;
+    const heroY = r.top + r.height * 0.47;
+    const heroS = r.width * 0.46;
+
+    // 2. Cible « posée » dans la marge
+    const gutter = Math.max(0, (W - 1240) / 2 + 20);
+    const mobile = W < 720;
+    const side = sideFor();
+    if (side !== lastSide) spin += Math.PI * 2 * side; // tour complet en changeant de côté
+    lastSide = side;
+    const dockS = mobile ? 46 : clamp(gutter * 0.85, 70, 150);
+    const inset = mobile ? 6 : Math.max(dockS * 0.42, gutter / 2);
+    const dockX = side > 0 ? W - inset : inset;
+    const dockY = H * 0.62;
+
+    // Progression entre les deux selon le défilement
+    // 0 tant que le centre du disque est dans la moitié basse de l'écran,
+    // 1 quand il atteint le haut : le grain quitte le disque quand on le dépasse
+    const k = ease(clamp(1 - (r.top + r.height * 0.5) / (H * 0.45), 0, 1));
+    const tx = lerp(heroX, dockX, k);
+    const ty = lerp(heroY, dockY, k) + Math.sin(t * 1.4) * (lerp(10, 6, k));
+    const ts = lerp(heroS, dockS, k);
+    if (!cur.ready) Object.assign(cur, { x: tx, y: ty, s: ts, ready: true });
+    const follow = 1 - Math.pow(0.0008, dt); // lissage indépendant de la fréquence d'images
+    cur.x = lerp(cur.x, tx, follow);
+    cur.y = lerp(cur.y, ty, follow);
+    cur.s = lerp(cur.s, ts, follow);
+
+    const u = unitsPerPx();
+    bean.position.set((cur.x - W / 2) * u, -(cur.y - H / 2) * u, 0);
+    bean.scale.setScalar((cur.s / 2) * u);
+
+    // Rotation : liée au défilement, plus un léger mouvement permanent
+    const scroll = window.scrollY;
+    const targetRotY = scroll * 0.0045 + spin + t * 0.25 + mouseX * (1 - k) * 0.8;
+    bean.rotation.y = lerp(bean.rotation.y, targetRotY, 1 - Math.pow(0.002, dt));
+    bean.rotation.x = Math.sin(t * 0.7) * 0.25 + scroll * 0.0012 + mouseY * (1 - k) * 0.6;
+    bean.rotation.z = -0.35 + Math.sin(t * 0.5) * 0.12 + Math.sin(scroll * 0.002) * 0.35;
+
     renderer.render(scene, camera);
   }
-
-  function start() {
+  const start = () => {
     if (!raf) {
-      clock.start();
+      clock.getDelta();
       frame();
     }
-  }
-  function stop() {
+  };
+  const stop = () => {
     cancelAnimationFrame(raf);
     raf = 0;
-  }
+  };
 
   window.addEventListener("resize", resize);
   document.addEventListener("visibilitychange", () => (document.hidden ? stop() : start()));
@@ -173,19 +190,20 @@ function init() {
     if (reduceMotion.matches) {
       stop();
       canvas.hidden = true;
-    } else {
-      canvas.hidden = false;
-      start();
+      document.documentElement.classList.remove("has-3d");
     }
   });
 
   resize();
   start();
-  requestAnimationFrame(() => canvas.classList.add("is-ready"));
+  requestAnimationFrame(() => {
+    canvas.classList.add("is-ready");
+    document.documentElement.classList.add("has-3d");
+  });
 }
 
 if (!reduceMotion.matches && supportsWebGL()) {
   const go = () => init();
-  if ("requestIdleCallback" in window) requestIdleCallback(go, { timeout: 2000 });
-  else setTimeout(go, 300);
+  if ("requestIdleCallback" in window) requestIdleCallback(go, { timeout: 1500 });
+  else setTimeout(go, 200);
 }

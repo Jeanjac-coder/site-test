@@ -23,17 +23,26 @@ sans serveur ni base de données.
 
 ## Fonctionnalités
 
+- **Bandeau d'annonce** tout en haut, dont les messages défilent (`announcements`).
 - **En-tête** : menu hamburger (mobile), recherche avec suggestions (insensible aux accents),
-  notifications (badge « non lu »), panier (badge), bascule clair/sombre, barre de catégories.
-- **Diaporama** : défilement automatique (pause au survol, bouton pause, flèches, points,
-  glissement du doigt). Désactivé si le visiteur a demandé moins d'animations.
-- **Carte des cafés** : 14 cafés filtrables par catégorie et par recherche.
-- **Panier en tiroir** : mouture par ligne, quantités, livraison par commune ou retrait,
-  moyen de paiement souhaité, commande envoyée sur WhatsApp.
-- **Devis entreprises** : estimation indicative en direct avec remises par volume.
-- **Renseignements** : formulaire envoyé par WhatsApp ou par e-mail.
-- **Nous trouver** : carte OpenStreetMap, horaires, statut ouvert/fermé, zones et frais.
-- **Service client** : section dédiée + bulle flottante avec réponses rapides et statut en ligne.
+  notifications, panier avec compteur, bascule clair/sombre, barre de catégories.
+- **Haut de page** : diaporama de textes (pause, flèches, points, glissement) et un grand
+  **grain de café en 3D** posé sur un disque, avec des étiquettes que l'on peut déplacer.
+  En descendant, le grain rétrécit, tourne et se pose dans la marge, en changeant de côté à
+  chaque section (`cafe-3d.js`). Sans 3D (ou si moins d'animations est demandé), une image fixe
+  du grain s'affiche.
+- **Catégories en tuiles**, **boutique** filtrable et triable (prix, intensité).
+- **Offre de la semaine** avec compte à rebours ; la remise s'applique automatiquement (`offer`).
+- **Quiz « Trouvez votre café »** : 3 questions, une recommandation selon les profils
+  aromatiques des cafés (`tags`) et la mouture conseillée.
+- **Coffret découverte** : 3 cafés de 250 g au choix, −10 % (`coffret`).
+- **De la cerise à la tasse** : les étapes, avec une ligne qui se trace au défilement.
+- **Paiement** : logos Orange Money, MTN MoMo, Moov Money, Djamo, Visa (`images/paiement/`).
+- **Devis entreprises** avec estimation, **renseignements**, **carte**, **service client**
+  (section + bulle flottante avec statut en ligne), **FAQ**.
+- **Animations** : grain qui vole vers le panier, pluie de grains après une commande,
+  boutons « magnétiques », cartes qui s'inclinent, titres qui apparaissent mot par mot,
+  chiffres du compte à rebours qui basculent… Et un petit secret : cliquez 5 fois sur le logo.
 
 Aucun paiement n'est effectué sur le site : le règlement (Mobile Money, espèces, carte en
 boutique) se fait après confirmation de la commande sur WhatsApp.
@@ -43,7 +52,7 @@ boutique) se fait après confirmation de la commande sur WhatsApp.
 - **Cafés** : dans `config.js`, `products`. Chaque café a une photo carrée (`image`).
 - **Photos** : déposez vos fichiers dans `images/` (JPG ou WebP, 1600 px max, < 300 Ko) et
   changez les chemins dans `config.js`.
-- **Diaporama** : `slides` (titre, texte, bouton, image) et `slideDelay` (durée en ms).
+- **Diaporama** : `slides` (titre, texte, bouton) et `slideDelay` (durée en ms).
 - **Livraison** : `delivery.zones` (commune + frais) et `delivery.freeFrom`.
 - **Carte** : `shop.lat` / `shop.lng` (clic droit sur Google Maps → copier les coordonnées).
 - **Notifications** : `notifications`. Changez l'`id` d'une annonce pour qu'elle réapparaisse

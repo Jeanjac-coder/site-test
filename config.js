@@ -28,39 +28,39 @@ window.SITE_CONFIG = {
   currency: "XOF",
   locale: "fr-CI",
 
+  // ---------- Bandeau d'annonce (tout en haut, les messages défilent) ----------
+  announcements: [
+    "🛵 Livraison offerte dès 20 000 F CFA partout à Abidjan",
+    "☕ Torréfié chaque semaine, ici même à Abidjan",
+    "📱 Payez par Orange Money, MTN MoMo, Moov Money, Wave ou Djamo",
+    "🎁 Coffret découverte : 3 cafés, −10 % sur le tout"
+  ],
+
   // ---------- Diaporama du haut de page (défile automatiquement) ----------
   slides: [
     {
       eyebrow: "Akwaba chez Aube Café",
       title: "Le café qui réveille Babi.",
       text: "Du robusta de nos terres aux plus grands crus du monde, torréfiés chaque semaine à Abidjan. Une tasse, et la journée est lancée.",
-      cta: "Découvrir nos cafés",
-      href: "#cafes",
-      image: "images/slides/accueil.svg"
+      cta: "Découvrir nos cafés", href: "#cafes"
     },
     {
-      eyebrow: "Quatorze origines",
+      eyebrow: "Quatorze cafés",
       title: "Le tour du monde, sans quitter Abidjan.",
       text: "Éthiopie, Colombie, Jamaïque, Panama… Chaque origine raconte son terroir. Nous les sélectionnons avec exigence pour votre tasse.",
-      cta: "Voyager par la tasse",
-      href: "#cafes",
-      image: "images/slides/origines.svg"
+      cta: "Trouver mon café", href: "#quiz"
     },
     {
       eyebrow: "Livraison en 24 h",
       title: "On vous livre à la maison, ça va aller vite.",
       text: "Commandez en une minute sur WhatsApp, réglez par Mobile Money ou à la livraison. De Cocody à Yopougon, nous arrivons.",
-      cta: "Commander maintenant",
-      href: "#cafes",
-      image: "images/slides/livraison.svg"
+      cta: "Commander maintenant", href: "#cafes"
     },
     {
       eyebrow: "Entreprises & événements",
       title: "Le bon café pour vos bureaux et vos fêtes.",
       text: "Bureaux, hôtels, restaurants, mariages, séminaires : recevez un devis sur mesure, avec des tarifs dégressifs selon les volumes.",
-      cta: "Demander un devis",
-      href: "#devis",
-      image: "images/slides/pros.svg"
+      cta: "Demander un devis", href: "#devis"
     }
   ],
   slideDelay: 6000, // durée d'affichage de chaque diapositive, en millisecondes
@@ -81,90 +81,105 @@ window.SITE_CONFIG = {
   // ---------- Cafés — EXEMPLES de prix ----------
   // "id" unique · "categories" : identifiants de la liste ci-dessus
   // "price" = prix pour le format indiqué dans "size" · "image" : photo carrée
+  // "tags" (pour le quiz) : intense, doux, lait, filtre, chocolat, caramel, fruite, floral, epices, rare
   products: [
     {
       id: "robusta-ci", name: "Robusta de Côte d'Ivoire", origin: "Côte d'Ivoire",
       categories: ["cote-ivoire", "afrique"], notes: "Cacao · Épices · Corsé et généreux",
       roast: "Torréfaction foncée", intensity: 5, size: "250 g", price: 3500,
-      image: "images/cafes/robusta-ci.webp", badge: "Fierté locale"
+      image: "images/cafes/robusta-ci.webp", badge: "Fierté locale",
+      tags: "intense lait epices chocolat"
     },
     {
       id: "maison", name: "Assemblage Maison", origin: "Côte d'Ivoire & Brésil",
       categories: ["assemblages", "cote-ivoire"], notes: "Robusta ivoirien & arabica · Crème épaisse",
       roast: "Torréfaction moyenne-foncée", intensity: 4, size: "1 kg", price: 18000,
-      image: "images/cafes/maison.svg", badge: "Format éco"
+      image: "images/cafes/maison.svg", badge: "Format éco",
+      tags: "intense lait chocolat"
     },
     {
       id: "ethiopie", name: "Éthiopie Yirgacheffe", origin: "Éthiopie",
       categories: ["afrique"], notes: "Agrumes · Jasmin · Thé noir",
       roast: "Torréfaction claire", intensity: 2, size: "250 g", price: 7500,
-      image: "images/cafes/ethiopie.svg", badge: "Coup de cœur"
+      image: "images/cafes/ethiopie.svg", badge: "Coup de cœur",
+      tags: "fruite floral doux filtre"
     },
     {
       id: "kenya", name: "Kenya AA Nyeri", origin: "Kenya",
       categories: ["afrique"], notes: "Cassis · Pamplemousse · Vif et juteux",
       roast: "Torréfaction claire", intensity: 3, size: "250 g", price: 8500,
-      image: "images/cafes/kenya.svg"
+      image: "images/cafes/kenya.svg",
+      tags: "fruite filtre"
     },
     {
       id: "rwanda", name: "Rwanda Bourbon", origin: "Rwanda",
       categories: ["afrique"], notes: "Fruits rouges · Caramel · Délicat",
       roast: "Torréfaction moyenne", intensity: 3, size: "250 g", price: 7000,
-      image: "images/cafes/rwanda.svg"
+      image: "images/cafes/rwanda.svg",
+      tags: "fruite caramel doux filtre"
     },
     {
       id: "bresil", name: "Brésil Cerrado", origin: "Brésil",
       categories: ["ameriques"], notes: "Chocolat · Amande · Rond en bouche",
       roast: "Torréfaction moyenne", intensity: 3, size: "250 g", price: 6000,
-      image: "images/cafes/bresil.svg"
+      image: "images/cafes/bresil.svg",
+      tags: "chocolat doux lait"
     },
     {
       id: "colombie", name: "Colombie Huila", origin: "Colombie",
       categories: ["ameriques"], notes: "Caramel · Pomme rouge · Noisette",
       roast: "Torréfaction moyenne", intensity: 3, size: "250 g", price: 6500,
-      image: "images/cafes/colombie.svg"
+      image: "images/cafes/colombie.svg",
+      tags: "caramel doux lait filtre"
     },
     {
       id: "guatemala", name: "Guatemala Antigua", origin: "Guatemala",
       categories: ["ameriques"], notes: "Cacao · Épices douces · Fumé léger",
       roast: "Torréfaction moyenne-foncée", intensity: 4, size: "250 g", price: 7000,
-      image: "images/cafes/guatemala.svg"
+      image: "images/cafes/guatemala.svg",
+      tags: "chocolat epices intense"
     },
     {
       id: "costa-rica", name: "Costa Rica Tarrazú", origin: "Costa Rica",
       categories: ["ameriques"], notes: "Miel · Agrumes · Très équilibré",
       roast: "Torréfaction moyenne", intensity: 3, size: "250 g", price: 7500,
-      image: "images/cafes/costa-rica.svg"
+      image: "images/cafes/costa-rica.svg",
+      tags: "caramel fruite doux filtre"
     },
     {
       id: "perou", name: "Pérou Bio Cajamarca", origin: "Pérou",
       categories: ["ameriques"], notes: "Noisette · Vanille · Doux",
       roast: "Torréfaction moyenne", intensity: 2, size: "250 g", price: 6500,
-      image: "images/cafes/perou.svg", badge: "Bio"
+      image: "images/cafes/perou.svg", badge: "Bio",
+      tags: "doux caramel lait"
     },
     {
       id: "jamaique", name: "Jamaïque Blue Mountain", origin: "Jamaïque",
       categories: ["ameriques", "prestige"], notes: "Velouté · Floral · D'une rare douceur",
       roast: "Torréfaction moyenne", intensity: 2, size: "250 g", price: 22000,
-      image: "images/cafes/jamaique.svg", badge: "Grand cru"
+      image: "images/cafes/jamaique.svg", badge: "Grand cru",
+      tags: "rare doux floral"
     },
     {
       id: "panama", name: "Panama Geisha", origin: "Panama",
       categories: ["ameriques", "prestige"], notes: "Bergamote · Jasmin · Pêche blanche",
       roast: "Torréfaction claire", intensity: 1, size: "100 g", price: 15000,
-      image: "images/cafes/panama.svg", badge: "Édition limitée"
+      image: "images/cafes/panama.svg", badge: "Édition limitée",
+      tags: "rare floral fruite filtre"
     },
     {
       id: "sumatra", name: "Indonésie Sumatra Mandheling", origin: "Indonésie",
       categories: ["asie"], notes: "Terre · Cèdre · Chocolat noir",
       roast: "Torréfaction foncée", intensity: 5, size: "250 g", price: 7000,
-      image: "images/cafes/sumatra.svg"
+      image: "images/cafes/sumatra.svg",
+      tags: "intense epices chocolat lait"
     },
     {
       id: "inde", name: "Inde Monsooned Malabar", origin: "Inde",
       categories: ["asie"], notes: "Épices · Boisé · Faible acidité",
       roast: "Torréfaction moyenne-foncée", intensity: 4, size: "250 g", price: 6000,
-      image: "images/cafes/inde.svg"
+      image: "images/cafes/inde.svg",
+      tags: "epices intense lait"
     }
   ],
 
@@ -191,16 +206,31 @@ window.SITE_CONFIG = {
     delay: "24 h ouvrées à Abidjan, du lundi au samedi"
   },
 
-  // ---------- Moyens de paiement acceptés en Côte d'Ivoire — EXEMPLE ----------
+  // ---------- Moyens de paiement acceptés en Côte d'Ivoire ----------
+  // "logo" : image dans images/paiement/ (sinon un badge coloré est affiché)
   payments: [
-    { id: "orange", name: "Orange Money", color: "#ff7900", ink: "#000" },
-    { id: "mtn", name: "MTN MoMo", color: "#ffcc00", ink: "#000" },
-    { id: "moov", name: "Moov Money", color: "#0066b3", ink: "#fff" },
-    { id: "wave", name: "Wave", color: "#1dc8f2", ink: "#00264d" },
-    { id: "djamo", name: "Djamo", color: "#1a1a1a", ink: "#fff" },
-    { id: "carte", name: "Carte Visa / Mastercard", color: "#f1ece6", ink: "#1a1a1a", note: "en boutique" },
+    { id: "orange", name: "Orange Money", logo: "images/paiement/orange-money.jpg", color: "#ff7900", ink: "#000" },
+    { id: "mtn", name: "MTN MoMo", logo: "images/paiement/mtn-momo.jpg", color: "#ffcc00", ink: "#004f71" },
+    { id: "moov", name: "Moov Money", logo: "images/paiement/moov-money.jpg", color: "#0066b3", ink: "#fff" },
+    { id: "wave", name: "Wave", color: "#1dc8f2", ink: "#ffffff" },
+    { id: "djamo", name: "Djamo", logo: "images/paiement/djamo.jpg", color: "#1a1a1a", ink: "#fff" },
+    { id: "visa", name: "Carte Visa", logo: "images/paiement/visa.jpg", color: "#1a1f71", ink: "#fff", note: "en boutique" },
     { id: "especes", name: "Espèces à la livraison", color: "#2e7d4f", ink: "#fff" }
   ],
+
+  // ---------- Offre de la semaine — EXEMPLE ----------
+  // Remise appliquée automatiquement au café choisi jusqu'à la date de fin (heure d'Abidjan = GMT).
+  // Mettez offer: null pour masquer la section.
+  offer: {
+    productId: "kenya",
+    discount: 0.15,
+    endsAt: "2026-10-31T23:59:00Z",
+    title: "Le Kenya AA à −15 %",
+    text: "Un café vif et juteux, aux notes de cassis et de pamplemousse. Idéal en filtre pour bien commencer la matinée."
+  },
+
+  // ---------- Coffret découverte ----------
+  coffret: { size: 3, discount: 0.1 }, // 3 cafés au choix (formats 250 g), −10 %
 
   // ---------- Boutique physique — EXEMPLE ----------
   shop: {

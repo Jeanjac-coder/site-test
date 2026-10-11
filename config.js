@@ -86,7 +86,7 @@ window.SITE_CONFIG = {
       id: "robusta-ci", name: "Robusta de Côte d'Ivoire", origin: "Côte d'Ivoire",
       categories: ["cote-ivoire", "afrique"], notes: "Cacao · Épices · Corsé et généreux",
       roast: "Torréfaction foncée", intensity: 5, size: "250 g", price: 3500,
-      image: "images/cafes/robusta-ci.svg", badge: "Fierté locale"
+      image: "images/cafes/robusta-ci.webp", badge: "Fierté locale"
     },
     {
       id: "maison", name: "Assemblage Maison", origin: "Côte d'Ivoire & Brésil",

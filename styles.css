@@ -361,6 +361,9 @@ p { margin: 0 0 1em; }
 .product:hover .product__visual::before { transform: scale(1.25); opacity: .3; }
 .product__visual img { position: relative; width: 100%; height: 100%; object-fit: contain; transition: transform .6s var(--spring); }
 .product:hover .product__visual img { transform: translateY(-6px) rotate(-4deg) scale(1.05); }
+/* Vraies photos : remplissent le cadre, simple zoom au survol */
+.product__visual img.is-photo { object-fit: cover; }
+.product:hover .product__visual img.is-photo { transform: scale(1.06); }
 .product__badge { position: absolute; z-index: 1; top: 10px; left: 10px; padding: 4px 10px; border-radius: 999px; background: var(--text); color: var(--inverse); font-size: .7rem; font-weight: 700; letter-spacing: .02em; }
 .product__body { display: flex; flex-direction: column; flex: 1; padding: 12px 14px 14px; }
 .product__origin { display: flex; align-items: center; gap: 6px; font-size: .75rem; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 4px; }

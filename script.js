@@ -324,7 +324,7 @@
       <article class="product" data-id="${esc(p.id)}">
         <div class="product__visual">
           ${p.badge ? `<span class="product__badge">${esc(p.badge)}</span>` : ""}
-          <img src="${esc(p.image)}" alt="${esc(p.name)}" width="400" height="400" loading="lazy">
+          <img src="${esc(p.image)}" alt="${esc(p.name)}" width="400" height="400" loading="lazy"${/\.svg$/i.test(p.image) ? "" : ' class="is-photo"'}>
         </div>
         <div class="product__body">
           <p class="product__origin">${icon("pin")}${esc(p.origin)}</p>

@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Politique de livraison — Aube Café</title>
+  <meta name="description" content="Zones, délais, frais et conditions de livraison d'Aube Café à Abidjan et en Côte d'Ivoire.">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script>try { var t = localStorage.getItem("theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}</script>
+</head>
+<body>
+  <header class="legal-head">
+    <div class="container">
+      <a href="index.html"><img src="images/logo.svg" alt="Aube Café" width="150" height="48"></a>
+      <a href="index.html" class="btn btn--ghost btn--small">← Retour au site</a>
+    </div>
+  </header>
+
+  <main class="container legal">
+    <p class="eyebrow">Informations</p>
+    <h1>Politique de livraison</h1>
+    <p class="legal__updated muted">Dernière mise à jour : octobre 2026</p>
+    <p class="note">Modèle rédigé pour Aube Café. Les zones, frais et délais sont des exemples : adaptez-les à votre organisation réelle dans <code>config.js</code> et dans ce texte avant de vous y engager.</p>
+
+    <p>Chez <span data-cfg="brand">Aube Café</span>, nous tenons à ce que votre café arrive frais, en bon état et à l'heure. La présente politique décrit la manière dont nous livrons vos commandes à Abidjan et dans le reste de la Côte d'Ivoire.</p>
+
+    <h2>1. Passation et confirmation de la commande</h2>
+    <p>Vous composez votre panier sur notre site, puis vous nous transmettez votre commande par WhatsApp. Une commande n'est définitive qu'après <strong>confirmation de notre part</strong> : nous vérifions la disponibilité des cafés, le montant total (frais de livraison compris) et le créneau de livraison.</p>
+    <p>Nous nous efforçons de confirmer chaque commande dans l'heure, aux horaires d'ouverture :</p>
+    <p data-cfg="hours"></p>
+
+    <h2>2. Zones desservies et frais de livraison</h2>
+    <p>Nous livrons l'ensemble des communes du District autonome d'Abidjan ainsi que plusieurs localités voisines. Les frais dépendent de la commune de livraison :</p>
+    <table data-cfg="zones"></table>
+    <p>La livraison est <strong>offerte dès <span data-cfg="free"></span> d'achat</strong> (hors frais, sur Abidjan et environs). Pour les autres villes de Côte d'Ivoire, nous expédions par transporteur ou compagnie de car : les frais et le délai vous sont communiqués lors de la confirmation.</p>
+
+    <h2>3. Délais de livraison</h2>
+    <ul>
+      <li><strong>Abidjan et environs :</strong> <span data-cfg="delay"></span>, à compter de la confirmation de la commande.</li>
+      <li><strong>Intérieur du pays :</strong> généralement 48 à 72 heures selon la destination et le transporteur.</li>
+      <li>Aucune livraison n'est effectuée le dimanche ni les jours fériés. Les commandes reçues pendant ces périodes sont traitées le jour ouvré suivant.</li>
+    </ul>
+    <p>Les délais sont donnés à titre indicatif. En cas d'imprévu (intempéries, circulation exceptionnelle, rupture de stock), nous vous prévenons sans délai par WhatsApp ou par téléphone.</p>
+
+    <h2>4. Paiement</h2>
+    <p>Moyens acceptés : <span data-cfg="payments"></span>.</p>
+    <ul>
+      <li><strong>Mobile Money (Orange Money, MTN MoMo, Moov Money, Wave, Djamo) :</strong> le paiement est effectué après confirmation de la commande, sur le numéro marchand que nous vous communiquons. La commande est remise au livreur dès réception du paiement.</li>
+      <li><strong>Espèces :</strong> payables au livreur à la réception, de préférence avec l'appoint.</li>
+      <li><strong>Carte bancaire :</strong> acceptée en boutique.</li>
+    </ul>
+    <p class="note"><strong>Sécurité :</strong> nous ne vous demanderons jamais votre code secret Mobile Money, ni le code ou le cryptogramme de votre carte. En cas de doute sur un message reçu en notre nom, contactez-nous directement au <a data-cfg="phone" href="#"></a>.</p>
+
+    <h2>5. Réception de la commande</h2>
+    <ul>
+      <li>Merci d'indiquer une adresse précise accompagnée d'un <strong>repère</strong> (pharmacie, école, carrefour…) et de rester joignable au numéro communiqué.</li>
+      <li>Notre livreur vous appelle avant son passage. Si vous êtes absent, une seconde présentation est organisée avec vous. Au-delà, des frais de livraison supplémentaires peuvent s'appliquer.</li>
+      <li>Une personne de votre choix peut réceptionner la commande à votre place : prévenez-nous simplement de son nom.</li>
+      <li>Nous vous invitons à vérifier l'état du colis en présence du livreur.</li>
+    </ul>
+
+    <h2>6. Retrait en boutique</h2>
+    <p>Vous pouvez retirer gratuitement votre commande à notre boutique : <span data-cfg="address"></span>. Toute commande confirmée avant 14 heures peut être retirée le jour même. Nous la conservons pendant 7 jours ; au-delà, merci de nous contacter.</p>
+
+    <h2>7. Colis endommagé, erreur ou produit manquant</h2>
+    <p>Si votre colis est abîmé, incomplet ou ne correspond pas à votre commande, signalez-le-nous <strong>dans les 24 heures</strong> suivant la réception, par WhatsApp, avec une photo du colis et du produit. Après vérification, nous vous proposons, selon le cas, le remplacement du produit, un avoir ou le remboursement de l'article concerné, sans frais supplémentaires.</p>
+    <p>Le café étant une denrée alimentaire, un paquet ouvert ne peut être ni repris ni échangé, sauf défaut de qualité constaté.</p>
+
+    <h2>8. Modification et annulation</h2>
+    <p>Vous pouvez modifier ou annuler votre commande gratuitement tant qu'elle n'a pas été remise au livreur. Si vous aviez déjà réglé par Mobile Money, nous vous remboursons par le même moyen dans les meilleurs délais.</p>
+
+    <h2>9. Commandes professionnelles et événements</h2>
+    <p>Pour les livraisons régulières (bureaux, hôtels, restaurants) ou les événements, les conditions de livraison sont précisées dans le devis qui vous est adressé.</p>
+
+    <h2>10. Nous contacter</h2>
+    <p>Pour toute question relative à une livraison : WhatsApp ou téléphone au <a data-cfg="phone" href="#"></a>, ou par e-mail à <a data-cfg="email" href="#"></a>.</p>
+    <p><a href="confidentialite.html">Politique de confidentialité</a> · <a href="mentions-legales.html">Mentions légales</a></p>
+  </main>
+
+  <script src="config.js"></script>
+  <script src="legal.js"></script>
+</body>
+</html>

@@ -3,42 +3,48 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
   <title>Mentions légales — Aube Café</title>
   <meta name="robots" content="noindex">
-  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
-  <script>
-    try { var t = localStorage.getItem("theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
-  </script>
+  <script>try { var t = localStorage.getItem("theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}</script>
 </head>
 <body>
-  <main class="section">
-    <div class="container container--narrow">
-      <p><a href="index.html">← Retour au site</a></p>
-      <h1>Mentions légales</h1>
-      <p class="muted">⚠️ Modèle à compléter avec vos vraies informations avant la mise en ligne.</p>
-
-      <h2>Éditeur du site</h2>
-      <p>
-        Aube Café — [forme juridique : entreprise individuelle, SARL, SARLU…]<br>
-        Adresse : [adresse du siège], Abidjan, Côte d'Ivoire<br>
-        RCCM : [numéro, ex. CI-ABJ-XX-XXXX-XXX-XXXXX]<br>
-        N° de compte contribuable (NCC) : [numéro]<br>
-        Téléphone / WhatsApp : +225 05 01 49 24 04 — E-mail : [adresse e-mail]<br>
-        Responsable de la publication : [nom et prénom]
-      </p>
-
-      <h2>Hébergeur</h2>
-      <p>[Nom et adresse de l'hébergeur — ex. Netlify, Inc., 512 2nd Street, Suite 200, San Francisco, CA 94107, États-Unis]</p>
-
-      <h2>Propriété intellectuelle</h2>
-      <p>L'ensemble des contenus de ce site (textes, images, logo) est la propriété d'Aube Café, sauf mention contraire. Toute reproduction sans autorisation est interdite.</p>
-
-      <h2 id="confidentialite">Politique de confidentialité</h2>
-      <p>Ce site ne dépose aucun cookie de suivi ni de publicité. Votre panier est enregistré uniquement dans votre navigateur (stockage local) et n'est pas transmis à nos serveurs.</p>
-      <p>Lorsque vous envoyez une commande, les informations saisies (nom, adresse, contenu de la commande) sont transmises via WhatsApp. Elles sont utilisées uniquement pour traiter et livrer votre commande, et ne sont conservées que le temps nécessaire à sa gestion et à nos obligations comptables.</p>
-      <p>Conformément à la loi n° 2013-450 du 19 juin 2013 relative à la protection des données à caractère personnel, vous disposez d'un droit d'accès, de rectification et de suppression de vos données : contactez-nous sur WhatsApp ou à [adresse e-mail]. Vous pouvez également saisir l'ARTCI (Autorité de Régulation des Télécommunications/TIC de Côte d'Ivoire).</p>
+  <header class="legal-head">
+    <div class="container">
+      <a href="index.html"><img src="images/logo.svg" alt="Aube Café" width="150" height="48"></a>
+      <a href="index.html" class="btn btn--ghost btn--small">← Retour au site</a>
     </div>
+  </header>
+
+  <main class="container legal">
+    <p class="eyebrow">Informations</p>
+    <h1>Mentions légales</h1>
+    <p class="note">⚠️ Modèle à compléter avec vos vraies informations avant la mise en ligne définitive.</p>
+
+    <h2>Éditeur du site</h2>
+    <p>
+      <span data-cfg="brand">Aube Café</span> — [forme juridique : entreprise individuelle, SARL, SARLU…]<br>
+      Siège : <span data-cfg="address"></span>, Côte d'Ivoire<br>
+      RCCM : [numéro, ex. CI-ABJ-XX-XXXX-XXX-XXXXX]<br>
+      N° de compte contribuable (NCC) : [numéro]<br>
+      Téléphone / WhatsApp : <a data-cfg="phone" href="#"></a> — E-mail : <a data-cfg="email" href="#"></a><br>
+      Responsable de la publication : [nom et prénom]
+    </p>
+
+    <h2>Hébergeur</h2>
+    <p>[Nom et adresse de l'hébergeur — ex. Netlify, Inc., 512 2nd Street, Suite 200, San Francisco, CA 94107, États-Unis]</p>
+
+    <h2>Propriété intellectuelle</h2>
+    <p>L'ensemble des contenus de ce site (textes, illustrations, logo) est la propriété d'<span data-cfg="brand">Aube Café</span>, sauf mention contraire. Toute reproduction sans autorisation est interdite. Les noms des opérateurs de paiement cités appartiennent à leurs propriétaires respectifs.</p>
+    <p>Le site utilise la police Open Sauce Sans (licence SIL Open Font License) et la bibliothèque Three.js (licence MIT). La carte est fournie par OpenStreetMap (© contributeurs OpenStreetMap).</p>
+
+    <h2>Données personnelles</h2>
+    <p>Le traitement de vos données est détaillé dans notre <a href="confidentialite.html">politique de confidentialité</a>. Les conditions de livraison figurent dans notre <a href="livraison.html">politique de livraison</a>.</p>
   </main>
+
+  <script src="config.js"></script>
+  <script src="legal.js"></script>
 </body>
 </html>

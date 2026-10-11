@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
-  <title>Aube Café — Café torréfié à Abidjan, livré en 24 h</title>
-  <meta name="description" content="Aube Café, Abidjan : cafés torréfiés chaque semaine, du robusta ivoirien aux grandes origines. Commandez sur WhatsApp, livraison en 24 h ou retrait en boutique.">
-  <meta property="og:title" content="Aube Café — Café de spécialité">
-  <meta property="og:description" content="Commandez votre café en 1 minute sur WhatsApp. Livraison à Abidjan ou retrait en boutique.">
+  <title>Aube Café — Le café qui réveille Babi | Torréfié à Abidjan, livré en 24 h</title>
+  <meta name="description" content="Aube Café, torréfacteur à Abidjan : robusta ivoirien et 13 grands crus du monde, torréfiés chaque semaine. Commande sur WhatsApp, paiement Mobile Money, livraison en 24 h dans tout Abidjan.">
+  <meta property="og:title" content="Aube Café — Le café qui réveille Babi">
+  <meta property="og:description" content="Robusta ivoirien et grands crus du monde, torréfiés à Abidjan. Commandez sur WhatsApp, livraison en 24 h.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="images/partage.png">
   <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
@@ -22,278 +22,537 @@
 </head>
 <body>
 
-  <!-- ========== EN-TÊTE ========== -->
-  <header class="header">
-    <div class="container header__inner">
-      <a href="#" class="logo">
+  <!-- ===================== ICÔNES ===================== -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
+      <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></symbol>
+      <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5.5 7.5h13l-1 13h-11z"/><path d="M9 7.5a3 3 0 0 1 6 0"/></symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10"/></symbol>
+      <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+      <symbol id="i-right" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+      <symbol id="i-left" viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></symbol>
+      <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+      <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+      <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 5 5 9-10"/></symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></symbol>
+      <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+      <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+      <symbol id="i-headset" viewBox="0 0 24 24"><path d="M4 15v-3a8 8 0 0 1 16 0v3"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/><path d="M19 20a3 3 0 0 1-3 2h-3"/></symbol>
+      <symbol id="i-truck" viewBox="0 0 24 24"><path d="M3 6h11v10H3zM14 9h4l3 3v4h-7"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></symbol>
+      <symbol id="i-flame" viewBox="0 0 24 24"><path d="M12 3s5 4.5 5 10a5 5 0 0 1-10 0c0-2.5 1.5-4 1.5-4S9 12 11 12c0-4 1-6 1-9z"/></symbol>
+      <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 5 6v6c0 4.5 3 7.5 7 9 4-1.5 7-4.5 7-9V6z"/><path d="m9 12 2 2 4-4"/></symbol>
+      <symbol id="i-wallet" viewBox="0 0 24 24"><path d="M4 7h15a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a2 2 0 0 1 2-2h11v3"/><circle cx="16" cy="13.5" r="1.3"/></symbol>
+      <symbol id="i-cup" viewBox="0 0 24 24"><path d="M4 9h13v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z"/><path d="M17 10h1.5a2.5 2.5 0 0 1 0 5H17M8 3.5v2M12 3.5v2"/></symbol>
+      <symbol id="i-building" viewBox="0 0 24 24"><path d="M4 21V5l8-2v18M12 9h8v12M3 21h18M8 8v.01M8 12v.01M8 16v.01M16 13v.01M16 17v.01"/></symbol>
+      <symbol id="i-send" viewBox="0 0 24 24"><path d="m4 12 16-8-6 16-3-7z"/></symbol>
+      <symbol id="i-pause" viewBox="0 0 24 24"><path d="M9 6v12M15 6v12"/></symbol>
+      <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l10-6.5z"/></symbol>
+      <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+      <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></symbol>
+      <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3z"/></symbol>
+    </defs>
+  </svg>
+
+  <a href="#cafes" class="skip">Aller aux cafés</a>
+
+  <!-- ===================== EN-TÊTE ===================== -->
+  <header class="nav" id="nav">
+    <div class="container nav__bar">
+      <button type="button" class="icon-btn nav__burger" id="burger" aria-label="Ouvrir le menu" aria-controls="menu" aria-expanded="false">
+        <svg class="ic"><use href="#i-menu"/></svg>
+      </button>
+
+      <a href="#accueil" class="logo">
         <img src="images/logo.svg" alt="Aube Café" width="200" height="64" data-img="logo">
       </a>
-      <nav class="nav" aria-label="Navigation principale">
+
+      <nav class="nav__links" aria-label="Navigation principale">
         <a href="#cafes">Nos cafés</a>
-        <a href="#comment">Comment commander</a>
-        <a href="#boutique">La boutique</a>
-        <a href="#faq">FAQ</a>
+        <a href="#devis">Pros &amp; devis</a>
+        <a href="#boutique">Nous trouver</a>
+        <a href="#service">Service client</a>
       </nav>
-      <div class="header__actions">
-        <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Passer en mode sombre">
-          <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21 14.5A8.5 8.5 0 0 1 9.5 3a.6.6 0 0 0-.8-.7A10 10 0 1 0 21.7 15.3a.6.6 0 0 0-.7-.8z"/></svg>
-          <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><path stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg>
+
+      <form class="search" id="search" role="search" autocomplete="off">
+        <svg class="ic search__icon"><use href="#i-search"/></svg>
+        <label class="sr-only" for="search-input">Rechercher un café</label>
+        <input type="search" id="search-input" placeholder="Rechercher un café…" aria-controls="search-results" aria-expanded="false" aria-autocomplete="list">
+        <button type="button" class="search__close icon-btn" id="search-close" aria-label="Fermer la recherche"><svg class="ic"><use href="#i-close"/></svg></button>
+        <div class="search__results" id="search-results" role="listbox" hidden></div>
+      </form>
+
+      <div class="nav__actions">
+        <button type="button" class="icon-btn nav__search-toggle" id="search-toggle" aria-label="Rechercher"><svg class="ic"><use href="#i-search"/></svg></button>
+        <button type="button" class="icon-btn theme-toggle" id="theme-toggle" aria-label="Passer en mode sombre">
+          <svg class="ic icon-moon"><use href="#i-moon"/></svg>
+          <svg class="ic icon-sun"><use href="#i-sun"/></svg>
         </button>
-        <a href="#cafes" class="btn btn--small">Commander</a>
+        <div class="notif">
+          <button type="button" class="icon-btn" id="notif-btn" aria-label="Notifications" aria-controls="notif-panel" aria-expanded="false">
+            <svg class="ic"><use href="#i-bell"/></svg>
+            <span class="badge-count" id="notif-count" hidden>0</span>
+          </button>
+          <div class="notif__panel" id="notif-panel" role="dialog" aria-label="Notifications" hidden>
+            <div class="notif__head"><strong>Notifications</strong><button type="button" class="link-btn" id="notif-read">Tout marquer comme lu</button></div>
+            <ul class="notif__list" id="notif-list"></ul>
+          </div>
+        </div>
+        <button type="button" class="icon-btn cart-btn" id="cart-btn" aria-label="Ouvrir le panier" aria-controls="cart" aria-expanded="false">
+          <svg class="ic"><use href="#i-bag"/></svg>
+          <span class="badge-count" id="cart-count" hidden>0</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="container cats-wrap">
+      <div class="cats" id="cats" role="tablist" aria-label="Catégories de cafés">
+        <!-- généré par script.js -->
       </div>
     </div>
   </header>
 
-  <main>
+  <!-- ===================== MENU (hamburger) ===================== -->
+  <div class="overlay" id="overlay" hidden></div>
+  <aside class="drawer drawer--left" id="menu" aria-label="Menu" aria-hidden="true">
+    <div class="drawer__head">
+      <img src="images/logo.svg" alt="Aube Café" width="150" height="48" data-img="logo">
+      <button type="button" class="icon-btn" data-close aria-label="Fermer le menu"><svg class="ic"><use href="#i-close"/></svg></button>
+    </div>
+    <nav class="menu__links" aria-label="Menu principal">
+      <a href="#accueil">Accueil</a>
+      <a href="#cafes">Nos cafés</a>
+      <a href="#avantages">Notre engagement</a>
+      <a href="#paiement">Moyens de paiement</a>
+      <a href="#devis">Entreprises &amp; devis</a>
+      <a href="#boutique">Nous trouver</a>
+      <a href="#service">Service client</a>
+      <a href="#contact">Renseignements</a>
+    </nav>
+    <p class="menu__label">Catégories</p>
+    <div class="menu__cats" id="menu-cats"></div>
+    <div class="menu__foot">
+      <p class="status" data-status><span class="status__dot"></span><span class="status__text">…</span></p>
+      <a class="btn btn--wa btn--block" data-wa="Bonjour Aube Café ! J'ai une question :" target="_blank" rel="noopener"><svg class="ic"><use href="#i-wa"/></svg> Nous écrire sur WhatsApp</a>
+    </div>
+  </aside>
 
-    <!-- ========== HERO ========== -->
-    <section class="hero">
-      <div class="container hero__inner">
-        <div class="hero__text">
-          <p class="eyebrow">Torréfié chaque semaine</p>
-          <h1>Le bon café,<br>tout simplement.</h1>
-          <p class="lead">
-            Du robusta de Côte d'Ivoire aux grandes origines du monde, torréfiés en petites quantités à Abidjan.
-            Commandez en une minute sur WhatsApp, faites-vous livrer ou passez en boutique.
-          </p>
-          <div class="hero__actions">
-            <a href="#cafes" class="btn">Choisir mon café</a>
-            <a href="#boutique" class="btn btn--ghost">Visiter la boutique</a>
+  <main id="main">
+
+    <!-- ===================== HERO / DIAPORAMA ===================== -->
+    <section class="hero" id="accueil" aria-roledescription="carrousel" aria-label="À la une">
+      <div class="container">
+        <div class="hero__card" id="hero">
+          <div class="slides" id="slides" aria-live="polite"><!-- généré par script.js --></div>
+
+          <svg class="hero__badge" viewBox="0 0 200 200" aria-hidden="true">
+            <defs><path id="circle" d="M100 100m-74 0a74 74 0 1 1 148 0a74 74 0 1 1-148 0"/></defs>
+            <text><textPath href="#circle" textLength="458" lengthAdjust="spacing">TORRÉFIÉ À ABIDJAN ✦ LIVRÉ EN 24 H ✦ AKWABA ✦</textPath></text>
+            <g transform="translate(76 76) scale(.75)"><circle cx="32" cy="32" r="32" fill="#e0a85a"/><path d="M15 41a17 17 0 0 1 34 0z" fill="#2a1810"/><rect x="10" y="44" width="44" height="3.2" rx="1.6" fill="#2a1810"/></g>
+          </svg>
+
+          <div class="hero__controls">
+            <div class="dots" id="dots" role="tablist" aria-label="Choisir une diapositive"></div>
+            <div class="hero__arrows">
+              <button type="button" class="icon-btn icon-btn--light" id="slide-pause" aria-label="Mettre le diaporama en pause"><svg class="ic"><use href="#i-pause"/></svg></button>
+              <button type="button" class="icon-btn icon-btn--light" id="slide-prev" aria-label="Diapositive précédente"><svg class="ic"><use href="#i-left"/></svg></button>
+              <button type="button" class="icon-btn icon-btn--light" id="slide-next" aria-label="Diapositive suivante"><svg class="ic"><use href="#i-right"/></svg></button>
+            </div>
           </div>
-          <ul class="hero__proof">
-            <li><strong>Robusta</strong> ivoirien</li>
-            <li><strong>&lt; 7 jours</strong> après torréfaction</li>
-            <li><strong>Livraison 24 h</strong> à Abidjan</li>
-          </ul>
         </div>
-        <div class="hero__visual">
-          <img src="images/accueil.svg" alt="Une tasse de café fumante devant un soleil levant" width="500" height="540" data-img="hero">
+
+        <ul class="hero__stats">
+          <li><svg class="ic"><use href="#i-globe"/></svg><span><strong><span data-count-products>14</span> cafés</strong> d'ici et d'ailleurs</span></li>
+          <li><svg class="ic"><use href="#i-truck"/></svg><span><strong>24 h</strong> pour vous livrer à Abidjan</span></li>
+          <li><svg class="ic"><use href="#i-wallet"/></svg><span><strong>Mobile Money</strong> et espèces acceptés</span></li>
+          <li><svg class="ic"><use href="#i-headset"/></svg><span><strong>7 j / 7</strong> service client à l'écoute</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Bandeau défilant -->
+    <div class="marquee" aria-hidden="true"><div class="marquee__track" id="marquee"></div></div>
+
+    <!-- ===================== CAFÉS ===================== -->
+    <section class="section" id="cafes">
+      <div class="container">
+        <header class="section__head section__head--row">
+          <div>
+            <p class="eyebrow">Notre carte</p>
+            <h2>Choisissez votre café, <span class="hl">on s'occupe du reste.</span></h2>
+            <p class="muted">Quatorze cafés d'ici et d'ailleurs, en grains ou moulus selon votre machine. Vous choisissez, nous préparons avec soin.</p>
+          </div>
+          <p class="result-count" id="result-count" aria-live="polite"></p>
+        </header>
+        <div class="products" id="products"><!-- généré par script.js --></div>
+        <div class="empty" id="empty" hidden>
+          <p class="empty__emoji" aria-hidden="true">☕</p>
+          <p><strong>Aucun café ne correspond à votre recherche.</strong></p>
+          <p class="muted">Essayez « Éthiopie », « chocolat » ou « doux », ou affichez toute la carte.</p>
+          <button type="button" class="btn btn--ghost" id="reset-filters">Voir tous les cafés</button>
         </div>
       </div>
     </section>
 
-    <!-- ========== ATOUTS ========== -->
-    <section class="features">
-      <div class="container features__grid">
-        <article class="feature">
-          <span class="feature__icon" aria-hidden="true">🌱</span>
-          <h3>Origine tracée</h3>
-          <p>Nous travaillons avec des producteurs ivoiriens et des importateurs de confiance, et indiquons la provenance de chaque lot.</p>
-        </article>
-        <article class="feature">
-          <span class="feature__icon" aria-hidden="true">🔥</span>
-          <h3>Torréfaction fraîche</h3>
-          <p>Torréfié en petites quantités chaque semaine pour un maximum d'arômes.</p>
-        </article>
-        <article class="feature">
-          <span class="feature__icon" aria-hidden="true">⚙️</span>
-          <h3>Mouture sur mesure</h3>
-          <p>En grains, ou moulu pour votre machine : espresso, filtre, piston ou moka.</p>
-        </article>
-      </div>
-    </section>
-
-    <!-- ========== PRODUITS + PANIER ========== -->
-    <section id="cafes" class="section">
+    <!-- ===================== ENGAGEMENT ===================== -->
+    <section class="section section--alt" id="avantages">
       <div class="container">
         <header class="section__head">
-          <p class="eyebrow">Nos cafés</p>
-          <h2>Composez votre commande</h2>
-          <p class="muted">Ajoutez vos cafés, puis envoyez la commande sur WhatsApp. Nous confirmons la disponibilité et le paiement directement avec vous.</p>
+          <p class="eyebrow">Notre engagement</p>
+          <h2>Le café, c'est sérieux. <span class="hl">Chez nous, on ne blague pas avec ça.</span></h2>
         </header>
-
-        <div class="shop">
-          <div class="products" id="products">
-            <!-- Les produits sont générés par script.js à partir de la configuration -->
-          </div>
-
-          <aside class="cart" id="cart" aria-labelledby="cart-title">
-            <h3 id="cart-title">Votre commande</h3>
-            <ul class="cart__items" id="cart-items"></ul>
-            <p class="cart__empty" id="cart-empty">Votre panier est vide. Ajoutez un café pour commencer.</p>
-
-            <form id="order-form" class="order-form" novalidate>
-              <fieldset class="mode">
-                <legend>Mode de réception</legend>
-                <label class="mode__opt">
-                  <input type="radio" name="mode" value="livraison" checked>
-                  <span>Livraison</span>
-                </label>
-                <label class="mode__opt">
-                  <input type="radio" name="mode" value="retrait">
-                  <span>Retrait en boutique</span>
-                </label>
-              </fieldset>
-
-              <label class="field">
-                <span>Votre prénom et nom</span>
-                <input type="text" name="name" autocomplete="name" required>
-              </label>
-
-              <label class="field" id="address-field">
-                <span>Adresse de livraison</span>
-                <textarea name="address" rows="2" autocomplete="street-address"></textarea>
-              </label>
-
-              <label class="field">
-                <span>Remarque (facultatif)</span>
-                <input type="text" name="note" placeholder="Ex. : créneau préféré, digicode…">
-              </label>
-
-              <div class="cart__total">
-                <span>Sous-total</span>
-                <strong id="cart-subtotal">0,00 €</strong>
-              </div>
-              <p class="cart__shipping muted" id="cart-shipping"></p>
-
-              <p class="form-error" id="form-error" role="alert"></p>
-
-              <button type="submit" class="btn btn--whatsapp btn--block" id="order-btn">
-                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3z"/></svg>
-                Envoyer ma commande sur WhatsApp
-              </button>
-              <p class="muted small">WhatsApp s'ouvre avec votre commande déjà rédigée. Il ne vous reste qu'à appuyer sur « Envoyer ».</p>
-            </form>
-          </aside>
+        <div class="features">
+          <article class="feature">
+            <span class="feature__icon"><svg class="ic"><use href="#i-flame"/></svg></span>
+            <h3>Torréfié chaque semaine</h3>
+            <p>Nos cafés sont torréfiés en petites quantités à Abidjan. Vous recevez un café frais, pas un paquet qui a dormi en rayon.</p>
+          </article>
+          <article class="feature">
+            <span class="feature__icon"><svg class="ic"><use href="#i-globe"/></svg></span>
+            <h3>Le robusta ivoirien à l'honneur</h3>
+            <p>La Côte d'Ivoire est une grande terre de café. Nous valorisons ce patrimoine aux côtés des plus beaux crus du monde.</p>
+          </article>
+          <article class="feature">
+            <span class="feature__icon"><svg class="ic"><use href="#i-truck"/></svg></span>
+            <h3>Livré en 24 heures</h3>
+            <p>De Cocody à Yopougon, notre livreur arrive vite et bien. À la maison ou au bureau, on vous trouve.</p>
+          </article>
+          <article class="feature">
+            <span class="feature__icon"><svg class="ic"><use href="#i-wallet"/></svg></span>
+            <h3>Un paiement sans stress</h3>
+            <p>Orange Money, MTN MoMo, Moov Money, Wave ou espèces : réglez comme ça vous arrange, après confirmation.</p>
+          </article>
         </div>
-      </div>
-    </section>
 
-    <!-- ========== COMMENT COMMANDER ========== -->
-    <section id="comment" class="section section--alt">
-      <div class="container">
-        <header class="section__head">
-          <p class="eyebrow">Simple et rapide</p>
-          <h2>Comment commander ?</h2>
-        </header>
+        <h3 class="steps__title">Comment commander ? <span class="muted">Simple comme bonjour.</span></h3>
         <ol class="steps">
-          <li class="step">
-            <span class="step__num">1</span>
-            <h3>Choisissez</h3>
-            <p>Sélectionnez vos cafés, la mouture et la quantité.</p>
-          </li>
-          <li class="step">
-            <span class="step__num">2</span>
-            <h3>Envoyez sur WhatsApp</h3>
-            <p>Votre commande est rédigée automatiquement : un clic suffit.</p>
-          </li>
-          <li class="step">
-            <span class="step__num">3</span>
-            <h3>Recevez</h3>
-            <p>Nous confirmons, puis livrons chez vous ou préparons votre retrait.</p>
-          </li>
+          <li class="step"><span class="step__num">1</span><div><h4>Choisissez</h4><p>Ajoutez vos cafés au panier et précisez la mouture.</p></div></li>
+          <li class="step"><span class="step__num">2</span><div><h4>Envoyez sur WhatsApp</h4><p>Votre commande est rédigée pour vous. Un clic, c'est parti.</p></div></li>
+          <li class="step"><span class="step__num">3</span><div><h4>Recevez et savourez</h4><p>Nous confirmons, vous réglez, et le café arrive chez vous.</p></div></li>
         </ol>
       </div>
     </section>
 
-    <!-- ========== BOUTIQUE PHYSIQUE ========== -->
-    <section id="boutique" class="section">
-      <div class="container boutique">
+    <!-- ===================== PAIEMENT ===================== -->
+    <section class="section" id="paiement">
+      <div class="container pay">
         <div>
-          <p class="eyebrow">La boutique</p>
-          <h2>Passez nous voir</h2>
-          <p class="muted">Dégustez sur place, repartez avec un café fraîchement moulu ou récupérez votre commande.</p>
-          <dl class="infos">
-            <div>
-              <dt>Adresse</dt>
-              <dd id="shop-address"></dd>
-            </div>
-            <div>
-              <dt>Horaires</dt>
-              <dd><ul class="hours" id="shop-hours"></ul></dd>
-            </div>
-            <div>
-              <dt>Contact</dt>
-              <dd><a href="#" id="shop-phone"></a></dd>
-            </div>
-          </dl>
-          <a href="#" class="btn btn--ghost" id="maps-link" target="_blank" rel="noopener">Voir l'itinéraire</a>
+          <p class="eyebrow">Moyens de paiement</p>
+          <h2>Payez comme <span class="hl">ça vous arrange.</span></h2>
+          <p class="muted">Après confirmation de votre commande sur WhatsApp, nous vous communiquons le montant exact et le numéro marchand. Aucun paiement n'est effectué sur ce site.</p>
+          <p class="pay__safe"><svg class="ic"><use href="#i-shield"/></svg><span><strong>Sécurité :</strong> Aube Café ne vous demandera jamais votre code secret Mobile Money ni le code de votre carte.</span></p>
         </div>
-        <figure class="boutique__photo">
-          <img src="images/boutique.svg" alt="La devanture de la boutique Aube Café" width="800" height="600" loading="lazy" data-img="boutique">
-          <figcaption>Espresso · Filtre · Pâtisseries maison</figcaption>
-        </figure>
+        <ul class="pay__list" id="pay-list"><!-- généré par script.js --></ul>
       </div>
     </section>
 
-    <!-- ========== AVIS ========== -->
-    <!-- À REMPLACER par de vrais avis clients dès que vous en avez : ne publiez jamais de faux avis. -->
-    <section class="section section--alt" hidden id="reviews-section">
+    <!-- ===================== DEVIS ===================== -->
+    <section class="section section--dark" id="devis">
+      <div class="container quote">
+        <div class="quote__intro">
+          <p class="eyebrow">Entreprises &amp; événements</p>
+          <h2>Un devis sur mesure, <span class="hl">en moins de 24 heures.</span></h2>
+          <p>Bureaux, hôtels, restaurants, maquis, mariages, séminaires ou revendeurs : exposez-nous vos besoins, nous vous proposons une offre adaptée, avec des remises selon les volumes.</p>
+          <ul class="tiers">
+            <li><strong>−5 %</strong><span>dès 5 kg / mois</span></li>
+            <li><strong>−10 %</strong><span>dès 10 kg / mois</span></li>
+            <li><strong>−15 %</strong><span>dès 25 kg / mois</span></li>
+            <li><strong>−20 %</strong><span>dès 50 kg / mois</span></li>
+          </ul>
+          <p class="small quote__note">Accompagnement possible pour l'équipement (machine, moulin) et la formation de vos équipes : parlons-en.</p>
+        </div>
+
+        <form class="card form" id="quote-form" novalidate>
+          <h3>Demande de devis</h3>
+          <div class="form__grid">
+            <label class="field"><span>Nom et prénom *</span><input name="name" autocomplete="name" required></label>
+            <label class="field"><span>Structure</span><input name="company" autocomplete="organization" placeholder="Entreprise, hôtel, association…"></label>
+            <label class="field"><span>Téléphone *</span><input name="phone" type="tel" autocomplete="tel" placeholder="+225 07 00 00 00 00" required></label>
+            <label class="field"><span>Commune</span><select name="commune" data-zones></select></label>
+          </div>
+          <fieldset class="field">
+            <legend>Type de besoin</legend>
+            <div class="chips-input">
+              <label><input type="radio" name="type" value="Bureau" checked><span>Bureau</span></label>
+              <label><input type="radio" name="type" value="Hôtel / restaurant / maquis"><span>Hôtel · Restaurant · Maquis</span></label>
+              <label><input type="radio" name="type" value="Événement"><span>Événement</span></label>
+              <label><input type="radio" name="type" value="Revendeur"><span>Revendeur</span></label>
+            </div>
+          </fieldset>
+          <label class="field">
+            <span>Volume estimé : <strong id="kg-out">10 kg</strong> par mois</span>
+            <input type="range" name="kg" min="1" max="100" value="10" id="kg">
+          </label>
+          <fieldset class="field">
+            <legend>Cafés souhaités</legend>
+            <div class="chips-input chips-input--small" id="quote-cafes"></div>
+          </fieldset>
+          <label class="field"><span>Précisions</span><textarea name="details" rows="2" placeholder="Date de l'événement, nombre de personnes, besoin de machine…"></textarea></label>
+          <div class="estimate" id="estimate" aria-live="polite"></div>
+          <p class="form-error" data-error role="alert"></p>
+          <button type="submit" class="btn btn--accent btn--block"><svg class="ic"><use href="#i-send"/></svg> Recevoir mon devis sur WhatsApp</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- ===================== BOUTIQUE & CARTE ===================== -->
+    <section class="section" id="boutique">
       <div class="container">
         <header class="section__head">
-          <p class="eyebrow">Ils en parlent</p>
-          <h2>Avis clients</h2>
+          <p class="eyebrow">Nous trouver</p>
+          <h2>Passez nous voir, <span class="hl">on vous attend.</span></h2>
+          <p class="muted">Venez déguster sur place, humer les arômes et repartir avec un café moulu à la minute. Bonne arrivée chez nous !</p>
         </header>
-        <div class="reviews" id="reviews"></div>
+        <div class="find">
+          <div class="map">
+            <a class="map__fallback" id="map-fallback" target="_blank" rel="noopener"><svg class="ic"><use href="#i-pin"/></svg><span>Ouvrir la carte dans Google Maps</span></a>
+            <iframe id="map" title="Carte : emplacement de la boutique Aube Café" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+          <div class="card find__info">
+            <img src="images/boutique.svg" alt="La devanture de la boutique Aube Café" width="800" height="600" loading="lazy" data-img="boutique" class="find__photo">
+            <p class="status" data-status><span class="status__dot"></span><span class="status__text">…</span></p>
+            <dl class="infos">
+              <div><dt><svg class="ic"><use href="#i-pin"/></svg> Adresse</dt><dd id="shop-address"></dd></div>
+              <div><dt><svg class="ic"><use href="#i-clock"/></svg> Horaires</dt><dd><ul class="hours" id="shop-hours"></ul></dd></div>
+              <div><dt><svg class="ic"><use href="#i-phone"/></svg> Téléphone</dt><dd><a href="#" id="shop-phone"></a></dd></div>
+            </dl>
+            <a href="#" class="btn btn--block" id="maps-link" target="_blank" rel="noopener"><svg class="ic"><use href="#i-pin"/></svg> Itinéraire avec Google Maps</a>
+          </div>
+        </div>
+
+        <div class="zones">
+          <h3>Zones et frais de livraison</h3>
+          <p class="muted small" id="zones-note"></p>
+          <ul class="zones__list" id="zones-list"></ul>
+        </div>
       </div>
     </section>
 
-    <!-- ========== FAQ ========== -->
-    <section id="faq" class="section">
-      <div class="container container--narrow">
+    <!-- ===================== SERVICE CLIENT ===================== -->
+    <section class="section section--alt" id="service">
+      <div class="container">
         <header class="section__head">
-          <p class="eyebrow">Questions fréquentes</p>
-          <h2>FAQ</h2>
+          <p class="eyebrow">Service client</p>
+          <h2>Une question ? <span class="hl">On est ensemble.</span></h2>
+          <p class="muted">Notre équipe vous répond sept jours sur sept, aux heures d'ouverture. Choisissez le canal qui vous convient.</p>
+          <p class="status status--big" data-status><span class="status__dot"></span><span class="status__text">…</span></p>
         </header>
+        <div class="support">
+          <a class="support__card" data-wa="Bonjour Aube Café ! J'ai besoin d'aide :" target="_blank" rel="noopener">
+            <span class="support__icon support__icon--wa"><svg class="ic"><use href="#i-wa"/></svg></span>
+            <strong>WhatsApp</strong><span class="muted">Réponse rapide, idéal pour suivre une commande.</span>
+            <span class="support__go">Écrire <svg class="ic"><use href="#i-right"/></svg></span>
+          </a>
+          <a class="support__card" id="support-call">
+            <span class="support__icon"><svg class="ic"><use href="#i-phone"/></svg></span>
+            <strong>Téléphone</strong><span class="muted" id="support-phone"></span>
+            <span class="support__go">Appeler <svg class="ic"><use href="#i-right"/></svg></span>
+          </a>
+          <a class="support__card" id="support-mail">
+            <span class="support__icon"><svg class="ic"><use href="#i-mail"/></svg></span>
+            <strong>E-mail</strong><span class="muted" id="support-email"></span>
+            <span class="support__go">Écrire <svg class="ic"><use href="#i-right"/></svg></span>
+          </a>
+        </div>
+
         <div class="faq">
+          <h3>Questions fréquentes</h3>
           <details>
             <summary>Comment se passe le paiement ?</summary>
-            <p>Après réception de votre commande sur WhatsApp, nous vous confirmons le montant. Vous payez par Mobile Money (Orange Money, MTN MoMo, Moov Money, Wave), en espèces à la livraison ou au retrait en boutique.</p>
+            <p>Une fois votre commande reçue sur WhatsApp, nous confirmons la disponibilité et le montant exact. Vous réglez ensuite par Orange Money, MTN MoMo, Moov Money, Wave, Djamo, en espèces à la livraison, ou par carte en boutique. Nous ne vous demanderons jamais votre code secret.</p>
           </details>
           <details>
-            <summary>Quels sont les délais de livraison ?</summary>
-            <p id="faq-delivery"></p>
+            <summary>En combien de temps suis-je livré ?</summary>
+            <p>Sous 24 heures ouvrées dans tout Abidjan, du lundi au samedi. Les frais dépendent de votre commune et la livraison est offerte à partir de 20 000 F CFA. Pour l'intérieur du pays, écrivez-nous : nous trouverons une solution. Tous les détails figurent dans notre <a href="livraison.html">politique de livraison</a>.</p>
           </details>
           <details>
             <summary>Grains ou moulu : que choisir ?</summary>
-            <p>Les grains gardent leurs arômes plus longtemps si vous avez un moulin. Sinon, choisissez la mouture adaptée à votre machine : nous moulons au moment de l'expédition.</p>
+            <p>Si vous possédez un moulin, prenez les grains : ils conservent leurs arômes plus longtemps. Sinon, indiquez votre machine (espresso, filtre, piston, moka) et nous moulons au plus près de la livraison.</p>
           </details>
           <details>
-            <summary>Comment conserver mon café ?</summary>
-            <p>Dans son sachet refermé ou une boîte hermétique, à l'abri de la lumière, de la chaleur et de l'humidité. Évitez le réfrigérateur. Idéalement, consommez-le dans le mois qui suit l'ouverture.</p>
+            <summary>Robusta ou arabica, quelle différence ?</summary>
+            <p>Le robusta, très présent en Côte d'Ivoire, est corsé, riche en caféine et donne une belle crème. L'arabica est plus doux et plus aromatique. Notre Assemblage Maison marie les deux : c'est doux et ça tient bien.</p>
           </details>
           <details>
-            <summary>Proposez-vous du café pour les professionnels ?</summary>
-            <p>Oui. Écrivez-nous sur WhatsApp pour un tarif adapté aux bureaux, restaurants et hôtels.</p>
+            <summary>Comment conserver mon café sous notre climat ?</summary>
+            <p>Gardez-le dans son sachet bien refermé ou dans une boîte hermétique, à l'abri de la chaleur, de la lumière et de l'humidité. Évitez le réfrigérateur. L'idéal est de le consommer dans le mois qui suit l'ouverture.</p>
+          </details>
+          <details>
+            <summary>Puis-je modifier ou annuler ma commande ?</summary>
+            <p>Oui, tant qu'elle n'a pas été remise au livreur. Écrivez-nous simplement sur WhatsApp en rappelant votre nom : on s'arrange.</p>
           </details>
         </div>
       </div>
     </section>
 
-    <!-- ========== APPEL FINAL ========== -->
-    <section class="cta">
-      <div class="container cta__inner">
-        <h2>Une question ? Écrivez-nous.</h2>
-        <p>Nous répondons généralement en moins d'une heure pendant les horaires d'ouverture.</p>
-        <a href="#" class="btn btn--whatsapp" id="cta-whatsapp" target="_blank" rel="noopener">Discuter sur WhatsApp</a>
+    <!-- ===================== RENSEIGNEMENTS ===================== -->
+    <section class="section" id="contact">
+      <div class="container contact">
+        <div>
+          <p class="eyebrow">Renseignements</p>
+          <h2>Écrivez-nous, <span class="hl">on vous répond vite.</span></h2>
+          <p class="muted">Une question sur un café, une commande spéciale, un partenariat ? Remplissez ce formulaire : votre message s'ouvrira dans WhatsApp, prêt à être envoyé. Vous préférez l'e-mail ? C'est possible aussi.</p>
+          <ul class="contact__points">
+            <li><svg class="ic"><use href="#i-clock"/></svg> Réponse en moins d'une heure aux heures d'ouverture</li>
+            <li><svg class="ic"><use href="#i-shield"/></svg> Vos informations servent uniquement à vous répondre</li>
+          </ul>
+        </div>
+        <form class="card form" id="contact-form" novalidate>
+          <div class="form__grid">
+            <label class="field"><span>Nom et prénom *</span><input name="name" autocomplete="name" required></label>
+            <label class="field"><span>Téléphone</span><input name="phone" type="tel" autocomplete="tel" placeholder="+225 07 00 00 00 00"></label>
+            <label class="field"><span>E-mail</span><input name="email" type="email" autocomplete="email" placeholder="vous@exemple.ci"></label>
+            <label class="field"><span>Sujet</span>
+              <select name="subject">
+                <option>Question sur un café</option>
+                <option>Suivi de commande</option>
+                <option>Commande spéciale ou cadeau</option>
+                <option>Partenariat</option>
+                <option>Autre demande</option>
+              </select>
+            </label>
+          </div>
+          <label class="field"><span>Votre message *</span><textarea name="message" rows="4" required placeholder="Dites-nous tout…"></textarea></label>
+          <label class="consent"><input type="checkbox" name="consent" required> <span>J'accepte que mes informations soient utilisées pour répondre à ma demande, conformément à la <a href="confidentialite.html">politique de confidentialité</a>. *</span></label>
+          <p class="form-error" data-error role="alert"></p>
+          <div class="form__actions">
+            <button type="submit" class="btn btn--wa" value="wa"><svg class="ic"><use href="#i-wa"/></svg> Envoyer sur WhatsApp</button>
+            <button type="submit" class="btn btn--ghost" value="mail"><svg class="ic"><use href="#i-mail"/></svg> Envoyer par e-mail</button>
+          </div>
+        </form>
       </div>
     </section>
 
   </main>
 
-  <!-- ========== PIED DE PAGE ========== -->
+  <!-- ===================== PIED DE PAGE ===================== -->
   <footer class="footer">
-    <div class="container footer__inner">
-      <img src="images/logo.svg" alt="Aube Café" width="150" height="48" loading="lazy" class="footer__logo" data-img="logo">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <img src="images/logo-blanc.svg" alt="Aube Café" width="170" height="54" loading="lazy">
+        <p>Le café qui réveille Babi. Torréfié à Abidjan, servi avec le sourire.</p>
+        <a class="btn btn--wa btn--small" data-wa="Bonjour Aube Café !" target="_blank" rel="noopener"><svg class="ic"><use href="#i-wa"/></svg> WhatsApp</a>
+      </div>
+      <div>
+        <h4>Explorer</h4>
+        <ul>
+          <li><a href="#cafes">Nos cafés</a></li>
+          <li><a href="#devis">Entreprises &amp; devis</a></li>
+          <li><a href="#boutique">Nous trouver</a></li>
+          <li><a href="#contact">Renseignements</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Informations</h4>
+        <ul>
+          <li><a href="livraison.html">Politique de livraison</a></li>
+          <li><a href="confidentialite.html">Politique de confidentialité</a></li>
+          <li><a href="mentions-legales.html">Mentions légales</a></li>
+          <li><a href="#service">Questions fréquentes</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul class="footer__contact">
+          <li id="footer-address"></li>
+          <li><a href="#" id="footer-phone"></a></li>
+          <li><a href="#" id="footer-email"></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer__bottom">
       <p>© <span id="year"></span> <span data-brand>Aube Café</span>. Tous droits réservés.</p>
-      <nav aria-label="Liens légaux">
-        <a href="mentions-legales.html">Mentions légales</a>
-        <a href="mentions-legales.html#confidentialite">Confidentialité</a>
-      </nav>
+      <ul class="footer__pay" id="footer-pay"></ul>
     </div>
   </footer>
 
-  <!-- Bouton WhatsApp flottant -->
-  <a href="#" class="wa-float" id="wa-float" target="_blank" rel="noopener" aria-label="Nous écrire sur WhatsApp">
-    <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3z"/></svg>
-  </a>
+  <!-- ===================== PANIER (tiroir) ===================== -->
+  <aside class="drawer drawer--right" id="cart" aria-labelledby="cart-title" aria-hidden="true">
+    <div class="drawer__head">
+      <h2 id="cart-title">Votre panier</h2>
+      <button type="button" class="icon-btn" data-close aria-label="Fermer le panier"><svg class="ic"><use href="#i-close"/></svg></button>
+    </div>
+    <div class="drawer__body">
+      <ul class="cart__items" id="cart-items"></ul>
+      <div class="cart__empty" id="cart-empty">
+        <p class="empty__emoji" aria-hidden="true">🛍️</p>
+        <p><strong>Votre panier est vide.</strong></p>
+        <p class="muted">Ajoutez un café pour commencer : la journée commence mieux comme ça.</p>
+        <a href="#cafes" class="btn btn--ghost" data-close>Voir la carte</a>
+      </div>
 
-  <!-- Barre panier mobile -->
-  <a href="#cart" class="cart-bar" id="cart-bar" hidden>
-    <span id="cart-bar-count">0 article</span>
-    <strong id="cart-bar-total">0,00 €</strong>
-    <span>Voir ma commande →</span>
-  </a>
+      <form id="order-form" class="form order" novalidate>
+        <fieldset class="seg">
+          <legend class="sr-only">Mode de réception</legend>
+          <label><input type="radio" name="mode" value="livraison" checked><span><svg class="ic"><use href="#i-truck"/></svg> Livraison</span></label>
+          <label><input type="radio" name="mode" value="retrait"><span><svg class="ic"><use href="#i-pin"/></svg> Retrait en boutique</span></label>
+        </fieldset>
+        <div class="form__grid">
+          <label class="field"><span>Nom et prénom *</span><input name="name" autocomplete="name" required></label>
+          <label class="field"><span>Téléphone</span><input name="phone" type="tel" autocomplete="tel" placeholder="+225 07 00 00 00 00"></label>
+        </div>
+        <div data-delivery>
+          <label class="field"><span>Commune *</span><select name="commune" data-zones data-with-fee></select></label>
+          <label class="field"><span>Adresse ou repère *</span><input name="address" placeholder="Ex. : Angré 8e tranche, près de la pharmacie…"></label>
+        </div>
+        <fieldset class="field">
+          <legend>Paiement souhaité</legend>
+          <div class="chips-input chips-input--small" id="order-pay"></div>
+        </fieldset>
+        <label class="field"><span>Remarque</span><input name="note" placeholder="Créneau préféré, code d'accès…"></label>
+
+        <div class="totals">
+          <div><span>Sous-total</span><span id="t-sub">0 F CFA</span></div>
+          <div><span>Livraison</span><span id="t-ship">—</span></div>
+          <p class="totals__hint" id="t-hint"></p>
+          <div class="totals__grand"><span>Total</span><strong id="t-total">0 F CFA</strong></div>
+        </div>
+        <p class="form-error" data-error role="alert"></p>
+        <button type="submit" class="btn btn--wa btn--block btn--lg"><svg class="ic"><use href="#i-wa"/></svg> Commander sur WhatsApp</button>
+        <p class="muted small center">WhatsApp s'ouvre avec votre commande déjà rédigée : il ne reste qu'à appuyer sur « Envoyer ».</p>
+      </form>
+    </div>
+  </aside>
+
+  <!-- ===================== SERVICE CLIENT FLOTTANT ===================== -->
+  <div class="helpdesk" id="helpdesk">
+    <div class="helpdesk__panel" id="helpdesk-panel" role="dialog" aria-label="Service client" hidden>
+      <div class="helpdesk__head">
+        <span class="helpdesk__avatar"><svg class="ic"><use href="#i-headset"/></svg></span>
+        <div><strong>Service client Aube Café</strong><p class="status" data-status><span class="status__dot"></span><span class="status__text">…</span></p></div>
+        <button type="button" class="icon-btn icon-btn--light" id="helpdesk-close" aria-label="Fermer"><svg class="ic"><use href="#i-close"/></svg></button>
+      </div>
+      <div class="helpdesk__body">
+        <p class="bubble">Akwaba ! 👋 Comment pouvons-nous vous aider aujourd'hui ?</p>
+        <div class="helpdesk__quick">
+          <a data-wa="Bonjour Aube Café ! Je souhaite suivre ma commande au nom de :" target="_blank" rel="noopener">📦 Suivre ma commande</a>
+          <a data-wa="Bonjour Aube Café ! J'aimerais un conseil pour choisir mon café." target="_blank" rel="noopener">☕ Être conseillé sur un café</a>
+          <a href="#devis" data-helpdesk-close>🏢 Demander un devis</a>
+          <a data-wa="Bonjour Aube Café ! J'ai une question :" target="_blank" rel="noopener">💬 Autre question</a>
+        </div>
+        <div class="helpdesk__alt">
+          <a id="helpdesk-call"><svg class="ic"><use href="#i-phone"/></svg> Appeler</a>
+          <a id="helpdesk-mail"><svg class="ic"><use href="#i-mail"/></svg> E-mail</a>
+        </div>
+      </div>
+    </div>
+    <p class="helpdesk__hint" id="helpdesk-hint" hidden>Akwaba ! Une question ? 👋</p>
+    <button type="button" class="helpdesk__btn" id="helpdesk-btn" aria-label="Contacter le service client" aria-controls="helpdesk-panel" aria-expanded="false">
+      <svg class="ic"><use href="#i-headset"/></svg>
+      <span class="helpdesk__online" data-online-dot></span>
+    </button>
+  </div>
+
+  <!-- Barre panier (mobile) -->
+  <button type="button" class="cart-bar" id="cart-bar" hidden>
+    <span><svg class="ic"><use href="#i-bag"/></svg> <span id="cart-bar-count">0 article</span></span>
+    <strong id="cart-bar-total">0 F CFA</strong>
+  </button>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script src="config.js"></script>
   <script src="script.js"></script>

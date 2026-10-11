@@ -77,8 +77,8 @@ function init() {
   // Hauteur visible (en unités 3D) à une profondeur donnée
   const visibleHeight = (z) => 2 * (camera.position.z - z) * Math.tan(THREE.MathUtils.degToRad(camera.fov / 2));
 
-  // Largeur de la marge à gauche/droite du contenu (conteneur de 1140 px + 16 px)
-  const gutter = () => Math.max(16, (window.innerWidth - 1140) / 2 + 16);
+  // Largeur de la marge à gauche/droite du contenu (conteneur de 1240 px + 16 px)
+  const gutter = () => Math.max(16, (window.innerWidth - 1240) / 2 + 16);
 
   let beans = [];
   function createBeans() {
@@ -94,9 +94,10 @@ function init() {
       // (un fondu CSS les efface aussi s'ils approchent du texte)
       const side = i % 2 ? 1 : -1;
       // Distance au bord de l'écran, en pixels (sur mobile, les grains dépassent juste du bord)
-      const fromEdge = mobile ? rand(-28, 8) : rand(-18, gutter() + 12);
+      const fromEdge = mobile ? rand(-28, 6) : rand(-24, Math.max(8, gutter() - 34));
       const x = side * (w / 2) * (1 - (2 * fromEdge) / window.innerWidth);
-      const scale = rand(0.32, 0.55) * (mobile ? 0.7 : 1);
+      // Grains plus petits quand la marge est étroite
+      const scale = rand(0.32, 0.55) * (mobile ? 0.7 : Math.min(1, Math.max(0.55, gutter() / 170)));
       const mesh = new THREE.Mesh(geometry, materials[i % materials.length]);
       mesh.scale.setScalar(scale);
       scene.add(mesh);

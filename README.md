@@ -12,6 +12,8 @@ Site 100 % statique : HTML, CSS et JavaScript, sans installation ni serveur.
 | `styles.css` | Apparence (couleurs et polices en haut du fichier, dans `:root`) |
 | `script.js` | Panier et génération du message WhatsApp |
 | `images/` | Logo, illustrations et icônes (voir ci-dessous) |
+| `cafe-3d.js` | Grains de café en 3D qui descendent au défilement (Three.js) |
+| `vendor/` | Bibliothèque 3D Three.js (licence MIT) |
 | `fonts/` | Police Open Sauce Sans hébergée avec le site (licence libre SIL OFL) |
 | `mentions-legales.html` | Mentions légales et confidentialité (**à compléter**) |
 
@@ -41,6 +43,17 @@ Le site suit automatiquement le réglage clair/sombre du téléphone ou de l'ord
 Le bouton ☀️/🌙 de l'en-tête permet de forcer l'un ou l'autre ; ce choix est mémorisé.
 Les couleurs du mode sombre se modifient dans `styles.css`, bloc « Mode sombre » en haut du fichier.
 Le logo utilisé en mode sombre est `images/logo-blanc.svg` (réglable dans `config.js`, `logoSombre`).
+
+## Grains de café en 3D
+
+`cafe-3d.js` affiche des grains de café en 3D dans les marges de la page ; ils tombent et tournent
+quand on fait défiler. La scène se charge après l'affichage de la page pour ne pas la ralentir.
+Elle est automatiquement désactivée si le visiteur a demandé moins d'animations ou si son appareil
+ne gère pas la 3D. Réglages dans `cafe-3d.js` : nombre de grains (`count`), taille (`scale`),
+vitesse de chute (`speed`).
+
+Note : la 3D ne s'affiche pas si on ouvre `index.html` par double-clic ; utilisez le serveur local
+ci-dessous (ou la version en ligne).
 
 ## Voir le site en local
 

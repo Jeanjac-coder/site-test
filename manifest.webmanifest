@@ -15,7 +15,7 @@
     { "src": "images/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
   ],
   "shortcuts": [
-    { "name": "Nos cafés", "url": "./index.html#boutique" },
-    { "name": "Demander un devis", "url": "./index.html#devis" }
+    { "name": "Nos cafés", "url": "./cafes.html" },
+    { "name": "Demander un devis", "url": "./contact.html#devis" }
   ]
 }

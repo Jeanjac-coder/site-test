@@ -44,7 +44,7 @@ window.SITE_CONFIG = {
       eyebrow: { fr: "Torréfié à Abidjan", en: "Roasted in Abidjan" },
       title: { fr: "Le vrai café qui met tout le monde d'accord.", en: "The real coffee everyone agrees on." },
       text: { fr: "Quinze origines d'exception, torréfiées chaque semaine en petites quantités. Du bon café, sans palabres.", en: "Fifteen exceptional origins, roasted every week in small batches. Good coffee, no fuss." },
-      cta: { fr: "Découvrir la collection", en: "Explore the collection" }, href: "#boutique"
+      cta: { fr: "Découvrir la collection", en: "Explore the collection" }, href: "cafes.html"
     },
     {
       image: "images/hero/hero-2",
@@ -58,7 +58,7 @@ window.SITE_CONFIG = {
       eyebrow: { fr: "Entreprises & événements", en: "Business & events" },
       title: { fr: "On ne joue pas avec un bon café.", en: "We don't play around with good coffee." },
       text: { fr: "Bureaux, hôtels, restaurants, mariages : un devis sur mesure en moins de 24 heures.", en: "Offices, hotels, restaurants, weddings: a tailored quote in under 24 hours." },
-      cta: { fr: "Demander un devis", en: "Request a quote" }, href: "#devis"
+      cta: { fr: "Demander un devis", en: "Request a quote" }, href: "contact.html#devis"
     }
   ],
   slideDelay: 6500,

@@ -1,0 +1,36 @@
+    <!-- ===================== HERO ===================== -->
+    <section class="hero" id="top" aria-roledescription="carrousel" aria-label="À la une">
+      <div class="hero__media" id="hero-media"></div>
+      <div class="hero__shade" aria-hidden="true"></div>
+      <div class="hero__beans" id="hero-beans" aria-hidden="true"></div>
+      <div class="container hero__inner">
+        <div class="hero__copy" id="hero-copy"></div>
+
+        <div class="hero__search">
+          <div class="hero__field">
+            <svg class="ic"><use href="#i-search"/></svg>
+            <input type="search" class="js-search" data-panel="hero-results" aria-label="Rechercher" data-i18n-attr="placeholder:search.hero;aria-label:search.label" placeholder="Éthiopie, chocolat, doux, espresso…" autocomplete="off">
+            <a href="cafes.html" class="btn btn--gold btn--sm" data-i18n="search.go">Rechercher</a>
+            <div class="search-panel" id="hero-results" hidden></div>
+          </div>
+          <div class="hero__popular">
+            <span data-i18n="hero.popular">Populaire :</span>
+            <div id="hero-popular"></div>
+          </div>
+        </div>
+
+        <aside class="hero__side" aria-label="Sélection">
+          <a class="deal-card glass" id="hero-deal" href="cafes.html" hidden></a>
+          <div class="featured" id="hero-featured"></div>
+        </aside>
+
+        <div class="hero__nav">
+          <span class="hero__count"><b id="slide-n">01</b> / <span id="slide-t">03</span></span>
+          <div class="hero__bars" id="hero-bars" role="tablist"></div>
+          <button type="button" class="icon-btn icon-btn--glass" id="slide-pause" aria-label="Pause"><svg class="ic"><use href="#i-pause"/></svg></button>
+          <button type="button" class="icon-btn icon-btn--glass" id="slide-prev" aria-label="Précédent"><svg class="ic"><use href="#i-left"/></svg></button>
+          <button type="button" class="icon-btn icon-btn--glass" id="slide-next" aria-label="Suivant"><svg class="ic"><use href="#i-right"/></svg></button>
+        </div>
+      </div>
+      <a href="#chiffres" class="hero__scroll" aria-label="Défiler"><span></span></a>
+    </section>

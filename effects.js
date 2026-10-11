@@ -229,7 +229,7 @@
         const pr = w.prizes[idx];
         A.applyCode(pr.code);
         $("#wheel-out").innerHTML = `<p class="wheel__result">${esc(t("won", { p: A.tr(pr.label) }))}</p><span class="wheel__code">${esc(pr.code)}</span><p class="small">${esc(t("wonCode", { c: pr.code }))}</p>`;
-        btn.outerHTML = `<a href="#boutique" class="btn btn--dark btn--lg" data-dismiss>${t("shop")}</a>`;
+        btn.outerHTML = `<a href="cafes.html" class="btn btn--dark btn--lg">${t("shop")}</a>`;
         const r2 = disc.getBoundingClientRect();
         fx.burst(r2.left + r2.width / 2, r2.top + r2.height / 2, 14, r2.width / 2);
       }, reduced ? 50 : 4900);

@@ -1,0 +1,115 @@
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="container footer__top">
+      <div class="footer__brand">
+        <img src="images/logo.svg" alt="Aube Café" width="170" height="54" data-img="logo" loading="lazy">
+        <p data-i18n="footer.tag">Du bon café, sans palabres. Torréfié à Abidjan, servi avec élégance.</p>
+        <div class="socials" id="socials"></div>
+      </div>
+      <form class="newsletter" id="newsletter" novalidate>
+        <strong data-i18n="nl.title">La lettre Aube Café</strong>
+        <p data-i18n="nl.text">Nouveautés, offres privées et conseils du torréfacteur. Une fois par mois, pas plus.</p>
+        <div class="newsletter__row">
+          <input type="email" name="email" required data-i18n-attr="placeholder:nl.ph" placeholder="Votre e-mail" aria-label="E-mail">
+          <button type="submit" class="btn btn--dark" data-i18n="nl.btn">S'inscrire</button>
+        </div>
+        <p class="newsletter__ok" hidden data-i18n="nl.ok">Merci ! Validez l'envoi dans votre messagerie.</p>
+      </form>
+    </div>
+    <div class="container footer__links">
+      <div><h4 data-i18n="footer.shop">Boutique</h4><ul><li><a href="cafes.html" data-i18n="footer.all">Tous les cafés</a></li><li><a href="origines.html" data-i18n="nav.origins">Origines</a></li><li><a href="contact.html#devis" data-i18n="footer.pro">Devis entreprises</a></li><li><button type="button" class="js-open-chat" data-i18n="footer.finder">Trouver mon café</button></li></ul></div>
+      <div><h4 data-i18n="footer.house">La maison</h4><ul><li><a href="a-propos.html" data-i18n="nav.about">À propos</a></li><li><a href="boutiques.html" data-i18n="nav.stores">Nos boutiques</a></li><li><a href="blog.html" data-i18n="nav.blog">Blog</a></li></ul></div>
+      <div><h4 data-i18n="footer.help">Aide</h4><ul><li><a href="contact.html#aide" data-i18n="footer.faq">FAQ</a></li><li><a href="livraison.html" data-i18n="footer.delivery">Livraison & retours</a></li><li><a href="contact.html" data-i18n="nav.contact">Contact</a></li></ul></div>
+      <div><h4 data-i18n="footer.legal">Légal</h4><ul><li><a href="confidentialite.html" data-i18n="footer.privacy">Confidentialité</a></li><li><a href="cgu.html" data-i18n="footer.terms">Conditions générales</a></li><li><a href="mentions-legales.html" data-i18n="footer.notice">Mentions légales</a></li></ul></div>
+    </div>
+    <div class="container footer__bottom">
+      <p>© <span id="year"></span> Aube Café. <span data-i18n="footer.rights">Tous droits réservés.</span></p>
+      <ul class="footer__pay" id="footer-pay"></ul>
+    </div>
+  </footer>
+
+  <!-- ===================== TIROIRS ===================== -->
+  <div class="scrim" id="scrim" hidden></div>
+
+  <aside class="drawer drawer--left" id="menu" aria-label="Menu">
+    <div class="drawer__head"><img src="images/logo.svg" alt="Aube Café" width="150" height="48" data-img="logo"><button type="button" class="icon-btn" data-close aria-label="Fermer"><svg class="ic"><use href="#i-close"/></svg></button></div>
+    <nav class="drawer__body menu">
+      <a href="index.html" data-i18n="nav.home">Accueil</a><a href="cafes.html" data-i18n="nav.coffees">Nos cafés</a><a href="origines.html" data-i18n="nav.origins">Origines</a>
+      <a href="boutiques.html" data-i18n="nav.stores">Nos boutiques</a><a href="blog.html" data-i18n="nav.blog">Blog</a><a href="a-propos.html" data-i18n="nav.about">À propos</a><a href="contact.html" data-i18n="nav.contact">Contact</a>
+      <p class="menu__label" data-i18n="menu.cats">Catégories</p>
+      <div class="chips" id="menu-cats"></div>
+      <div class="menu__row">
+        <button type="button" class="btn btn--line btn--sm" data-proxy="wish-btn"><svg class="ic"><use href="#i-heart"/></svg> <span data-i18n="wish.title">Favoris</span></button>
+        <button type="button" class="btn btn--line btn--sm" data-proxy="account-btn"><svg class="ic"><use href="#i-user"/></svg> <span data-i18n="account.title">Mon espace</span></button>
+        <button type="button" class="btn btn--line btn--sm" data-proxy="theme-btn"><svg class="ic"><use href="#i-moon"/></svg> <span data-i18n="menu.theme">Thème</span></button>
+        <button type="button" class="btn btn--line btn--sm" data-proxy="sound-btn"><svg class="ic"><use href="#i-sound"/></svg> <span data-i18n="menu.sound">Son</span></button>
+      </div>
+    </nav>
+  </aside>
+
+  <aside class="drawer" id="cart" aria-labelledby="cart-title">
+    <div class="drawer__head"><h2 id="cart-title" class="h4" data-i18n="cart.title">Votre panier</h2><button type="button" class="icon-btn" data-close aria-label="Fermer"><svg class="ic"><use href="#i-close"/></svg></button></div>
+    <div class="drawer__body">
+      <div class="ship-meter" id="ship-meter"><span id="ship-text"></span><div class="ship-meter__bar"><i id="ship-bar"></i></div></div>
+      <ul class="lines" id="cart-lines"></ul>
+      <div class="empty-state" id="cart-empty"><svg class="ic"><use href="#i-bag"/></svg><p data-i18n="cart.empty">Votre panier attend son premier café.</p><a href="cafes.html" class="btn btn--dark btn--sm" data-close data-i18n="cart.browse">Découvrir la collection</a></div>
+      <form id="order-form" class="form order" novalidate>
+        <div class="seg" role="radiogroup">
+          <label><input type="radio" name="mode" value="livraison" checked><span data-i18n="cart.delivery">Livraison</span></label>
+          <label><input type="radio" name="mode" value="express"><span data-i18n="cart.express">Express &lt; 3 h</span></label>
+          <label><input type="radio" name="mode" value="retrait"><span data-i18n="cart.pickup">Retrait</span></label>
+        </div>
+        <div class="form__grid">
+          <label class="field"><span data-i18n="f.name">Nom complet *</span><input name="name" autocomplete="name" required></label>
+          <label class="field"><span data-i18n="f.phone">Téléphone *</span><input name="phone" type="tel" autocomplete="tel" required placeholder="+225 07 00 00 00 00"></label>
+          <label class="field" data-ship><span data-i18n="f.commune">Commune ou ville *</span><select name="commune" id="commune"></select></label>
+          <label class="field" data-ship><span data-i18n="f.address">Adresse ou repère *</span><input name="address" data-i18n-attr="placeholder:f.addressPh" placeholder="Angré 8e tranche, près de la pharmacie…"></label>
+          <label class="field" data-pickup hidden><span data-i18n="f.store">Boutique de retrait</span><select name="store" id="pickup-store"></select></label>
+          <label class="field"><span data-i18n="f.payment">Paiement souhaité</span><select name="payment" id="pay-select"></select></label>
+          <label class="field field--full"><span data-i18n="f.promo">Code promo</span><span class="promo-field"><input name="code" id="promo-code" autocomplete="off"><button type="button" class="btn btn--line btn--sm" id="promo-apply" data-i18n="f.apply">Appliquer</button></span></label>
+        </div>
+        <dl class="totals" id="totals"></dl>
+        <p class="form-error" data-error role="alert"></p>
+        <button type="submit" class="btn btn--wa btn--lg btn--block"><svg class="ic"><use href="#i-wa"/></svg> <span data-i18n="cart.order">Commander sur WhatsApp</span></button>
+        <p class="muted small center" data-i18n="cart.note">Paiement à la confirmation, par Mobile Money, carte ou espèces. Aucun paiement sur ce site.</p>
+      </form>
+    </div>
+  </aside>
+
+  <aside class="drawer" id="wishlist" aria-labelledby="wish-title">
+    <div class="drawer__head"><h2 id="wish-title" class="h4" data-i18n="wish.title">Favoris</h2><button type="button" class="icon-btn" data-close aria-label="Fermer"><svg class="ic"><use href="#i-close"/></svg></button></div>
+    <div class="drawer__body"><ul class="lines" id="wish-lines"></ul><div class="empty-state" id="wish-empty"><svg class="ic"><use href="#i-heart"/></svg><p data-i18n="wish.empty">Touchez le cœur d'un café pour le garder ici.</p></div></div>
+  </aside>
+
+  <aside class="drawer" id="account" aria-labelledby="account-title">
+    <div class="drawer__head"><h2 id="account-title" class="h4" data-i18n="account.title">Mon espace</h2><button type="button" class="icon-btn" data-close aria-label="Fermer"><svg class="ic"><use href="#i-close"/></svg></button></div>
+    <div class="drawer__body" id="account-body"></div>
+  </aside>
+
+  <!-- ===================== MODALES ===================== -->
+  <dialog class="modal modal--product" id="product-modal" aria-label="Fiche produit"><div class="modal__inner" id="product-body"></div></dialog>
+  <dialog class="modal" id="compare-modal" aria-label="Comparer"><div class="modal__inner" id="compare-body"></div></dialog>
+  <dialog class="modal modal--article" id="article-modal" aria-label="Article"><div class="modal__inner" id="article-body"></div></dialog>
+  <dialog class="modal modal--wheel" id="wheel-modal" aria-label="Roue de bienvenue"><div class="modal__inner" id="wheel-body"></div></dialog>
+
+  <!-- Barre de comparaison -->
+  <div class="compare-bar" id="compare-bar" hidden><div id="compare-items"></div><button type="button" class="btn btn--gold btn--sm" id="compare-open" data-i18n="compare.open">Comparer</button><button type="button" class="icon-btn icon-btn--sm" id="compare-clear" aria-label="Vider"><svg class="ic"><use href="#i-close"/></svg></button></div>
+
+  <!-- ===================== ASSISTANT / CHAT ===================== -->
+  <div class="chat" id="chat" hidden role="dialog" aria-label="Assistant Aube Café">
+    <div class="chat__head"><span class="chat__avatar"><svg class="ic"><use href="#i-spark"/></svg></span><div><strong data-i18n="chat.title">Assistant Aube Café</strong><p class="live live--sm" data-status><span class="live__dot"></span><span class="live__text">…</span></p></div><button type="button" class="icon-btn icon-btn--sm" id="chat-close" aria-label="Fermer"><svg class="ic"><use href="#i-close"/></svg></button></div>
+    <div class="chat__body" id="chat-body" aria-live="polite"></div>
+    <div class="chat__quick" id="chat-quick"></div>
+  </div>
+  <button type="button" class="fab js-open-chat" id="fab" aria-label="Assistant et service client"><svg class="ic"><use href="#i-chat"/></svg><span class="fab__dot" data-online-dot></span></button>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <canvas class="beans-fx" id="beans-fx" aria-hidden="true"></canvas>
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
+
+  <script src="config.js"></script>
+  <script src="i18n.js"></script>
+  <script src="script.js"></script>
+  <script src="effects.js" defer></script>
+{{MODULES}}</body>
+</html>

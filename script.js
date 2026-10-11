@@ -11,6 +11,9 @@
   const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
   const root = document.documentElement;
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const has = (s) => !!document.querySelector(s);
+  const page = document.body.dataset.page || "accueil";
+  const SHOP = "cafes.html";
 
   // ---------- Stockage local (protégé : navigation privée, stockage bloqué…) ----------
   const store = {
@@ -134,11 +137,11 @@
   function tickOffer() {
     const deal = $("#promo-deal");
     const card = $("#hero-deal");
-    if (!offerActive()) { deal.hidden = true; card.hidden = true; return; }
+    if (!offerActive()) { deal.hidden = true; if (card) card.hidden = true; return; }
     const c = countdown();
     deal.hidden = false;
     deal.innerHTML = `<i></i>${esc(tr(cfg.offer.title))} · ${c}`;
-    const time = card.querySelector("time");
+    const time = card && card.querySelector("time");
     if (time) time.textContent = (lang === "en" ? "Ends in " : "Se termine dans ") + c;
   }
 
@@ -162,15 +165,12 @@
       });
     }, { passive: true });
 
-    // Lien actif selon la section visible
-    const links = $$(".nav__links a[href^='#']");
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((e) => {
-        if (!e.isIntersecting) return;
-        links.forEach((a) => a.classList.toggle("is-active", a.getAttribute("href") === "#" + e.target.id));
-      });
-    }, { rootMargin: "-45% 0px -50% 0px" });
-    links.forEach((a) => { const s = $(a.getAttribute("href")); if (s) io.observe(s); });
+    // Lien actif : la page en cours
+    $$("[data-nav]").forEach((a) => {
+      const on = a.dataset.nav === page;
+      a.classList.toggle("is-active", on);
+      if (on && a.tagName === "A") a.setAttribute("aria-current", "page");
+    });
 
     // Mega menu
     const btn = $("#mega-btn"), mega = $("#mega");
@@ -300,6 +300,7 @@
   // ============================================================
   let slide = 0, slideTimer = null, paused = false;
   function renderHero() {
+    if (!has("#hero-media")) return;
     const media = $("#hero-media"), copy = $("#hero-copy"), bars = $("#hero-bars");
     if (!media.children.length) {
       media.innerHTML = cfg.slides.map((s, i) => `<div class="hero__slide${i === 0 ? " is-active" : ""}"><picture><source media="(max-width: 699px)" srcset="${s.image}-sm.webp" type="image/webp"><img src="${s.image}.webp" alt="" width="1920" height="1080" ${i === 0 ? 'fetchpriority="high"' : 'loading="lazy"'}></picture></div>`).join("");
@@ -312,7 +313,7 @@
         <${H} aria-label="${esc(tr(s.title))}">${split(tr(s.title))}</${H}>
         <p>${esc(tr(s.text))}</p>
         <div class="hero__actions"><a href="${s.href}" class="btn btn--light btn--lg" ${i !== slide ? 'tabindex="-1"' : ""}>${esc(tr(s.cta))} <svg class="ic"><use href="#i-right"/></svg></a>
-        <a href="#boutique" class="btn btn--ghost-light btn--lg" ${i !== slide ? 'tabindex="-1"' : ""}>${lang === "en" ? "Shop now" : "Acheter"}</a></div>
+        <a href="${SHOP}" class="btn btn--ghost-light btn--lg" ${i !== slide ? 'tabindex="-1"' : ""}>${lang === "en" ? "Shop now" : "Acheter"}</a></div>
       </div>`;
     }).join("");
     bars.innerHTML = cfg.slides.map((s, i) => `<button type="button" class="hero__bar" role="tab" aria-selected="${i === slide}" aria-label="${i + 1} / ${cfg.slides.length}" style="--delay:${cfg.slideDelay}ms"></button>`).join("");
@@ -337,6 +338,7 @@
     tickOffer();
   }
   function goSlide(n, user) {
+    if (!has("#hero-media")) return;
     const total = cfg.slides.length;
     const prev = slide;
     slide = (n + total) % total;
@@ -367,6 +369,7 @@
     slideTimer = setInterval(() => goSlide(slide + 1), cfg.slideDelay);
   }
   function initHero() {
+    if (!has("#hero-media")) return;
     renderHero();
     $("#slide-next").addEventListener("click", () => goSlide(slide + 1, true));
     $("#slide-prev").addEventListener("click", () => goSlide(slide - 1, true));
@@ -400,6 +403,7 @@
       if (p) { e.preventDefault(); openProduct(p.dataset.product); }
     });
     $(".hero__field .btn").addEventListener("click", (e) => { e.preventDefault(); runSearchToGrid($(".hero__field input").value); });
+    $("#hero-deal").addEventListener("click", (e) => { e.preventDefault(); openProduct(cfg.offer.productId); });
     restartSlides();
   }
 
@@ -407,8 +411,8 @@
   //  Compteurs animés
   // ============================================================
   function initCounters() {
-    $("#stat-products").dataset.count = cfg.products.length;
-    $("#stat-countries").dataset.count = new Set(cfg.products.flatMap((p) => p.country.split(" & "))).size;
+    if (has("#stat-products")) $("#stat-products").dataset.count = cfg.products.length;
+    if (has("#stat-countries")) $("#stat-countries").dataset.count = new Set(cfg.products.flatMap((p) => p.country.split(" & "))).size;
     const io = new IntersectionObserver((entries) => {
       entries.forEach((e) => {
         if (!e.isIntersecting) return;
@@ -563,6 +567,7 @@
   function runSearchToGrid(q) {
     q = (q || "").trim();
     addHistory(q);
+    if (!has("#grid")) { location.href = SHOP + (q ? "?q=" + encodeURIComponent(q) : ""); return; }
     searchQuery = q;
     closeSearchUI();
     renderGrid();
@@ -611,6 +616,7 @@
     return GROUPS.reduce((n, [k]) => n + filters[k].length, 0) + (filters.price < maxPrice ? 1 : 0) + (filters.stock ? 1 : 0) + (filters.promo ? 1 : 0) + (searchQuery ? 1 : 0);
   }
   function renderFilters() {
+    if (!has("#filters-body")) return;
     const body = $("#filters-body");
     body.innerHTML = GROUPS.map(([key, values]) => `<div class="fgroup"><h4>${t("f_" + key)}</h4><div class="chips">${values.map((v) => `<button type="button" class="chip" data-f="${key}" data-v="${v}" aria-pressed="${filters[key].includes(v)}">${esc(t(v))}</button>`).join("")}</div></div>`).join("") +
       `<div class="fgroup"><h4>${t("f_price")}</h4><input type="range" class="range" id="price-range" min="3000" max="${maxPrice}" step="500" value="${filters.price}" aria-label="${t("f_price")}"><div class="range-out"><span>${money(3000)}</span><b id="price-out">${money(filters.price)}</b></div></div>` +
@@ -629,6 +635,7 @@
     $("#filters-count").textContent = n;
   }
   function resetFilters() {
+    if (!has("#grid")) return;
     GROUPS.forEach(([k]) => (filters[k] = []));
     filters.price = maxPrice; filters.stock = false; filters.promo = false;
     searchQuery = "";
@@ -637,6 +644,7 @@
     renderGrid();
   }
   function applyQuickFilter(type, value) {
+    if (!has("#grid")) { location.href = SHOP + "?" + encodeURIComponent(type) + "=" + encodeURIComponent(value); return; }
     resetFilters();
     if (filters[type] && !filters[type].includes(value)) filters[type].push(value);
     renderFilters();
@@ -644,6 +652,15 @@
     $("#boutique").scrollIntoView({ behavior: reduced ? "auto" : "smooth" });
   }
   function initFilters() {
+    if (!has("#filters-body")) return;
+    // Filtres transmis par l'adresse (ex. cafes.html?continent=afrique ou ?q=chocolat)
+    const params = new URLSearchParams(location.search);
+    params.forEach((v, k) => {
+      if (k === "q") searchQuery = v;
+      else if (filters[k] && Array.isArray(filters[k]) && !filters[k].includes(v)) filters[k].push(v);
+      else if (k === "promo" || k === "stock") filters[k] = true;
+    });
+    if (searchQuery) $$(".js-search").forEach((i) => (i.value = searchQuery));
     renderFilters();
     const body = $("#filters-body");
     body.addEventListener("click", (e) => {
@@ -722,6 +739,8 @@
     </article>`;
   }
   function renderGrid() {
+    renderFeatured();
+    if (!has("#grid")) return;
     const list = filtered();
     const grid = $("#grid");
     grid.innerHTML = list.map(card).join("");
@@ -731,7 +750,39 @@
     renderActive();
     observeReveal(grid);
   }
+  // Accueil : sélection du moment (meilleures ventes, offre, nouveautés)
+  function renderFeatured() {
+    const box = $("#featured-grid");
+    if (!box) return;
+    const n = +box.dataset.limit || 4;
+    const pick = cfg.products
+      .filter((p) => p.stock > 0)
+      .map((p) => ({ p, s: (isPromo(p) ? 3 : 0) + (p.badges.includes("best") ? 2 : 0) + (p.badges.includes("new") ? 1 : 0) }))
+      .sort((a, b) => b.s - a.s)
+      .slice(0, n)
+      .map((x) => x.p);
+    box.innerHTML = pick.map(card).join("");
+    observeReveal(box);
+  }
+  // Les trois grandes familles d'origine (accueil et page Origines)
+  function renderContinents() {
+    const box = $("#continents");
+    if (!box) return;
+    const img = { afrique: "images/produits/ethiopie.webp", ameriques: "images/produits/colombie.webp", asie: "images/produits/sumatra.webp" };
+    const txt = {
+      afrique: ["Le berceau du café : fleurs, agrumes et le robusta de chez nous.", "The birthplace of coffee: flowers, citrus and our home-grown robusta."],
+      ameriques: ["Rondeur, caramel et chocolat, jusqu'aux grands crus de Jamaïque et de Panama.", "Roundness, caramel and chocolate, up to the grand crus of Jamaica and Panama."],
+      asie: ["Des cafés puissants, boisés et épicés, au corps généreux.", "Powerful, woody, spicy coffees with a generous body."]
+    };
+    box.innerHTML = ["afrique", "ameriques", "asie"].map((c, i) => {
+      const list = cfg.products.filter((p) => p.continent === c);
+      const countries = Array.from(new Set(list.map(country)));
+      return `<a class="continent reveal" style="--d:${i * 90}ms" href="${SHOP}?continent=${c}"><span class="continent__img"><img src="${img[c]}" alt="" width="600" height="750" loading="lazy"></span><span class="continent__body"><small>${esc(t("coffeesFrom", { n: list.length }))}</small><strong>${esc(t(c))}</strong><span>${esc(tr(txt[c]))}</span><em>${esc(countries.join(" · "))}</em></span></a>`;
+    }).join("");
+    observeReveal(box);
+  }
   function renderRails() {
+    if (!has("#pour-vous")) return;
     const rec = recommended().slice(0, 8);
     const rv = recent.map(byId).filter(Boolean).slice(0, 8);
     $("#recommended").innerHTML = rec.map(card).join("");
@@ -1108,18 +1159,20 @@
   // ============================================================
   let originTab = "all";
   function renderOrigins() {
+    if (!has("#origin-list")) return;
     const tabs = ["all", "afrique", "ameriques", "asie"];
     $("#origin-tabs").innerHTML = `<div class="tabs tabs--wrap" role="tablist">${tabs.map((k) => `<button type="button" class="tab" role="tab" data-otab="${k}" aria-selected="${k === originTab}">${t(k)}</button>`).join("")}</div>`;
     const list = cfg.products.filter((p) => originTab === "all" || p.continent === originTab);
     $("#origin-list").innerHTML = list.map((p, i) => `<button type="button" class="origin" data-code="${CODES[p.id] || ""}" data-open="${p.id}" style="--i:${i}"><small>${esc(t(p.continent))} · ${esc(p.altitude)}</small><strong>${esc(country(p))}</strong><small>${esc(p.region)} · ${esc(tr(p.notes))}</small><span class="link">${esc(p.name)} →</span></button>`).join("");
   }
-  $("#origin-tabs").addEventListener("click", (e) => { const b = e.target.closest("[data-otab]"); if (b) { originTab = b.dataset.otab; renderOrigins(); } });
+  if (has("#origin-tabs")) $("#origin-tabs").addEventListener("click", (e) => { const b = e.target.closest("[data-otab]"); if (b) { originTab = b.dataset.otab; renderOrigins(); } });
 
   // ============================================================
   //  Avis (uniquement de vrais avis)
   // ============================================================
   function renderReviews() {
     const box = $("#reviews");
+    if (!box) return;
     const list = cfg.testimonials || [];
     if (list.length) {
       box.innerHTML = list.map((r) => `<figure class="review reveal"><span class="stars">${"<svg class='ic'><use href='#i-star'/></svg>".repeat(r.rating || 5)}</span><p>${esc(r.text)}</p><cite>${esc(r.name)}${r.city ? " · " + esc(r.city) : ""}</cite></figure>`).join("");
@@ -1156,11 +1209,13 @@
   }
   function initForms() {
     const qc = $("#quote-coffee");
+    if (qc) {
     const fillQuote = () => { const v = qc.value; qc.innerHTML = `<option value="">${lang === "en" ? "Let us advise you" : "Laissez-nous vous conseiller"}</option>` + cfg.products.map((p) => `<option>${esc(p.name)}</option>`).join(""); qc.value = v; };
     fillQuote();
     document.addEventListener("aube:lang", fillQuote);
 
-    $("#quote-form").addEventListener("submit", (e) => {
+    }
+    if (has("#quote-form")) $("#quote-form").addEventListener("submit", (e) => {
       e.preventDefault();
       const f = e.target;
       for (const n of ["lastname", "firstname"]) if (!f[n].value.trim()) return setErr(f, t("errName"), f[n]);
@@ -1187,7 +1242,7 @@
       showSent(f);
     });
 
-    $("#contact-form").addEventListener("submit", (e) => {
+    if (has("#contact-form")) $("#contact-form").addEventListener("submit", (e) => {
       e.preventDefault();
       const f = e.target;
       if (!f.name.value.trim()) return setErr(f, t("errName"), f.name);
@@ -1219,6 +1274,7 @@
   let locTab = "all", locSel = 0;
   const mapSrc = (l) => `https://www.google.com/maps?q=${l.lat},${l.lng}&z=15&output=embed`;
   function renderLocations() {
+    if (!has("#loc-list")) return;
     const tabs = ["all", "siege", "boutique", "relais"];
     $("#loc-tabs").innerHTML = tabs.map((k) => `<button type="button" class="tab" role="tab" data-ltab="${k}" aria-selected="${k === locTab}">${t(k)}</button>`).join("");
     const list = cfg.locations.map((l, i) => ({ l, i })).filter(({ l }) => locTab === "all" || l.type === locTab);
@@ -1236,6 +1292,7 @@
     if (map.dataset.src !== src) { map.dataset.src = src; if (map.dataset.ready) map.src = src; }
   }
   function initLocations() {
+    if (!has("#loc-list")) return;
     renderLocations();
     $("#loc-tabs").addEventListener("click", (e) => { const b = e.target.closest("[data-ltab]"); if (b) { locTab = b.dataset.ltab; renderLocations(); } });
     const pick = (el) => { if (!el) return; locSel = +el.dataset.loc; renderLocations(); };
@@ -1250,16 +1307,19 @@
   //  Blog
   // ============================================================
   function renderPosts() {
-    $("#posts").innerHTML = I.posts.map((p, i) => `<button type="button" class="post reveal" style="--d:${i * 90}ms" data-post="${p.id}"><div class="post__img"><img src="${p.image}" alt="" width="960" height="600" loading="lazy"></div><small>${t("minRead", { n: p.min })}</small><h3>${esc(tr(p.title))}</h3><p>${esc(tr(p.excerpt))}</p><span class="link">${t("readMore")} →</span></button>`).join("");
+    const box = $("#posts");
+    if (!box) return;
+    const limit = +box.dataset.limit || I.posts.length;
+    box.innerHTML = I.posts.slice(0, limit).map((p, i) => `<button type="button" class="post reveal" style="--d:${i * 90}ms" data-post="${p.id}"><div class="post__img"><img src="${p.image}" alt="" width="960" height="600" loading="lazy"></div><small>${t("minRead", { n: p.min })}</small><h3>${esc(tr(p.title))}</h3><p>${esc(tr(p.excerpt))}</p><span class="link">${t("readMore")} →</span></button>`).join("");
     observeReveal($("#posts"));
   }
-  $("#posts").addEventListener("click", (e) => {
-    const b = e.target.closest("[data-post]");
-    if (!b) return;
-    const p = I.posts.find((x) => x.id === b.dataset.post);
-    $("#article-body").innerHTML = closeBtn() + `<article class="article"><div class="article__img"><img src="${p.image.replace("-sm", "")}" alt="" width="1920" height="840"></div><div class="article__body"><p class="eyebrow">${t("minRead", { n: p.min })}</p><h2>${esc(tr(p.title))}</h2>${tr(p.body)}<p><a href="#boutique" class="btn btn--dark" data-dismiss>${t("viewCoffees")}</a></p></div></article>`;
+  function openPost(id) {
+    const p = I.posts.find((x) => x.id === id);
+    if (!p) return;
+    $("#article-body").innerHTML = closeBtn() + `<article class="article"><div class="article__img"><img src="${p.image.replace("-sm", "")}" alt="" width="1920" height="840"></div><div class="article__body"><p class="eyebrow">${t("minRead", { n: p.min })}</p><h2>${esc(tr(p.title))}</h2>${tr(p.body)}<p><a href="${SHOP}" class="btn btn--dark">${t("viewCoffees")}</a></p></div></article>`;
     showModal("article-modal");
-  });
+  }
+  document.addEventListener("click", (e) => { const b = e.target.closest("[data-post]"); if (b) openPost(b.dataset.post); });
 
   // ============================================================
   //  Service client : statut, horaires, FAQ
@@ -1281,10 +1341,11 @@
     $$("[data-online-dot]").forEach((el) => el.classList.toggle("is-open", open));
     const day = abidjanNow().day;
     const idx = day === 0 ? 2 : day === 6 ? 1 : 0;
-    $("#hours").innerHTML = cfg.hours.map((h, i) => `<li class="${i === idx ? "is-today" : ""}"><span>${esc(h[lang] || h.fr)}</span><span>${esc(h.h)}</span></li>`).join("");
+    $$(".js-hours").forEach((ul) => (ul.innerHTML = cfg.hours.map((h, i) => `<li class="${i === idx ? "is-today" : ""}"><span>${esc(h[lang] || h.fr)}</span><span>${esc(h.h)}</span></li>`).join("")));
   }
   let faqCat = "all", faqQ = "";
   function renderFaq() {
+    if (!has("#faq-list")) return;
     const cats = Array.from(new Set(I.faq.map((f) => f.cat[0])));
     $("#faq-tabs").innerHTML = [`<button type="button" class="tab" role="tab" data-fcat="all" aria-selected="${faqCat === "all"}">${t("all")}</button>`].concat(cats.map((c) => { const f = I.faq.find((x) => x.cat[0] === c); return `<button type="button" class="tab" role="tab" data-fcat="${esc(c)}" aria-selected="${faqCat === c}">${esc(tr(f.cat))}</button>`; })).join("");
     const q = norm(faqQ);
@@ -1293,12 +1354,14 @@
   }
   function initHelp() {
     const tel = cfg.phoneDisplay.replace(/\s/g, "");
-    $("#help-phone").href = "tel:" + tel;
-    $("#help-mail").href = "mailto:" + cfg.email;
+    $$(".js-tel").forEach((a) => (a.href = "tel:" + tel));
+    $$(".js-mail").forEach((a) => (a.href = "mailto:" + cfg.email));
     $$(".js-phone").forEach((el) => (el.textContent = cfg.phoneDisplay));
     $$(".js-email").forEach((el) => (el.textContent = cfg.email));
+    if (has("#faq-list")) {
     $("#faq-tabs").addEventListener("click", (e) => { const b = e.target.closest("[data-fcat]"); if (b) { faqCat = b.dataset.fcat; renderFaq(); } });
     $("#faq-search").addEventListener("input", (e) => { faqQ = e.target.value; renderFaq(); });
+    }
     renderStatus();
     setInterval(renderStatus, 60000);
   }
@@ -1319,9 +1382,9 @@
   }
   function renderPayments() {
     const kind = { mobile: ["Mobile Money", "Mobile Money"], carte: ["Carte", "Card"], banque: ["Banque", "Bank"], especes: ["Livraison", "Delivery"] };
-    $("#logos").innerHTML = cfg.payments.map((p, i) => `<li class="logo-item reveal" style="--d:${i * 40}ms" title="${esc(p.name)}">${p.logo ? `<img src="${p.logo}" alt="${esc(p.name)}" width="120" height="60" loading="lazy">` : `<span class="wordmark" style="--c:${p.color || "#0e0b09"}">${esc(p.name)}<small>${esc(tr(kind[p.kind]))}</small></span>`}</li>`).join("");
+    if (has("#logos")) $("#logos").innerHTML = cfg.payments.map((p, i) => `<li class="logo-item reveal" style="--d:${i * 40}ms" title="${esc(p.name)}">${p.logo ? `<img src="${p.logo}" alt="${esc(p.name)}" width="120" height="60" loading="lazy">` : `<span class="wordmark" style="--c:${p.color || "#0e0b09"}">${esc(p.name)}<small>${esc(tr(kind[p.kind]))}</small></span>`}</li>`).join("");
     $("#footer-pay").innerHTML = cfg.payments.filter((p) => p.kind !== "banque").map((p) => `<li title="${esc(p.name)}">${p.logo ? `<img src="${p.logo}" alt="${esc(p.name)}" width="40" height="16" loading="lazy">` : esc(p.name.split(" ")[0])}</li>`).join("");
-    observeReveal($("#logos"));
+    if (has("#logos")) observeReveal($("#logos"));
   }
 
   // ============================================================
@@ -1424,6 +1487,7 @@
     renderNotifs();
     renderHero();
     renderGrid();
+    renderContinents();
     renderRails();
     renderFilters();
     renderOrigins();
@@ -1461,7 +1525,6 @@
     jsonLd();
     $("#compare-open").addEventListener("click", openCompare);
     $("#compare-clear").addEventListener("click", () => { const ids = compare.slice(); compare = []; ids.forEach((id) => $$(`[data-compare="${id}"]`).forEach((b) => { b.classList.remove("is-on"); b.setAttribute("aria-pressed", "false"); })); renderCompareBar(); });
-    $("#hero-deal").addEventListener("click", (e) => { e.preventDefault(); openProduct(cfg.offer.productId); });
     setInterval(rotatePromo, 4500);
     setInterval(tickOffer, 1000);
     // Sonnerie de la cloche s'il y a des nouveautés non lues
@@ -1469,6 +1532,8 @@
     // Lien profond : #produit-<id>
     const m = location.hash.match(/^#produit-(.+)$/);
     if (m && byId(m[1])) openProduct(m[1]);
+    const a = location.hash.match(/^#article-(.+)$/);
+    if (a) openPost(a[1]);
   }
 
   // API partagée avec effects.js (roue, assistant)

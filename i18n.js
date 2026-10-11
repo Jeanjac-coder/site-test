@@ -5,7 +5,7 @@
 window.I18N = {
   // ---------- Textes de la page (version anglaise) ----------
   en: {
-    "skip": "Skip to the shop",
+    "skip": "Skip to content",
     "nav.home": "Home", "nav.coffees": "Our coffees", "nav.origins": "Origins", "nav.stores": "Our stores",
     "nav.blog": "Journal", "nav.about": "About", "nav.contact": "Contact",
     "search.short": "Search…", "search.label": "Search", "search.long": "A coffee, an origin, a flavour…",
@@ -58,7 +58,26 @@ window.I18N = {
     "cart.empty": "Your bag is waiting for its first coffee.", "cart.browse": "Explore the collection",
     "cart.delivery": "Delivery", "cart.express": "Express < 3 h", "cart.pickup": "Pickup",
     "cart.order": "Order on WhatsApp", "cart.note": "Pay on confirmation, by Mobile Money, card or cash. No payment on this site.",
-    "wish.empty": "Tap the heart on a coffee to keep it here.", "compare.open": "Compare", "chat.title": "Aube Café assistant"
+    "wish.empty": "Tap the heart on a coffee to keep it here.", "compare.open": "Compare", "chat.title": "Aube Café assistant",
+    // Pages
+    "sel.eyebrow": "The selection", "sel.title": "Our coffees <em>of the moment.</em>", "sel.all": "See all 15 coffees",
+    "explore.eyebrow": "Our origins", "explore.title": "Three continents, <em>a thousand nuances.</em>", "explore.lead": "Every terroir gives its coffee a unique personality. Pick a family to discover its coffees.", "explore.all": "All our origins",
+    "about.more": "Our story", "blog.all": "The whole journal",
+    "method.eyebrow": "Our method", "method.title": "From cherry <em>to your cup.</em>",
+    "method.s1": "Selected at the source", "method.s1t": "We taste every lot before buying it and work with demanding growers on traceable plots.",
+    "method.s2": "Roasted in Abidjan", "method.s2t": "Every week, in small batches, with a roast profile designed to reveal each origin.",
+    "method.s3": "Ground to order", "method.s3t": "Whole bean or ground for your machine: espresso, filter, French press, moka. As close to delivery as possible.",
+    "method.s4": "Delivered fresh", "method.s4t": "Within 24 hours in Abidjan, 48–72 hours elsewhere in the country. All that's left is to enjoy it.",
+    "cta.eyebrow": "Businesses, hotels, events", "cta.title": "Great coffee for the whole team? <em>Let's talk.</em>", "cta.text": "A tailored quote in under 24 hours, volume pricing and scheduled delivery.", "cta.quote": "Request a quote", "cta.finder": "Find my coffee",
+    "infos.eyebrow": "Practical info", "infos.title": "In store or at home, <em>whatever suits you.</em>",
+    "infos.d": "Home delivery", "infos.dt": "24 hours in Abidjan, under 3 hours with express, 48–72 hours elsewhere in the country. Free from 20,000 CFA.", "infos.dl": "Areas and rates →",
+    "infos.p": "Free pickup", "infos.pt": "Order online, then collect your coffee in store or at a pickup point, free of charge.", "infos.pl": "Order now →",
+    "ph.cafes.eyebrow": "The collection", "ph.cafes.title": "Fifteen coffees. <em>One standard: excellence.</em>", "ph.cafes.lead": "Every bean is selected at the source and roasted in Abidjan in small batches. Pick yours, we take care of the rest.",
+    "ph.origins.eyebrow": "Our origins", "ph.origins.title": "A world tour, <em>one cup at a time.</em>", "ph.origins.lead": "From East Africa to the mountains of Jamaica, every terroir signs its cup. Altitude, variety, process: here is where our coffees come from.",
+    "ph.stores.eyebrow": "Our stores", "ph.stores.title": "Come and see us, <em>we're waiting for you.</em>", "ph.stores.lead": "Come smell, taste and leave with freshly ground coffee. Or collect your order for free close to home.",
+    "ph.blog.eyebrow": "The journal", "ph.blog.title": "Coffee, <em>we talk about it with passion.</em>", "ph.blog.lead": "Brewing tips, origin stories and roaster's secrets, without jargon.",
+    "ph.about.eyebrow": "Our story", "ph.about.title": "Real coffee, <em>roasted here, with care.</em>", "ph.about.lead": "An Ivorian house born from one belief: good coffee doesn't wait. It is chosen at the source, roasted patiently and enjoyed fresh.",
+    "ph.contact.eyebrow": "Contact & help", "ph.contact.title": "A question, a quote? <em>We reply fast.</em>", "ph.contact.lead": "WhatsApp, phone, email or online assistant: choose what suits you. We answer every message with care."
   },
 
   // ---------- Textes générés par le script : [français, anglais] ----------

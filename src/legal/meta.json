@@ -1,0 +1,22 @@
+{
+ "livraison": {
+  "title": "Livraison, retours et remboursements",
+  "desc": "Zones, délais, frais, livraison express, suivi, retours, échanges et remboursements Aube Café à Abidjan et en Côte d'Ivoire.",
+  "h1": "Livraison, retours &amp; remboursements"
+ },
+ "confidentialite": {
+  "title": "Politique de confidentialité",
+  "desc": "Comment Aube Café collecte, utilise, conserve et protège vos données personnelles, conformément à la loi ivoirienne n° 2013-450 du 19 juin 2013.",
+  "h1": "Politique de confidentialité"
+ },
+ "cgu": {
+  "title": "Conditions générales d'utilisation et de vente",
+  "desc": "Conditions générales d'utilisation du site et de vente des cafés Aube Café en Côte d'Ivoire.",
+  "h1": "Conditions générales d'utilisation et de vente"
+ },
+ "mentions-legales": {
+  "title": "Mentions légales",
+  "desc": "Mentions légales du site Aube Café.",
+  "h1": "Mentions légales"
+ }
+}

@@ -2,27 +2,185 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0e0b09" media="(prefers-color-scheme: dark)">
   <title>Conditions générales d'utilisation et de vente — Aube Café</title>
   <meta name="description" content="Conditions générales d'utilisation du site et de vente des cafés Aube Café en Côte d'Ivoire.">
+  <link rel="canonical" href="https://aubecafe.ci/cgu.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Aube Café">
+  <meta property="og:title" content="Conditions générales d'utilisation et de vente — Aube Café">
+  <meta property="og:description" content="Conditions générales d'utilisation du site et de vente des cafés Aube Café en Côte d'Ivoire.">
+  <meta property="og:url" content="https://aubecafe.ci/cgu.html">
+  <meta property="og:image" content="https://aubecafe.ci/images/partage.png">
+  <meta property="og:locale" content="fr_CI">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  <link rel="icon" href="images/icon-192.png" sizes="192x192" type="image/png">
   <link rel="manifest" href="manifest.webmanifest">
+  <link rel="preload" href="fonts/open-sauce-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/open-sauce-sans-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css">
-  <script>try { var t = localStorage.getItem("theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}</script>
+  <script>
+    document.documentElement.classList.add("js");
+    try {
+      var t = localStorage.getItem("theme"); if (t) document.documentElement.dataset.theme = t;
+      var l = localStorage.getItem("lang"); if (l === "en") document.documentElement.lang = "en";
+      if (sessionStorage.getItem("loaded")) document.documentElement.classList.add("no-loader");
+    } catch (e) {}
+  </script>
 </head>
-<body>
-  <header class="legal-head">
-    <div class="container">
-      <a href="index.html"><img src="images/logo.svg" alt="Aube Café" width="150" height="48"></a>
-      <a href="index.html" class="btn btn--line btn--sm">← Retour à la boutique</a>
+<body data-page="legal">
+
+  <!-- ===================== ICÔNES ===================== -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
+      <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></symbol>
+      <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5.5 7.5h13l-1 13h-11z"/><path d="M9 7.5a3 3 0 0 1 6 0"/></symbol>
+      <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-9.3-9.2C1.4 7.5 3.6 4.5 6.8 4.5c2 0 3.5 1.1 5.2 3 1.7-1.9 3.2-3 5.2-3 3.2 0 5.4 3 4.1 6.3C19.5 15.4 12 20 12 20z"/></symbol>
+      <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10"/></symbol>
+      <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+      <symbol id="i-right" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+      <symbol id="i-left" viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></symbol>
+      <symbol id="i-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+      <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+      <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+      <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 5 5 9-10"/></symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></symbol>
+      <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+      <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+      <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/><path d="M8.5 12h.01M12 12h.01M15.5 12h.01"/></symbol>
+      <symbol id="i-truck" viewBox="0 0 24 24"><path d="M3 6h11v10H3zM14 9h4l3 3v4h-7"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></symbol>
+      <symbol id="i-flame" viewBox="0 0 24 24"><path d="M12 3s5 4.5 5 10a5 5 0 0 1-10 0c0-2.5 1.5-4 1.5-4S9 12 11 12c0-4 1-6 1-9z"/></symbol>
+      <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 5 6v6c0 4.5 3 7.5 7 9 4-1.5 7-4.5 7-9V6z"/><path d="m9 12 2 2 4-4"/></symbol>
+      <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M5 19c0-9 6-14 15-14 0 9-5 15-14 15"/><path d="M5 19 13 11"/></symbol>
+      <symbol id="i-filter" viewBox="0 0 24 24"><path d="M4 6h16M7 12h10M10 18h4"/></symbol>
+      <symbol id="i-compare" viewBox="0 0 24 24"><path d="M8 3v18M16 3v18M3 8h5M16 16h5"/></symbol>
+      <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></symbol>
+      <symbol id="i-gift" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M5 12v8h14v-8M12 8v12M12 8S10.5 3.5 8 4.5 8.5 8 12 8zM12 8s1.5-4.5 4-3.5S15.5 8 12 8z"/></symbol>
+      <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/></symbol>
+      <symbol id="i-sound" viewBox="0 0 24 24"><path d="M4 9h4l5-4v14l-5-4H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></symbol>
+      <symbol id="i-mute" viewBox="0 0 24 24"><path d="M4 9h4l5-4v14l-5-4H4z"/><path d="m17 9 5 6M22 9l-5 6"/></symbol>
+      <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+      <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></symbol>
+      <symbol id="i-route" viewBox="0 0 24 24"><circle cx="6" cy="19" r="2"/><circle cx="18" cy="5" r="2"/><path d="M8 19h7.5a3.5 3.5 0 0 0 0-7h-7a3.5 3.5 0 0 1 0-7H16"/></symbol>
+      <symbol id="i-history" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5M12 7v5l3 3"/></symbol>
+      <symbol id="i-package" viewBox="0 0 24 24"><path d="m3 7 9-4 9 4v10l-9 4-9-4z"/><path d="m3 7 9 4 9-4M12 11v10"/></symbol>
+      <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="M8.5 14 7 22l5-3 5 3-1.5-8"/></symbol>
+      <symbol id="i-pause" viewBox="0 0 24 24"><path d="M9 6v12M15 6v12"/></symbol>
+      <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l10-6.5z"/></symbol>
+      <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></symbol>
+      <symbol id="i-facebook" viewBox="0 0 24 24"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8.5a.5.5 0 0 1 .5-.5z"/></symbol>
+      <symbol id="i-tiktok" viewBox="0 0 24 24"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5M14 3c.5 2.5 2.5 4.5 5 5"/></symbol>
+      <symbol id="i-linkedin" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"/></symbol>
+      <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3z"/></symbol>
+    </defs>
+  </svg>
+
+  <a href="#main" class="skip" data-i18n="skip">Aller au contenu</a>
+
+  <!-- ===================== LOADER : une tasse qui se remplit ===================== -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <svg viewBox="0 0 200 200" class="loader__machine">
+      <rect x="40" y="18" width="120" height="44" rx="10" class="m-body"/>
+      <rect x="86" y="62" width="28" height="12" rx="3" class="m-body"/>
+      <circle cx="140" cy="40" r="6" class="m-led"/>
+      <path d="M100 74v0" class="m-stream"/>
+      <g class="m-cup">
+        <path d="M70 128h60v22a24 24 0 0 1-24 24h-12a24 24 0 0 1-24-24z" class="m-cupbody"/>
+        <path d="M130 136h8a10 10 0 0 1 0 20h-8" class="m-handle"/>
+        <clipPath id="cupclip"><path d="M72 130h56v20a22 22 0 0 1-22 22h-12a22 22 0 0 1-22-22z"/></clipPath>
+        <rect x="70" y="174" width="60" height="50" class="m-coffee" clip-path="url(#cupclip)"/>
+      </g>
+      <g class="m-steam"><path d="M90 120c-6-8 6-12 0-20M110 120c-6-8 6-12 0-20"/></g>
+    </svg>
+    <p class="loader__word">Aube Café</p>
+  </div>
+
+  <!-- ===================== BANDEAU PROMO ===================== -->
+  <div class="promo" id="promo" role="region" aria-label="Promotions">
+    <div class="promo__track" id="promo-track" aria-live="polite"></div>
+    <a href="cafes.html" class="promo__deal" id="promo-deal" hidden></a>
+  </div>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <header class="nav" id="nav">
+    <div class="container nav__bar">
+      <button type="button" class="icon-btn nav__burger" id="burger" aria-label="Menu" aria-controls="menu" aria-expanded="false"><svg class="ic"><use href="#i-menu"/></svg></button>
+      <a href="index.html" class="logo" id="logo" aria-label="Aube Café, accueil"><img src="images/logo.svg" alt="Aube Café" width="200" height="64" data-img="logo"></a>
+
+      <nav class="nav__links" aria-label="Navigation principale">
+        <a href="index.html" data-nav="accueil" data-i18n="nav.home">Accueil</a>
+        <button type="button" class="nav__mega-btn" data-nav="cafes" id="mega-btn" aria-expanded="false" aria-controls="mega"><span data-i18n="nav.coffees">Nos cafés</span> <svg class="ic"><use href="#i-down"/></svg></button>
+        <a href="origines.html" data-nav="origines" data-i18n="nav.origins">Origines</a>
+        <a href="boutiques.html" data-nav="boutiques" data-i18n="nav.stores">Nos boutiques</a>
+        <a href="blog.html" data-nav="blog" data-i18n="nav.blog">Blog</a>
+        <a href="a-propos.html" data-nav="a-propos" data-i18n="nav.about">À propos</a>
+        <a href="contact.html" data-nav="contact" data-i18n="nav.contact">Contact</a>
+      </nav>
+
+      <div class="nav__search" id="nav-search">
+        <svg class="ic"><use href="#i-search"/></svg>
+        <input type="search" class="js-search" data-panel="nav-results" aria-label="Rechercher" data-i18n-attr="placeholder:search.short;aria-label:search.label" placeholder="Rechercher…" autocomplete="off">
+        <kbd>/</kbd>
+        <div class="search-panel" id="nav-results" hidden></div>
+      </div>
+
+      <div class="nav__actions">
+        <button type="button" class="icon-btn nav__search-btn" id="search-open" aria-label="Rechercher" data-i18n-attr="aria-label:search.label"><svg class="ic"><use href="#i-search"/></svg></button>
+        <button type="button" class="lang-btn" id="lang-btn" aria-label="Changer de langue">EN</button>
+        <button type="button" class="icon-btn hide-sm" id="sound-btn" aria-pressed="false" aria-label="Ambiance sonore" data-i18n-attr="aria-label:sound.label"><svg class="ic"><use href="#i-mute"/></svg></button>
+        <button type="button" class="icon-btn hide-sm theme-toggle" id="theme-btn" aria-label="Mode sombre"><svg class="ic icon-moon"><use href="#i-moon"/></svg><svg class="ic icon-sun"><use href="#i-sun"/></svg></button>
+        <button type="button" class="icon-btn hide-sm" id="wish-btn" aria-controls="wishlist" aria-label="Favoris" data-i18n-attr="aria-label:wish.title"><svg class="ic"><use href="#i-heart"/></svg><span class="count" id="wish-count" hidden>0</span></button>
+        <div class="notif">
+          <button type="button" class="icon-btn" id="notif-btn" aria-controls="notif-panel" aria-expanded="false" aria-label="Notifications"><svg class="ic"><use href="#i-bell"/></svg><span class="count" id="notif-count" hidden>0</span></button>
+          <div class="pop notif__panel" id="notif-panel" hidden>
+            <div class="pop__head"><strong data-i18n="notif.title">Notifications</strong><button type="button" class="link" id="notif-read" data-i18n="notif.read">Tout marquer comme lu</button></div>
+            <ul id="notif-list"></ul>
+          </div>
+        </div>
+        <button type="button" class="icon-btn hide-sm" id="account-btn" aria-controls="account" aria-label="Mon espace" data-i18n-attr="aria-label:account.title"><svg class="ic"><use href="#i-user"/></svg></button>
+        <button type="button" class="icon-btn cart-btn" id="cart-btn" aria-controls="cart" aria-label="Panier" data-i18n-attr="aria-label:cart.title"><svg class="ic"><use href="#i-bag"/></svg><span class="count" id="cart-count" hidden>0</span></button>
+      </div>
+    </div>
+
+    <!-- Mega menu -->
+    <div class="mega" id="mega" hidden>
+      <div class="container mega__grid" id="mega-grid"></div>
     </div>
   </header>
 
-  <main class="container legal">
-    <p class="eyebrow">Informations</p>
-    <h1>Conditions générales d'utilisation et de vente</h1>
-    <p class="muted">Dernière mise à jour : octobre 2026</p>
+  <!-- ===================== RECHERCHE PLEIN ÉCRAN (mobile) ===================== -->
+  <div class="search-sheet" id="search-sheet" role="dialog" aria-modal="true" aria-label="Recherche" hidden>
+    <div class="search-sheet__bar">
+      <svg class="ic"><use href="#i-search"/></svg>
+      <input type="search" class="js-search" data-panel="sheet-results" aria-label="Rechercher" data-i18n-attr="placeholder:search.long;aria-label:search.label" placeholder="Un café, une origine, un arôme…" autocomplete="off">
+      <button type="button" class="icon-btn" data-close-sheet aria-label="Fermer"><svg class="ic"><use href="#i-close"/></svg></button>
+    </div>
+    <div class="search-panel search-panel--sheet" id="sheet-results"></div>
+  </div>
+  <main id="main">
+
+    <section class="page-hero page-hero--legal">
+      <div class="container page-hero__inner">
+        <div>
+          <nav class="crumbs" aria-label="Fil d'Ariane"><a href="index.html" data-i18n="nav.home">Accueil</a><span aria-hidden="true">/</span><span aria-current="page">Conditions générales d'utilisation et de vente</span></nav>
+          <p class="eyebrow">Informations</p>
+          <h1>Conditions générales d'utilisation et de vente</h1>
+          <p class="page-hero__lead">Dernière mise à jour : octobre 2026</p>
+        </div>
+      </div>
+    </section>
+    <section class="section section--tight">
+      <div class="container legal">
     <p class="note">Modèle rédigé pour Aube Café, à adapter à votre situation et à faire valider par un conseil juridique avant publication définitive.</p>
     <p>Les présentes conditions encadrent l'utilisation du site <a data-cfg="url" href="#"></a> et les ventes conclues entre <span data-cfg="brand">Aube Café</span> et ses clients. En utilisant le site ou en passant commande, vous les acceptez.</p>
     <nav class="toc" aria-label="Sommaire"><a href="#objet">Objet</a><a href="#site">Utilisation du site</a><a href="#produits">Produits</a><a href="#prix">Prix</a><a href="#commande">Commande</a><a href="#paiement">Paiement</a><a href="#livraison">Livraison</a><a href="#retractation">Retours</a><a href="#promotions">Promotions & fidélité</a><a href="#avis">Avis</a><a href="#responsabilite">Responsabilité</a><a href="#droit">Droit applicable</a></nav>
@@ -77,17 +235,124 @@
 
     <h2 id="droit">12. Droit applicable et litiges</h2>
     <p>Les présentes conditions sont soumises au droit ivoirien. En cas de différend, nous privilégions toujours une solution amiable : contactez-nous au <a data-cfg="phone" href="#"></a> ou à <a data-cfg="email" href="#"></a>. À défaut, les tribunaux compétents d'Abidjan seront saisis.</p>
-    <p style="margin-top:3em"><a href="livraison.html">Livraison &amp; retours</a> · <a href="confidentialite.html">Confidentialité</a> · <a href="cgu.html">Conditions générales</a> · <a href="mentions-legales.html">Mentions légales</a></p>
+      </div>
+    </section>
+
   </main>
 
-  <footer class="footer" style="padding:28px 0">
-    <div class="container footer__bottom" style="border:0;padding-top:0">
-      <p>© <span id="year"></span> <span data-cfg="brand">Aube Café</span>. Tous droits réservés.</p>
-      <p><a data-cfg="phone" href="#"></a> · <a data-cfg="email" href="#"></a></p>
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="container footer__top">
+      <div class="footer__brand">
+        <img src="images/logo.svg" alt="Aube Café" width="170" height="54" data-img="logo" loading="lazy">
+        <p data-i18n="footer.tag">Du bon café, sans palabres. Torréfié à Abidjan, servi avec élégance.</p>
+        <div class="socials" id="socials"></div>
+      </div>
+      <form class="newsletter" id="newsletter" novalidate>
+        <strong data-i18n="nl.title">La lettre Aube Café</strong>
+        <p data-i18n="nl.text">Nouveautés, offres privées et conseils du torréfacteur. Une fois par mois, pas plus.</p>
+        <div class="newsletter__row">
+          <input type="email" name="email" required data-i18n-attr="placeholder:nl.ph" placeholder="Votre e-mail" aria-label="E-mail">
+          <button type="submit" class="btn btn--dark" data-i18n="nl.btn">S'inscrire</button>
+        </div>
+        <p class="newsletter__ok" hidden data-i18n="nl.ok">Merci ! Validez l'envoi dans votre messagerie.</p>
+      </form>
+    </div>
+    <div class="container footer__links">
+      <div><h4 data-i18n="footer.shop">Boutique</h4><ul><li><a href="cafes.html" data-i18n="footer.all">Tous les cafés</a></li><li><a href="origines.html" data-i18n="nav.origins">Origines</a></li><li><a href="contact.html#devis" data-i18n="footer.pro">Devis entreprises</a></li><li><button type="button" class="js-open-chat" data-i18n="footer.finder">Trouver mon café</button></li></ul></div>
+      <div><h4 data-i18n="footer.house">La maison</h4><ul><li><a href="a-propos.html" data-i18n="nav.about">À propos</a></li><li><a href="boutiques.html" data-i18n="nav.stores">Nos boutiques</a></li><li><a href="blog.html" data-i18n="nav.blog">Blog</a></li></ul></div>
+      <div><h4 data-i18n="footer.help">Aide</h4><ul><li><a href="contact.html#aide" data-i18n="footer.faq">FAQ</a></li><li><a href="livraison.html" data-i18n="footer.delivery">Livraison & retours</a></li><li><a href="contact.html" data-i18n="nav.contact">Contact</a></li></ul></div>
+      <div><h4 data-i18n="footer.legal">Légal</h4><ul><li><a href="confidentialite.html" data-i18n="footer.privacy">Confidentialité</a></li><li><a href="cgu.html" data-i18n="footer.terms">Conditions générales</a></li><li><a href="mentions-legales.html" data-i18n="footer.notice">Mentions légales</a></li></ul></div>
+    </div>
+    <div class="container footer__bottom">
+      <p>© <span id="year"></span> Aube Café. <span data-i18n="footer.rights">Tous droits réservés.</span></p>
+      <ul class="footer__pay" id="footer-pay"></ul>
     </div>
   </footer>
 
+  <!-- ===================== TIROIRS ===================== -->
+  <div class="scrim" id="scrim" hidden></div>
+
+  <aside class="drawer drawer--left" id="menu" aria-label="Menu">
+    <div class="drawer__head"><img src="images/logo.svg" alt="Aube Café" width="150" height="48" data-img="logo"><button type="button" class="icon-btn" data-close aria-label="Fermer"><svg class="ic"><use href="#i-close"/></svg></button></div>
+    <nav class="drawer__body menu">
+      <a href="index.html" data-i18n="nav.home">Accueil</a><a href="cafes.html" data-i18n="nav.coffees">Nos cafés</a><a href="origines.html" data-i18n="nav.origins">Origines</a>
+      <a href="boutiques.html" data-i18n="nav.stores">Nos boutiques</a><a href="blog.html" data-i18n="nav.blog">Blog</a><a href="a-propos.html" data-i18n="nav.about">À propos</a><a href="contact.html" data-i18n="nav.contact">Contact</a>
+      <p class="menu__label" data-i18n="menu.cats">Catégories</p>
+      <div class="chips" id="menu-cats"></div>
+      <div class="menu__row">
+        <button type="button" class="btn btn--line btn--sm" data-proxy="wish-btn"><svg class="ic"><use href="#i-heart"/></svg> <span data-i18n="wish.title">Favoris</span></button>
+        <button type="button" class="btn btn--line btn--sm" data-proxy="account-btn"><svg class="ic"><use href="#i-user"/></svg> <span data-i18n="account.title">Mon espace</span></button>
+        <button type="button" class="btn btn--line btn--sm" data-proxy="theme-btn"><svg class="ic"><use href="#i-moon"/></svg> <span data-i18n="menu.theme">Thème</span></button>
+        <button type="button" class="btn btn--line btn--sm" data-proxy="sound-btn"><svg class="ic"><use href="#i-sound"/></svg> <span data-i18n="menu.sound">Son</span></button>
+      </div>
+    </nav>
+  </aside>
+
+  <aside class="drawer" id="cart" aria-labelledby="cart-title">
+    <div class="drawer__head"><h2 id="cart-title" class="h4" data-i18n="cart.title">Votre panier</h2><button type="button" class="icon-btn" data-close aria-label="Fermer"><svg class="ic"><use href="#i-close"/></svg></button></div>
+    <div class="drawer__body">
+      <div class="ship-meter" id="ship-meter"><span id="ship-text"></span><div class="ship-meter__bar"><i id="ship-bar"></i></div></div>
+      <ul class="lines" id="cart-lines"></ul>
+      <div class="empty-state" id="cart-empty"><svg class="ic"><use href="#i-bag"/></svg><p data-i18n="cart.empty">Votre panier attend son premier café.</p><a href="cafes.html" class="btn btn--dark btn--sm" data-close data-i18n="cart.browse">Découvrir la collection</a></div>
+      <form id="order-form" class="form order" novalidate>
+        <div class="seg" role="radiogroup">
+          <label><input type="radio" name="mode" value="livraison" checked><span data-i18n="cart.delivery">Livraison</span></label>
+          <label><input type="radio" name="mode" value="express"><span data-i18n="cart.express">Express &lt; 3 h</span></label>
+          <label><input type="radio" name="mode" value="retrait"><span data-i18n="cart.pickup">Retrait</span></label>
+        </div>
+        <div class="form__grid">
+          <label class="field"><span data-i18n="f.name">Nom complet *</span><input name="name" autocomplete="name" required></label>
+          <label class="field"><span data-i18n="f.phone">Téléphone *</span><input name="phone" type="tel" autocomplete="tel" required placeholder="+225 07 00 00 00 00"></label>
+          <label class="field" data-ship><span data-i18n="f.commune">Commune ou ville *</span><select name="commune" id="commune"></select></label>
+          <label class="field" data-ship><span data-i18n="f.address">Adresse ou repère *</span><input name="address" data-i18n-attr="placeholder:f.addressPh" placeholder="Angré 8e tranche, près de la pharmacie…"></label>
+          <label class="field" data-pickup hidden><span data-i18n="f.store">Boutique de retrait</span><select name="store" id="pickup-store"></select></label>
+          <label class="field"><span data-i18n="f.payment">Paiement souhaité</span><select name="payment" id="pay-select"></select></label>
+          <label class="field field--full"><span data-i18n="f.promo">Code promo</span><span class="promo-field"><input name="code" id="promo-code" autocomplete="off"><button type="button" class="btn btn--line btn--sm" id="promo-apply" data-i18n="f.apply">Appliquer</button></span></label>
+        </div>
+        <dl class="totals" id="totals"></dl>
+        <p class="form-error" data-error role="alert"></p>
+        <button type="submit" class="btn btn--wa btn--lg btn--block"><svg class="ic"><use href="#i-wa"/></svg> <span data-i18n="cart.order">Commander sur WhatsApp</span></button>
+        <p class="muted small center" data-i18n="cart.note">Paiement à la confirmation, par Mobile Money, carte ou espèces. Aucun paiement sur ce site.</p>
+      </form>
+    </div>
+  </aside>
+
+  <aside class="drawer" id="wishlist" aria-labelledby="wish-title">
+    <div class="drawer__head"><h2 id="wish-title" class="h4" data-i18n="wish.title">Favoris</h2><button type="button" class="icon-btn" data-close aria-label="Fermer"><svg class="ic"><use href="#i-close"/></svg></button></div>
+    <div class="drawer__body"><ul class="lines" id="wish-lines"></ul><div class="empty-state" id="wish-empty"><svg class="ic"><use href="#i-heart"/></svg><p data-i18n="wish.empty">Touchez le cœur d'un café pour le garder ici.</p></div></div>
+  </aside>
+
+  <aside class="drawer" id="account" aria-labelledby="account-title">
+    <div class="drawer__head"><h2 id="account-title" class="h4" data-i18n="account.title">Mon espace</h2><button type="button" class="icon-btn" data-close aria-label="Fermer"><svg class="ic"><use href="#i-close"/></svg></button></div>
+    <div class="drawer__body" id="account-body"></div>
+  </aside>
+
+  <!-- ===================== MODALES ===================== -->
+  <dialog class="modal modal--product" id="product-modal" aria-label="Fiche produit"><div class="modal__inner" id="product-body"></div></dialog>
+  <dialog class="modal" id="compare-modal" aria-label="Comparer"><div class="modal__inner" id="compare-body"></div></dialog>
+  <dialog class="modal modal--article" id="article-modal" aria-label="Article"><div class="modal__inner" id="article-body"></div></dialog>
+  <dialog class="modal modal--wheel" id="wheel-modal" aria-label="Roue de bienvenue"><div class="modal__inner" id="wheel-body"></div></dialog>
+
+  <!-- Barre de comparaison -->
+  <div class="compare-bar" id="compare-bar" hidden><div id="compare-items"></div><button type="button" class="btn btn--gold btn--sm" id="compare-open" data-i18n="compare.open">Comparer</button><button type="button" class="icon-btn icon-btn--sm" id="compare-clear" aria-label="Vider"><svg class="ic"><use href="#i-close"/></svg></button></div>
+
+  <!-- ===================== ASSISTANT / CHAT ===================== -->
+  <div class="chat" id="chat" hidden role="dialog" aria-label="Assistant Aube Café">
+    <div class="chat__head"><span class="chat__avatar"><svg class="ic"><use href="#i-spark"/></svg></span><div><strong data-i18n="chat.title">Assistant Aube Café</strong><p class="live live--sm" data-status><span class="live__dot"></span><span class="live__text">…</span></p></div><button type="button" class="icon-btn icon-btn--sm" id="chat-close" aria-label="Fermer"><svg class="ic"><use href="#i-close"/></svg></button></div>
+    <div class="chat__body" id="chat-body" aria-live="polite"></div>
+    <div class="chat__quick" id="chat-quick"></div>
+  </div>
+  <button type="button" class="fab js-open-chat" id="fab" aria-label="Assistant et service client"><svg class="ic"><use href="#i-chat"/></svg><span class="fab__dot" data-online-dot></span></button>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <canvas class="beans-fx" id="beans-fx" aria-hidden="true"></canvas>
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
+
   <script src="config.js"></script>
+  <script src="i18n.js"></script>
+  <script src="script.js"></script>
+  <script src="effects.js" defer></script>
   <script src="legal.js"></script>
 </body>
 </html>

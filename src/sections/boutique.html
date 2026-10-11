@@ -1,0 +1,44 @@
+    <!-- ===================== BOUTIQUE ===================== -->
+    <section class="section" id="boutique">
+      <div class="container">
+        <header class="head head--row">
+          <div>
+            <p class="eyebrow" data-i18n="shop.eyebrow">La collection</p>
+            <h2 data-i18n="shop.title">Quinze cafés. <em>Un seul critère : l'excellence.</em></h2>
+          </div>
+          <p class="head__lead" data-i18n="shop.lead">Chaque grain est sélectionné à la source puis torréfié à Abidjan, en petites quantités. Choisissez le vôtre, on s'occupe du reste.</p>
+        </header>
+
+        <div class="toolbar">
+          <button type="button" class="btn btn--line btn--sm" id="filters-btn" aria-controls="filters"><svg class="ic"><use href="#i-filter"/></svg> <span data-i18n="shop.filters">Filtres</span> <span class="count count--inline" id="filters-count" hidden>0</span></button>
+          <div class="chips" id="active-filters"></div>
+          <p class="toolbar__count" id="result-count" aria-live="polite"></p>
+          <label class="select"><span class="sr-only" data-i18n="shop.sort">Trier</span>
+            <select id="sort">
+              <option value="smart" data-i18n="sort.smart">Pertinence</option>
+              <option value="best" data-i18n="sort.best">Meilleures ventes</option>
+              <option value="new" data-i18n="sort.new">Nouveautés</option>
+              <option value="price-asc" data-i18n="sort.priceAsc">Prix croissant</option>
+              <option value="price-desc" data-i18n="sort.priceDesc">Prix décroissant</option>
+              <option value="intense" data-i18n="sort.intense">Plus intense</option>
+              <option value="soft" data-i18n="sort.soft">Plus doux</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="shop">
+          <aside class="filters" id="filters" aria-label="Filtres">
+            <div class="filters__head"><strong data-i18n="shop.filters">Filtres</strong><button type="button" class="link" id="filters-reset" data-i18n="shop.reset">Réinitialiser</button><button type="button" class="icon-btn filters__close" id="filters-close" aria-label="Fermer"><svg class="ic"><use href="#i-close"/></svg></button></div>
+            <div class="filters__body" id="filters-body"></div>
+            <button type="button" class="btn btn--dark btn--block filters__apply" id="filters-apply"></button>
+          </aside>
+          <div>
+            <div class="grid" id="grid"></div>
+            <div class="empty" id="empty" hidden>
+              <p data-i18n="shop.empty">Aucun café ne correspond à ces critères.</p>
+              <button type="button" class="btn btn--line btn--sm" id="empty-reset" data-i18n="shop.reset">Réinitialiser</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>

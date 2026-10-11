@@ -1,0 +1,42 @@
+    <!-- ===================== DEVIS ===================== -->
+    <section class="section section--soft" id="devis">
+      <div class="container split">
+        <div>
+          <p class="eyebrow" data-i18n="quote.eyebrow">Entreprises & particuliers</p>
+          <h2 data-i18n="quote.title">Un devis sur mesure, <em>en moins de 24 heures.</em></h2>
+          <p class="head__lead" data-i18n="quote.lead">Bureaux, hôtels, restaurants, maquis, mariages, séminaires ou grosses commandes pour la famille : dites-nous tout, nous vous préparons une offre aux petits oignons.</p>
+          <ul class="checks">
+            <li data-i18n="quote.c1">Tarifs dégressifs selon les volumes</li>
+            <li data-i18n="quote.c2">Livraison planifiée et facturation entreprise</li>
+            <li data-i18n="quote.c3">Accompagnement machine et formation barista</li>
+          </ul>
+        </div>
+        <form class="card form" id="quote-form" novalidate>
+          <div class="form__grid">
+            <label class="field"><span data-i18n="f.lastname">Nom *</span><input name="lastname" autocomplete="family-name" required></label>
+            <label class="field"><span data-i18n="f.firstname">Prénom *</span><input name="firstname" autocomplete="given-name" required></label>
+            <label class="field"><span data-i18n="f.phone">Téléphone *</span><input name="phone" type="tel" autocomplete="tel" placeholder="+225 07 00 00 00 00" required></label>
+            <label class="field"><span data-i18n="f.email">E-mail</span><input name="email" type="email" autocomplete="email" placeholder="vous@exemple.ci"></label>
+            <label class="field"><span data-i18n="f.company">Entreprise</span><input name="company" autocomplete="organization"></label>
+            <label class="field"><span data-i18n="f.city">Ville *</span><input name="city" autocomplete="address-level2" placeholder="Abidjan" required></label>
+            <label class="field"><span data-i18n="f.qty">Quantité souhaitée *</span>
+              <select name="qty" required>
+                <option value="" data-i18n="f.choose">Choisir…</option>
+                <option>1 – 5 kg</option><option>5 – 10 kg</option><option>10 – 25 kg</option><option>25 – 50 kg</option><option>+ 50 kg</option>
+              </select>
+            </label>
+            <label class="field"><span data-i18n="f.type">Type de café</span><select name="coffee" id="quote-coffee"></select></label>
+            <label class="field field--full"><span data-i18n="f.budget">Budget estimé</span>
+              <select name="budget">
+                <option value="" data-i18n="f.choose">Choisir…</option>
+                <option>&lt; 50 000 F CFA</option><option>50 000 – 150 000 F CFA</option><option>150 000 – 500 000 F CFA</option><option>&gt; 500 000 F CFA</option>
+              </select>
+            </label>
+            <label class="field field--full"><span data-i18n="f.message">Message</span><textarea name="message" rows="3" data-i18n-attr="placeholder:f.quotePh" placeholder="Fréquence de livraison, date de l'événement, besoin de machine…"></textarea></label>
+          </div>
+          <p class="form-error" data-error role="alert"></p>
+          <button type="submit" class="btn btn--dark btn--lg btn--block"><span data-i18n="quote.submit">Recevoir mon devis</span> <svg class="ic"><use href="#i-right"/></svg></button>
+          <div class="sent" hidden><svg viewBox="0 0 52 52" class="sent__check"><circle cx="26" cy="26" r="24"/><path d="m15 27 7 7 15-16"/></svg><strong data-i18n="sent.quoteT">Demande prête !</strong><p data-i18n="sent.quote">Votre demande s'est ouverte dans WhatsApp : appuyez sur « Envoyer » et nous revenons vers vous sous 24 h.</p></div>
+        </form>
+      </div>
+    </section>

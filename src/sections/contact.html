@@ -1,0 +1,28 @@
+    <!-- ===================== CONTACT ===================== -->
+    <section class="section section--soft" id="contact">
+      <div class="container split">
+        <div>
+          <p class="eyebrow" data-i18n="contact.eyebrow">Contact</p>
+          <h2 data-i18n="contact.title">Écrivez-nous, <em>on vous répond vite.</em></h2>
+          <p class="head__lead" data-i18n="contact.lead">Une question sur un café, une commande spéciale, un partenariat ? Nous lisons chaque message avec attention.</p>
+        </div>
+        <form class="card form" id="contact-form" novalidate>
+          <div class="form__grid">
+            <label class="field"><span data-i18n="f.name">Nom complet *</span><input name="name" autocomplete="name" required></label>
+            <label class="field"><span data-i18n="f.phone">Téléphone *</span><input name="phone" type="tel" autocomplete="tel" required placeholder="+225 07 00 00 00 00"></label>
+            <label class="field"><span data-i18n="f.email">E-mail</span><input name="email" type="email" autocomplete="email" placeholder="vous@exemple.ci"></label>
+            <label class="field"><span data-i18n="f.subject">Sujet</span>
+              <select name="subject">
+                <option data-i18n="f.s1">Question sur un café</option><option data-i18n="f.s2">Suivi de commande</option>
+                <option data-i18n="f.s3">Retour ou échange</option><option data-i18n="f.s4">Partenariat</option><option data-i18n="f.s5">Autre</option>
+              </select>
+            </label>
+            <label class="field field--full"><span data-i18n="f.message">Message *</span><textarea name="message" rows="4" required></textarea></label>
+          </div>
+          <label class="consent"><input type="checkbox" name="consent" required> <span data-i18n="f.consent">J'accepte que mes informations servent à répondre à ma demande (voir la politique de confidentialité). *</span></label>
+          <p class="form-error" data-error role="alert"></p>
+          <button type="submit" class="btn btn--dark btn--lg btn--block"><span data-i18n="contact.submit">Envoyer le message</span> <svg class="ic"><use href="#i-right"/></svg></button>
+          <div class="sent" hidden><svg viewBox="0 0 52 52" class="sent__check"><circle cx="26" cy="26" r="24"/><path d="m15 27 7 7 15-16"/></svg><strong data-i18n="sent.contactT">Merci, c'est noté !</strong><p data-i18n="sent.contact">Votre message s'est ouvert dans WhatsApp : appuyez sur « Envoyer » pour nous le transmettre.</p></div>
+        </form>
+      </div>
+    </section>

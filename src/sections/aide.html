@@ -1,0 +1,29 @@
+    <!-- ===================== SERVICE CLIENT ===================== -->
+    <section class="section" id="aide">
+      <div class="container">
+        <header class="head head--row">
+          <div>
+            <p class="eyebrow" data-i18n="help.eyebrow">Service client</p>
+            <h2 data-i18n="help.title">Une question ? <em>On est là pour vous.</em></h2>
+          </div>
+          <p class="live" data-status><span class="live__dot"></span><span class="live__text">…</span></p>
+        </header>
+        <div class="help">
+          <a class="help__card" data-wa="help" target="_blank" rel="noopener"><svg class="ic anim-ic"><use href="#i-wa"/></svg><strong data-i18n="help.wa">Assistance WhatsApp</strong><span data-i18n="help.waT">La réponse la plus rapide.</span></a>
+          <a class="help__card js-tel"><svg class="ic anim-ic"><use href="#i-phone"/></svg><strong data-i18n="help.phone">Téléphone</strong><span class="js-phone"></span></a>
+          <a class="help__card js-mail"><svg class="ic anim-ic"><use href="#i-mail"/></svg><strong data-i18n="help.mail">E-mail</strong><span class="js-email"></span></a>
+          <button type="button" class="help__card js-open-chat"><svg class="ic anim-ic"><use href="#i-chat"/></svg><strong data-i18n="help.chat">Chat en direct</strong><span data-i18n="help.chatT">Assistant virtuel, puis un conseiller.</span></button>
+        </div>
+        <div class="help__grid">
+          <div class="card hours">
+            <h3 class="h4" data-i18n="help.hours">Horaires d'ouverture</h3>
+            <ul class="js-hours"></ul>
+          </div>
+          <div class="faq">
+            <div class="faq__search"><svg class="ic"><use href="#i-search"/></svg><input type="search" id="faq-search" data-i18n-attr="placeholder:help.search" placeholder="Rechercher dans le centre d'aide…" aria-label="Rechercher dans le centre d'aide"></div>
+            <div class="tabs tabs--sm" id="faq-tabs" role="tablist"></div>
+            <div id="faq-list"></div>
+          </div>
+        </div>
+      </div>
+    </section>
